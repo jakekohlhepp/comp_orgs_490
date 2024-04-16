@@ -1,0 +1,321 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 4: Performance Pay} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Discussion: Loyalka et. al. (2019)
+\end{frame}
+
+\begin{frame}{The Principal-Agent Model}
+\begin{block}{Players}
+    \begin{wideitemize}
+    \item There is a firm (the principal) who is risk neutral (exponential utility with parameter $r=0$).
+    \item There is a worker (the agent) who is risk averse (exponential utility with parameter $r\geq 0$).
+\end{wideitemize}
+\end{block}
+\begin{block}{Actions}
+    \begin{wideitemize}
+    \item Firm chooses a linear wage which depends on effort ($w(e)$) or output ($w(y)$)
+    \item After seeing the wage, the worker either accepts or rejects the job.
+    \item If they accept, worker chooses effort $e$ at an increasing, convex cost $c(e)$
+    % \begin{wideitemize}
+    %     \item Increasing means $c'(e)>0$, convex means $c''(e)>0$
+    % \end{wideitemize}
+\end{wideitemize}
+\end{block}
+\end{frame}
+\begin{frame}{The Principal-Agent Model}
+\begin{block}{Output}
+    \begin{wideitemize}
+    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(0,\sigma^2)$
+    \item This implies output is normal with mean $e$ and variance $\sigma^2$
+\end{wideitemize}
+\end{block}
+\begin{block}{Payoffs}
+    \begin{wideitemize}
+    \item If accepted, firm's payoff $\pi$ is expected output minus expected wages: $E[y-w|e]$
+    \item If accepted, worker's payoff is expected utility of the wage minus effort cost: $E[u(w) -c(e)|e]$
+    \item If rejected, worker has ``outside option" of $\bar u$ and firm has ``outside option" of 0
+\end{wideitemize}
+\end{block}
+\end{frame}
+\begin{frame}{Timing}
+\centering
+    \huge See the board!
+\end{frame}
+
+\section{Recap: Effort-Based Pay}
+
+\begin{frame}{Recap: Effort-Based Pay}
+    \begin{wideitemize}
+        \item Suppose the firm can pay based on the worker's effort.
+        \item Then wage is a linear function of effort: $w(e)=\alpha + \beta e$
+        \item We now go to the board to solve!
+    \end{wideitemize}
+\end{frame}
+\begin{frame}{Recap: Effort-Based Pay}
+    \begin{theorem}
+        When wages depend directly on effort, effort is $e^*$ which solves $c'(e^*)=1$ and $\beta^*=1, \alpha^*=\bar u+c(e^*)-1$
+    \end{theorem}
+
+\end{frame}
+
+\section{Performance-Based Pay}
+
+\begin{frame}{Performance-Based Pay}
+    \begin{wideitemize}
+        \item Suppose the firm can pay based ONLY on output $y$
+        \item Then wage is a linear function of output: $w(y)=\alpha + \beta y$
+        \item We now go to the board to solve!
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Performance-Based Pay}
+    \begin{theorem}
+        When wages depend only on output, effort is $e_{p}$ which solves 
+        \[c'(e_{p})= \frac{1}{1+r \sigma^2 c''(e_{p})}\]
+        and $\beta_{p} =c'(e_{p}),\alpha_{p} =\bar u - \beta_{p} e_{p}+r \beta^2\sigma^2/2+c(e_{p})$.
+    \end{theorem}
+
+    \begin{wideitemize}
+        \item Notice that $\frac{1}{1+r \sigma^2 c''(e_{p})}<1$.
+        \item Therefore we are getting less than surplus maximizing effort: $e_{p}<e^*$
+        \item Performance pay generates inefficiency relative to effort based pay!
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Performance-Based Pay: Explicit Cost Function}
+    \begin{wideitemize}
+        \item Suppose that $c(e)=e^2/2$
+        \item Let's work it out on the board!
+        \pause
+        \item Under this quadratic effort cost:
+        \[e_p =\beta_p = \frac{1}{1+r \sigma^2}  \]
+        \[\alpha_p =  \frac{r \sigma^2-1}{2} \bigg ( \frac{1}{1+r \sigma^2} \bigg )^2-\bar u \]
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Interpreting Results}
+    \begin{wideitemize}
+        \item $\beta$ is the average amount of money paid to the worker per unit of effort.
+        \item $\beta$ represents the strength of incentives (question: why?)
+        \item We say incentives are high-powered when $\beta$ is high (close to 1)
+        \item Because $\beta=c'(e)$ we have that:
+        \[\beta_p =c'(e_{p})= \frac{1}{1+r \sigma^2 c''(e_{p})}\]
+    \end{wideitemize}
+\end{frame}
+\begin{frame}{Interpreting Results}
+    \begin{wideitemize}
+        \item Because $\beta=c'(e)$ we have that:
+        \[\beta_p =c'(e_{p})= \frac{1}{1+r \sigma^2 c''(e_{p})}\]
+        \item The strength of incentives rises when:
+        \begin{wideitemize}
+            \item risk-aversion decreases $\downarrow r$ (question: what if $r=0$?)
+            \item noise/luck becomes less important $\downarrow \sigma^2$ (question: what if $\sigma^2=0$?)
+            \item the marginal-marginal cost of effort decreases $\downarrow c''(e_p)$
+            \begin{wideitemize}
+                \item a high $c''(e_p)$ means working one more hour after already working 8 hours is much harder than working one more hour after working 1 hour.
+            \end{wideitemize}
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge Discussion: Larkin (2014)
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+

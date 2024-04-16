@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Problem Set 2}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+The purpose of this homework is to work through a multitasking problem and a relative performance evaluation problem. There are only minor differences between these problems and the ones we did in class, so your notes should be very helpful in completing this problem set.
+
+\section{Relative Performance Evaluation}
+
+This problem is exactly the same as what we did in class on the board during the relative performance pay lectures.
+
+\subsection{Setup}
+\begin{itemize}
+    \item Suppose there are two workers labeled 1 and 2.
+    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item The noise terms are distributed:
+    \begin{itemize}
+        \item $\epsilon_1= v_s + v_1$
+        \item $\epsilon_2= v_s + v_2$
+        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+    \end{itemize}
+    \item Let's focus just on worker 1 (so do all questions for worker 1 but not 2)
+    \item The firm can offer linear wages:
+    \begin{itemize}
+        \item $w(y_1, y_{2}) = \alpha + \beta (Y_1 - \gamma Y_2)$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Derive the certainty equivalent of the worker's wage, and subtract effort costs to get an expression for the worker's utility.
+
+    \item Stare at the expression you obtained. Argue that $\gamma$ does not impact the worker's choice of effort at all, either mathematically or verbally.
+
+    \item Argue as in class that $\gamma$ only impacts the variance, so to find the optimal $\gamma$ we only need to minimize the variance of the wage.
+
+    \item Minimize the variance of the wage to find the profit maximizing $\gamma$. Call it $\gamma_{rel}$ and do not ever plug it into anything for the rest of this problem.
+    \item Interpret your expression for $\gamma$ in terms of the informativeness principle.
+    \item Write wages as three parts as in lecture: constant objects, effort of worker 1 times bonus, and bonus times random objects.
+    \item Find the variance of the random part of wages and call it $\sigma^2_{tot}$. (Hint: $\beta$ should not be in this formula at all because it is multiplying the random objects.)
+    \item Find the profit-maximizing $\beta$ by using our formula from the performance pay lecture $\beta=c'(e)=\frac{1}{1+r\sigma^2c''(e)}$ with $\sigma^2_{tot}$ replacing $\sigma^2$.
+\end{enumerate}
+\section{Multitasking}
+The important difference between this and what we did in class is that I am telling you specific values for $a,b$ in the last part of the problem. So up until I tell you what $a,b$ are this is EXACTLY what we did in class!
+
+\subsection{Setup}
+\begin{itemize}
+    \item Output is $y=a e_1+b e_2$
+    \item Cost of effort is:
+       \[c(e_1, e_2) = \begin{cases}
+            0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+            (e_1+e_2-2\bar e)^2/2 & \text{ if } e_1+e_2 > 2 \bar e 
+        \end{cases}\]
+      \item We assume that without incentives the worker supplies all 0 cost effort and splits effort evenly:
+      \[e_1=e_2=\bar e\]
+    \item Only task 1 effort is measured: $m=e_1$
+    \item The firm can only pay based on task 1: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
+    \item The firm's outside option is 0, the worker is $\bar u$
+\end{itemize}
+
+\subsection{Questions}
+\begin{enumerate}
+    \item Setup the firm's problem in the first-best, that is when the firm can just choose effort directly and we do not care about wages.
+
+    \item Solve for the first-best $e_1,e_2$ when $a>b, a>0$. Only assume that $a>b$ for this problem.
+
+ \item From now on we are solving for equilibrium, meaning the firm cannot choose effort directly but just chooses a compensation scheme. Setup the worker's effort choice problem.
+
+ \item Solve for worker's choice of effort assuming for now until told otherwise that $\beta>0$.
+
+ \item Write down the inequality that determines whether the worker takes the job. Argue that it must be an equality.
+
+ \item Setup the firm's profit maximization problem. Substitute past work in so that it is only a function of $\beta$.
+ \item Solve for $\beta, e_1,e_2$.
+
+ \item Now, solve for $e_1, e_2$ when $\beta=0$. You may use the same steps we just did or do it your own way.
+ 
+    \item From now until I say otherwise assume that $a=-1, b=2, \bar e=1$. Provide an interpretation for $a$ being negative.
+
+    \item Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
+
+    \item Now assume that $a=2, b=1,\bar e=1$. Provide a real life example where $a$ would be positive.
+
+    \item Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
+\end{enumerate}
+
+
+
+\end{document}

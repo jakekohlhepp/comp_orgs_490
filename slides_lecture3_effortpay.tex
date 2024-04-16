@@ -1,0 +1,317 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 3: The Principal-Agent Model} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Discussion: Lazear (2000)
+\end{frame}
+
+\begin{frame}{Why a Model? (Clarity of Thought)}
+
+\begin{wideitemize}
+    \item ``All models are wrong, but some are useful." -George Box
+    \item Maps are useful precisely because they ignore some features.
+    \item A good model has what we need to study one question, and nothing more.
+    \item Under the model's assumptions, we know the truth.
+    \item If the outcome is unrealistic, we can argue about which precise assumptions led to it.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Why THIS Model?}
+
+\begin{wideitemize}
+    \item The model we study in this lecture will be the main model of this class.
+    \item We will slightly change it to study different questions.
+    \item It was developed in the 1970s and has framed theoretical and empirical research for decades.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{The Principal-Agent Model}
+\begin{block}{Players}
+    \begin{wideitemize}
+    \item There is a firm (the principal) who is risk neutral (exponential utility with parameter $r=0$).
+    \item There is a worker (the agent) who is risk averse (exponential utility with parameter $r=r\geq 0$).
+\end{wideitemize}
+\end{block}
+\begin{block}{Actions}
+    \begin{wideitemize}
+    \item Firm chooses a linear wage which depends on effort ($w(e)$) or output ($w(y)$)
+    \item After seeing the wage, the worker either accepts or rejects the job.
+    \item If they accept, worker chooses effort $e$ at an increasing, convex cost $c(e)$
+    % \begin{wideitemize}
+    %     \item Increasing means $c'(e)>0$, convex means $c''(e)>0$
+    % \end{wideitemize}
+\end{wideitemize}
+\end{block}
+\end{frame}
+\begin{frame}{The Principal-Agent Model}
+\begin{block}{Output}
+    \begin{wideitemize}
+    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(0,\sigma^2)$
+    \item This implies output is normal with mean $e$ and variance $\sigma^2$
+\end{wideitemize}
+\end{block}
+\begin{block}{Payoffs}
+    \begin{wideitemize}
+    \item If accepted, firm's payoff $\pi$ is expected output minus expected wages: $E[y-w|e]$
+    \item If accepted, worker's payoff is expected utility of the wage minus effort cost: $E[u(w) -c(e)|e]$
+    \item If rejected, worker has ``outside option" of $\bar u$ and firm has ``outside option" of 0
+\end{wideitemize}
+\end{block}
+\end{frame}
+\begin{frame}{Timing}
+\centering
+    \huge See the board!
+\end{frame}
+
+\begin{frame}{Effort-Based Pay}
+    \begin{wideitemize}
+        \item Suppose the firm can pay based on the worker's effort.
+        \item Then wage is a linear function of effort: $w(e)=\alpha + \beta e$
+        \item We now go to the board to solve!
+    \end{wideitemize}
+\end{frame}
+\begin{frame}{Effort-Based Pay}
+   \begin{theorem}
+        When wages depend directly on effort, effort is $e^*$ which solves $c'(e^*)=1$ and $\beta^*=1, \alpha^*=\bar u+c(e^*)-1$
+    \end{theorem}
+
+    \begin{wideitemize}
+        \item We reward the worker for more effort.
+        \item Question: What is the worker's expected payoff?
+        \item Question: Why is the marginal cost set equal to 1?
+        \item Let's compute the firm's payoff and total surplus on the board.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Effort-Based Pay}
+    \begin{wideitemize}
+        \item We showed that this is the first-best: the firm could not do better even if they did the work themselves!
+        \item The firm gets everything, but if the worker proposed they would get everything
+        \item Question: What assumption did we bake in that got us here?
+        \item Question: Is this assumption realistic?
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Selling the Firm}
+ \begin{theorem}
+        When wages depend directly on effort, effort is $e^*$ which solves $c'(e^*)=1$ and $\beta^*=1, \alpha^*=\bar u+c(e^*)-1$
+    \end{theorem}
+    \begin{wideitemize}
+        \item Consider our result: $\beta=1$ and the average return to effort is $1$
+        \item The firm gives the worker everything they produce.
+        \item This is called selling the firm: the worker pays $\alpha$ but keeps everything they make!
+        \item These are extremely strong incentives (why?)
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Paying to Work}
+    \begin{wideitemize}
+        \item If the worker's outside option is low enough we will have that $\alpha$ is negative.
+        \pause
+        \item This means the worker is paying to work!
+         \pause
+        \item Does this ever happen?
+         \pause
+        \item Question: Can you give some examples?
+        %hair salons booth renters, franchises, food stands in stadiums
+    \end{wideitemize}
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+

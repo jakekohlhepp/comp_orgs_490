@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 4: Performance Pay}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+We will tackle this problem in exactly the same fashion as we tackled effort-based pay. We begin by deriving the certainty equivalent of wages for the worker. Unlike effort-based pay, performance pay involves uncertainty because $y$ includes noise/uncertainty that is otuside the worker's control.
+
+The worker has exponential utility with parameter $r$ and everything is normal. So we can use the formula introduced in the toolkit lecture:
+\[\text{wage certainty equivalent} = \mu -r \frac{\sigma^2}{2}=E[w]- r \frac{Var(w)}{2}\]
+To use the formula we compute the objects $E[w], var(w)$. First the expectation:
+\[E[w] = E[\alpha+\beta y] = E[\alpha + \beta e + \beta \epsilon]=\alpha+ \beta e   \]
+This is the same as effort-based pay! However, we now also have to deal with ucnertainty:
+\[Var(w) = Var(\alpha + \beta y)\]
+Now, we need to remember some properties from statistics. First, a constant is always independent of a random variable. Second, when two objects are added together and they are independent, the variance of the sum is the sum of the variance. This means that:
+\[ Var(\alpha + \beta y)=Var(\alpha) + Var(\beta y)\]
+Third, the variance of a constant is 0:
+\[Var(\alpha) + Var(\beta y)=Var(\beta y)\]
+Fourth, when a constant multiplies a random variable, we can pull it out and square it from the variance operator:
+\[Var(\beta y)=\beta^2 Var(y) \]
+Recall that $y=e+\epsilon$:
+\[\beta^2 Var(y) = \beta^2 Var(e+\epsilon)\]
+Apply the first and second rules again:
+\[\beta^2 Var(e+\epsilon)=\beta^2 [Var(e) + Var(\epsilon)] =\beta^2Var(\epsilon)=\beta^2 \sigma^2 \]
+Thus we can obtain the certainty equivalent:
+\[\text{wage certainty equivalent} = E[w]- r \frac{Var(w)}{2} = \alpha+ \beta e - r\frac{\beta^2 \sigma^2}{2} \]
+This final term is the new term we did not have under effort-based pay. We call it the risk-premium, because it is the extra base pay the firm must give the worker to take on the risk of performance pay. As you can see, if the worker does not mind risk ($r=0$), there is no risk premium.
+
+Working backwards like usual, we now study how the worker chooses effort. Given an already accepted and fixed wage scheme ($\alpha, \beta$) the worker solves:
+\[\max_e  \text{wage certainty equivalent} - c(e) = \max_e \alpha+ \beta e - r\frac{\beta^2 \sigma^2}{2} - c(e)\]
+Taking the first-order condition:
+\[c'(e) = \beta\]
+We arrive at the same condition for how the worker chooses effort: they equate marginal benefit and marginal cost. Notice that wage variance is not impacted by effort choice, which is why the risk premium plays no role at this point. We shall see that it will still matter though!
+
+We now define $\beta(e)$ as the incentives needed to get effort $e$  and study when the worker accepts the wage scheme:
+\[u(accept)=\alpha+ \beta(e) e - r\frac{\beta(e)^2 \sigma^2}{2} - c(e) \geq \bar u \]
+We now use the same argument as we did with effort-based pay to say that $\alpha$ should be set as low as possible so that this inequality is an equality. As we showed before, $\alpha$ does not impact effort at all. It only impacts whether the worker accepts the wage scheme. Among all $\alpha$ such that the worker accepts, firm profit decreases with $\alpha$. So the firm sets $\alpha$ as low as possible such that the worker still accepts:
+\[\alpha+ \beta(e) e - r\frac{\beta(e)^2 \sigma^2}{2} - c(e) = \bar u \leftrightarrow \alpha = \bar u + c(e)-\beta(e) e+r\frac{\beta(e)^2 \sigma^2}{2}   \]
+As we can see, the base salary now includes a wage-premium term. The firm must compensate the worker for the uncertainty that performance pay induces. This will be a main driver of inefficiency. Now on to the next step: we plug this into firm profit:
+\begin{align}
+    \pi&= E[y-w]\\
+    &= E[e+\epsilon - \beta(e) (e+\epsilon) -\alpha ]\\
+    &= e - \beta(e) e -[\bar u + c(e)-\beta(e) e+r\frac{\beta(e)^2 \sigma^2}{2}\\
+    &= e  -\bar u - c(e)-r\frac{\beta(e)^2 \sigma^2}{2}]
+\end{align}
+Surplus looks different under performance pay. Because the worker dislikes risk, surplus is impacted negatively by stronger incentives which are required for more effort. 
+
+
+At this point we can either substitute $\beta = c'(e)$ and maximize over $\beta$ or we can keep everything as is and maximize over effort $e$, with the understanding that the firm is change $\beta$ to choose effort (not actually choosing effort). I will go the second route:
+\[\max_e e  -\bar u - c(e)-r\frac{\beta(e)^2 \sigma^2}{2}\]
+Taking the first order condition:
+\[ 1- c'(e) -r \sigma^2 \beta(e)\beta'(e)=0 \]
+Now, remember that $\beta(e) = c'(e)$ therefore $\beta'(e)=\frac{dc'(e)}{de}=c''(e)$:
+\[ 1- c'(e) -r \sigma^2 c'(e) c''(e)=0 \]
+\[ 1= c'(e) +r \sigma^2 c'(e) c''(e) \]
+\[ \frac{1}{c'(e)}= 1+r \sigma^2 c''(e) \]
+Take reciprocals on both sides:
+\[ \beta_P=c'(e_P)= \frac{1}{1+r \sigma^2 c''(e_P)} \]
+To obtain $\alpha_P$ use the prior expression:
+\[\alpha_P = \bar u + c(e_P)-c'(e_P) e_P+r\frac{c'(e_P)^2 \sigma^2}{2}   \]
+Is this first-best effort? Well, remember that first-best effort is $c'(e_{FB})=1$. Does this match $e_P$? Well, we have that:
+\[c'(e_P) =  \frac{1}{1+r \sigma^2 c''(e_P)}<1\]
+So the answer is no. We have LESS than first-best effort. This is because $r \sigma^2 c''(e_P)$ is positive ($r$ because of risk aversion, $\sigma^2$ because there is some noise/uncertainty, $c''$ because we assumed effort cost was convex). So we achieve less than first-best effort! We can also see that whenever there is no noise we achieve first-best because:
+\[c'(e_P) = \frac{1}{1+r \cdot 0 \cdot c''(e_P)}=1\]
+Whenever there is no risk aversion we also achieve first-best:
+\[c'(e_P) = \frac{1}{1+0 \cdot\sigma^2c''(e_P)}=1\]
+ 
+\end{document}

@@ -1,0 +1,333 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 7: Relative Performance Evaluation} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}{Relative Performance Evaluation is Not Teamwork}
+
+\begin{wideitemize}
+    \item Sometimes multiple people's effort goes into the final product
+    \item When we only observe total output ($y=e_1+e_2$) and we cannot tell how much each person contributed
+    \item We call this teamwork and study it after the midterm but not now.
+    \item We care about when we observe output for each but with uncertainty
+    \item For example: $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item Question: what is the point of grouping the workers at all?
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Relative Performance Evaluation: A Model}
+
+\begin{wideitemize}
+    \item Suppose there are two workers labeled 1 and 2.
+    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item The noise terms are distributed:
+    \begin{wideitemize}
+        \item $\epsilon_1= v_s + v_1$
+        \item $\epsilon_2= v_s + v_2$
+        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+    \end{wideitemize}
+    \item Let's focus just on worker 1.
+    \item The firm can offer linear wages:
+    \begin{wideitemize}
+        \item $w(y_1, y_{2}) = \alpha + \beta (Y_1 - \gamma Y_2)$
+    \end{wideitemize}
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Interpreting the Model}
+
+\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
+
+\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at the same company?
+
+
+    
+\end{frame}
+
+\begin{frame}{Interpreting the Model}
+
+\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
+
+\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at different companies?
+    
+\end{frame}
+
+\begin{frame}{Interpreting the Model}
+
+\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
+
+\huge How can we interpret the variances of $v_s, v_1, v_2$? i.e. what does it mean if $\sigma_s^2>\sigma_1^2$?
+\end{frame}
+
+\begin{frame}{Some Observations}
+\[w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)\]
+\begin{wideitemize}
+    \item[1.] If $\gamma=0$ we have no relative performance evaluation (back to base model)
+    \begin{wideitemize}
+        \item Since $\gamma$ is a choice, access to relative performance evaluations must weakly improve profit!
+    \end{wideitemize}
+    \pause
+    \item[2.] $\gamma$ does not influence effort.
+    \begin{wideitemize}
+        \item Question: Why?
+        % Because the worker 1 cannot influence Y_2
+    \end{wideitemize}
+    \pause
+    \item[3.] $Y_2$ contains information about $Y_1$
+    \begin{wideitemize}
+        \item Question: Why?
+        % Because of $v_s$
+    \end{wideitemize}
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Solving the Model}
+    \huge See the board!
+\end{frame}
+
+\begin{frame}{Solving the Model}
+      \begin{theorem}
+       Under relative performance evaluation, worker 1's wage is $w(y_1, y_2)=\alpha_{rel} + \beta_{rel} (y_1 - \gamma_{rel} y_2)$ where
+      \[\gamma_{rel}=\frac{\sigma^2_s}{\sigma^2_s + \sigma^2_2}\]
+ \[  \beta_{rel}=\frac{1}{1+r  ( \sigma_1^2+ (1-\gamma_{rel})^2\sigma_s^2 +\gamma_{rel}^2 \sigma_2^2 )c''(e_1)}\]
+ \[\alpha_{rel} = \bar u - \beta_{rel}(e_1-\gamma_{rel} e_2) + \frac{r\beta_{rel}^2[\sigma_1^2 + (1-\gamma_{rel})^2\sigma^2_s + \gamma_{rel}^2\sigma^2_2] }{2}   \]
+    \end{theorem}
+
+    \footnotesize A nice comprehension check is to figure out how these would change for worker 2.
+\end{frame}
+
+
+
+\section{The Informativeness Principle}
+
+\begin{frame}{Thinking More Generally}
+
+\begin{wideitemize}
+    \item We thought of $Y_2$ as the output of a coworker or comparable worker.
+    \item But we just showed that it does not matter for incentives.
+    \item The firm only uses it to reduce the noise in performance evaluations.
+    \item What if we think of $Y_2$ as just some extra information?
+    \begin{wideitemize}
+        \item Question: What are some examples?
+        %weather, stock market performance, unemployment rate.
+    \end{wideitemize}
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Working It Out}
+
+\huge See the board!
+    
+\end{frame}
+
+\begin{frame}{The Informativeness Principle}
+
+    \begin{theorem}
+        The firm should use additional information $Y_2$ to set pay for worker 1 whenever the information is informative about worker 1's output: $\sigma_s^2>0$.
+    \end{theorem}
+
+    \begin{wideitemize}
+    \item The firm uses $Y_2$ to purge $Y_1$ of noise/luck/etc.
+    \item This reduces the effective variance the worker faces for each level of bonus $\beta$.
+    \item This relieves the risk-incentive trade-off.
+    \item Therefore it improves profit and total surplus!
+\end{wideitemize}
+
+
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+

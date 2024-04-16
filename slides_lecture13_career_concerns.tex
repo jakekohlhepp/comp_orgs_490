@@ -1,0 +1,301 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 13: Career Concerns} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}{Roadmap}
+\begin{wideitemize}
+    \item In the first half of the class we discussed explicit performance pay.
+    \item Last lecture we discussed one alternative: relational contracts.
+    \item I may work hard because I don't want to lose a good job.
+    \item This lecture we consider another alternative: career concerns.
+    \item I work hard at my current job to get a better future job at another company.
+\end{wideitemize}
+    
+\end{frame}
+\begin{frame}
+\centering
+    \huge Discussion: Fee and Hadlock (2003)
+
+\end{frame}
+
+\begin{frame}{Model}
+    \begin{wideitemize}
+        \item There are two firms and one worker.
+        \item The worker has a skill level $a$ that no one knows.
+        \item However, everyone knows that skills are distributed uniformly between $[0,A]$. That is, $a\sim U[0,A]$
+        \item The worker exerts unobserved, costly effort: $c(e)=e^2/2$
+        \item Revenue is equal to effort plus skill: $y=e+a$
+        \item The worker is hired and exerts effort in two periods.
+        \item The worker is hired in each period by the firm that posts the highest wage, and if there is a tie they randomly pick a firm (Bertrand style)
+        \item All outside options are 0.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Thinking About First-Best}
+
+\begin{wideitemize}
+    \item A helpful fact: the mean of a uniform random variable is just the average of the lower and the upper bound, so: $E[a]=(0+A)/2=A/2$\pause
+    \item In a single period, the first-best level of effort solves:
+
+    \[\max_{e} E[a+e -c(e)] =  \max_{e} A/2+e-e^2/2  \]
+    \pause
+    \item Taking the FOC wrt $e$:
+    \[e_{FB}= 1\]
+    
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Diagram of the Model}
+\centering
+    \huge See the board!
+
+\end{frame}
+
+\begin{frame}{Solving the Model}
+\centering
+    \huge See the board!
+
+\end{frame}
+
+\begin{frame}{Solution}
+
+\begin{theorem}
+    If uncertainty about skill is large enough ($A>>0$), career concerns motivate the worker to provide first-best effort in the first period, $e_1^*=1$.
+\end{theorem}
+    \begin{wideitemize}
+        \item The worker works hard to prove his/herself in period 1
+        \item The worker reaps the reward for this in period 2
+        \item The strength of career concerns depends on how uncertain the market is about a worker's skill.
+        \item This is captured by $A$.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Wages Over Time}
+
+\begin{wideitemize}
+    \item Skill ($a$) is initially unknown and everyone is paid the same wage: $A/2+1$
+    \item Skill ($a$) is revealed when revenue realizes.
+    \item Then each worker is paid their skill.
+    \item This implies two things:
+    \begin{wideitemize}
+        \item Wages of two workers become more dispersed over time
+        \item Wages may go up or down, with most going down.
+    \end{wideitemize}
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Effort Over Time}
+
+\begin{wideitemize}
+    \item Effort in the first period is high (the first-best level)
+    \item Intuition: prove yourself when young, take it easy while old.
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Crucial Ingredients for Career Concerns}
+
+\begin{wideitemize}
+    \item There must be competition for the worker.
+    \item Revenue in period 1 must be observed by everyone.
+    \item Discussion: in what occupations is this true/not true?
+    \item These are crucial because they allow the worker to internalize the benefits of effort/skill through higher wages in period 2.
+\end{wideitemize}
+    
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+

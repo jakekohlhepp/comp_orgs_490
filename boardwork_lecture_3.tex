@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 3: Effort-Based Pay}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Before we begin, let's derive the worker's utility. In this case, we can notice that the worker's utility is not random. There is no uncertainty because effort is chosen by the worker. Therefore the certainty equivalent of the wage is just the wage:
+\[d = \alpha + \beta e\]
+
+This is a special case. In general we need to apply the actual formula (we will do this next lecture). We solve backwards, starting with the worker's choice of effort given some fixed wage scheme. The worker solves:
+\[\max_e w(e) - c(e) = \max_e \alpha + \beta e - c(e)\]
+We take the first-order condition and set equal to 0:
+\[\beta -c'(e)=0 \leftrightarrow \beta = c'(e)\]
+We now know how $\beta$ impacts effort. Let's take a moment to interpret this. It means that the agent chooses the effort that equalizes the marginal benefit of effort to them ($\beta$) to the marginal cost of effort. Let's call the incentives needed to get effort $e$ $\beta(e)$. If $c(e)=e^2/2$ ( as will often be the case) $\beta(e)=c'(e)=e$. Next, we plug this condition into the worker's utility from accepting the wage scheme:
+\[u(accept) = \alpha + \beta(e) e-c(e) \]
+The worker knows his/her future self will choose effort level $e$ and he/she will therefore accept the wage if it is greater than his/her outside option:
+\[u(accept) \geq \bar u\]
+Let's now consider the firm's choice of base pay $\alpha$. As we showed before, $\alpha$ does not impact effort at all. It only impacts whether the worker accepts the wage scheme. Among all $\alpha$ such that the worker accepts, firm profit decreases with $\alpha$. So the firm sets $\alpha$ as low as possible such that the worker still accepts:
+\[u(accept) = \alpha + \beta(e) e-c(e)=\bar u \leftrightarrow \alpha = \bar u +c(e)-\beta(e) e  \]
+Now we can plug this into firm profit:
+\begin{align}
+    \pi&= E[y-w|e(\beta)]\\
+    &= E[e+\epsilon - \beta(e) e -\alpha |e]\\
+    &= e - \beta(e) e-\alpha \\
+    &= e - \beta(e) e - [\bar u +c(e)-\beta(e) e]\\
+    &=e - \bar u-c(e)
+\end{align}
+Let's interpret this: firm profit is the benefit of effort minus the cost of effort, minus the worker's outside option. This is total surplus: the firm is getting everything above and beyond the worker's outside option. What is the worker getting? Well remember, the firm chose $\alpha$ so that the worker's surplus was equal to the outside option. So the worker gets $\bar u$. We call this property full surplus extraction, and it happens because the firm proposes the wage. if the worker proposed, the worker would get all surplus. This property also means that the firm is choosing a wage to maximize the total value of the relationship.
+
+To find optimal effort $e^*$ the firm maximizes profit:
+\[\max_e e- \bar u-c(e)\]
+Taking the first order condition:
+\[1-c'(e)=0 \leftrightarrow c'(e^*)=1\]
+We have that $\beta=c'(e)$ therefore: $\beta^* = 1$. To get base pay, use the equation from earlier:
+\[\alpha^* = \bar u +c(e^*)-\beta^* e^*=\bar u +c(e^*)- e^*\]
+
+Is this a good outcome? To understand what a good outcome is, we need a benchmark. The benchmark we will consider is the first-best benchmark: the case where the firm does the work directly. Suppose the firm has an outside option of $\bar u_F$ but otherwise has the same costs of effort. If the firm does the work itself it solves:
+\[\max_e e - c(e)-\bar u_F\]
+The first-order condition is:
+\[1-c'(e_{FB})=0 \leftrightarrow c'(e_{FB})=1  \]
+Therefore effort-based pay achieves the first-best level of effort! There is a sense in which it is the best the firm can do. Notice that the only difference in profit between this case and effort-based pay is the worker's outside option. One way to interpret this is that if the firm can use effort based pay, the only thing that determines whether the owner delegates to the worker is the outside options (or opportunity costs) of each!
+
+
+\section{Specific Effort Cost}
+
+We used a general effort cost function to sovle this problem. Let;s also solve this for a more specific effort cost function, $c(e)=e^2/2$. This is a nice cost function because in this case $c'(e)=e$. Plugging this directly into our last result we have that:
+
+\[\beta^*=c'(e^*)=1 \leftrightarrow \beta^*=e^*=1\]
+
+If we want profit, we can also plug this into:
+\[\max_e e- \bar u-c(e)\]
+Then profit becomes:
+\[ e- \bar u-c(e) =  1-\bar u -1/2 = 1/2 - \bar u\]
+
+\end{document}

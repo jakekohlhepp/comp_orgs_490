@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 12}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Relational Contracts}
+
+\subsection{Guessing a Strategy}
+
+We guess two strategies, one for the firm and one for the worker. Our strategies must specify what each person does for any possible actions of sequence of actions of the other.
+
+For the worker, we guess they take the job and exert high effort as long as the firm pays a high wage $w_t=w_H$. The first time they  observe any wage other than $w_H$, they exert low effort or take the outside option, whichever yields a higher payoff forever after regardless of the wage the firm posts in the future.
+
+For the firm, we guess they first post a a high wage $w_H$. They continue to post this wage as long as the worker provides high effort in the prior period, $e_{t-1}=H$. The first time the worker does not exert high effort (takes the outside option or exerts low effort) the firm post a low wage $w_L$ forever after regardless of the effort take by the worker in the future.
+
+If the firm and the worker do this strategy, the outcome of the game is simple: the firm posts a high wage, the worker exerts high effort, and this repeats forever. This is called ``on path" because it is what actually happens on the equilibrium path. This is sustained by ``off path" consequences: if either party fails to uphold their end, both sides start ``punishing" the other: the firm posts low wages and the worker exerts low effort or takes the outside option.
+
+
+
+
+\subsection{No Incentive to Deviate: Checking One-Shot Deviations}
+
+To show our guessed strategies form a subgame perfect Nash equilibrium, we must check all one shot deviations. We will check the worker's one shot deviations thoroughly, and only briefly consider the firm. This is mainly to make this model less of a burden for tests/homework. In graduate school and if you were to use this model you would want to check the firm's side as well.
+
+Let's call the worker's payoffs $u$ and the firm's payoffs $\pi$. These payoffs include the payoffs today plus the net present value of all future payoffs. Let's consider first the worker's payoff in the first case (never slacking off). The worker receives $w_H$ forever and pays the effort cost $c$:
+\[u(\textit{don't deviate, never slacked})=\sum_{t=0}^\infty (w_H-c)=\frac{w_H-c}{1-\delta}\]
+The worker compares this to a one-shot-deviation: exerting low effort today (at 0 cost), still getting paid $w_H$ today, but then getting offered $w_L$ forever after. Remember, the worker changes action only in one period and is assumed to follow through on our guessed strategy everywhere else. The gain today from this is $w_H$ without any effort cost. The loss is that the firm now posts $w_L$ forever.
+
+Let's take a moment to consider the worker's utility from a low wage $w_L$. If the wage $w_L$ is above $\bar u$ the worker takes the wage and their payoff is just $w_L$. However, if the wage is less than $\bar u$ the worker takes the outside option and gets $\bar u$. Will the firm offer a wage above $\bar u$? Well, a wage above $\bar u$ only makes exerting low effort more tempting, and it also costs the firm money. So it will not offer a wage above $\bar u$. Will it offer exactly $w_L=\bar u$? Well, this gets the worker to take the job, but the worker exerts low effort, so the firm gets $0$ revenue form this and then has to pay out a positive wage. This generates negative profit. Therefore the firm will offer $w_L^*=0$, and the worker will always take the outside option.
+
+As a result, the worker's payoff when the firm posts a low wage is $\bar u$. Since the firm posts this wage forever after, their payoff is the net present value of $\bar u$ forever. Putting this all together, we have:
+\[u(\textit{deviate, never slacked})=w_H+\delta \sum_{t=0}^\infty w_L = w_H+ \frac{\delta \bar u}{1-\delta}\]
+The worker has no incentive to deviate if:
+\[u(\textit{don't deviate, never slacked}) \geq u(\textit{deviate, never slacked}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+
+ Next let's consider the worker's incentive to deviate in the second case (when worker has slacked at some point in the past). The worker's utility from exerting low effort today is $\bar u$ (because they take the outside option). The utility from doing this forever is:
+\[u(\textit{don't deviate, slacked in past})=\sum_{t=0}^\infty w_L=\frac{\bar u}{1-\delta}\]
+ A deviation in this case means accepting the job today and either exerting low effort or high effort. Consider first accepting and exerting high effort. The worker still gets $\bar u$ forever after. Today, the worker gets a wage of 0 and pays the effort cost:
+
+ \[u(\textit{deviate to accept and high effort, slacked in past}) =  \delta \sum_{t=0}^\infty \delta^t \bar u-c=   \frac{\delta \bar u}{1-\delta}-c\]
+ Comparing this to not deviating:
+ \[u(\textit{don't deviate, slacked in past})  \geq u(\textit{deviate to accept and high effort, slacked in past}) \]
+ \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta}-c \leftrightarrow  \bar u \geq-c \]
+This inequality is always true, so this deviation is not beneficial. What about accepting the job but exerting 0 effort? This has no effort cost but also still yields a wage of 0:
+ \[u(\textit{deviate to accept and low effort, slacked in past}) =  0+\delta \sum_{t=0}^\infty \delta^t \bar u=   \frac{\delta \bar u}{1-\delta}\]
+  Comparing this to not deviating:
+   \[u(\textit{don't deviate, slacked in past})  \geq u(\textit{deviate to accept and low effort, slacked in past}) \]
+   \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta} \leftrightarrow  \bar u \geq 0 \]
+ This inequality is also always true, so this deviation is not beneficial. This means that for our guess to be an equilibrium, the only important condition is the first one we derived:
+\[u(\textit{don't deviate, never slacked}) \geq u(\textit{deviate, never slacked}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+
+\subsection{Finding the High Wage}
+
+
+First, simplify the inequality we derived:
+
+\[\frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+\[w_H-c \geq (1-\delta) w_H +\delta \bar u\]
+\[\delta w_H \geq c +\delta \bar u\]
+\[w_H \geq   \frac{c}{\delta}+\bar u\]
+We see that this inequality is more likely to be satisfied the higher $w_H$ is. However, the firm maximizes profit by paying the lowest wage that satisfies the inequality, changing the inequality into an equality:
+\[w_H^*=\frac{c}{\delta}+\bar u\]
+The firm's profit is the revenue less the high wage, because on path the worker never slacks:
+\[\pi = \sum_{t=0}^\infty (v-w_H^*)=\frac{v-\frac{c}{\delta}-\bar u}{1-\delta}\]
+From this we can see that a relational contract is profitable if:
+\[\delta(v-\bar u) \geq c\]
+The more patient the worker and the firm are the more likely this is to hold. The higher the value of working together the more likely this is to hold. The higher the cost of effort and the higher the outside option the more unlikely this is to hold.
+
+
+\end{document}

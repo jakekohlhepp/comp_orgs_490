@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 2: The Toolkit}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Bertrand}
+
+We will solve this problem several ways to get a feel for what is going on. it is a powerful example from game theory, and the logic underpins a lot of the economic forces we will discuss especially later in this class. 
+
+Before proceeding, first notice that although there are technically 3 player sin this game, there are really only 2 interesting players. Does nayone want to guess which of the players is not interesting (and volunteer a reason for their guess)?
+
+The worker is not really interesting. This is because the worker is mechanical: they take the job that pays the most. Once we realize this, we can just pretend like there are two players: the two firms. The two players get the worker if they post a higher wage than the other, get a 50-50 shot at the worker if they tie, and get 0 if they post too low a wage.
+
+With the worker out of the way, this boils down to a static game, because the firms both post a wage at the same time (they do not react to the wage posted by the other). Thus to solve this game we just specify two numbers (one wage for each firm). If one firm moved first (a sequential version of this game), then we would need to specify a function which states the wage one firm will post given every wage the other firm could post. We will look at this later.
+
+Now, we want to look for a Nash equilibrium. An informal definition of an NE is a strategy for each firm such that neither firm can profitably change their strategy given knowledge of the other firm's strategy. To build some intuition, lets first suppose productivity (p) is 20. Suppose further both firms offer a wage of 10. If both firms do this, they each get the worker with probability $1/2$, and they get a profit of $1/2*(20-10)=5$. Is this a Nash equilibrium?
+
+Well, no: either firm could offer some wage slightly more than 10 (say, 11). Then they get the worker for sure, and they get a profit of $1*(20-11)=9>5$, clearly much better than before. This is a profitable deviation.
+
+What if we repeat this? Suppose firm 1 now offers 11, and firm 2 offers 10. If they both do this, firm 1 gets profit of 9 and firm 2 gets 0. Who has a profitable deviation? Well, firm 2 can now out-bid 1 and offer slightly more than 11 (say, 12). Now firm 2 gets the worker for sure and gets profit $1*(20-12)=8>0$. We can continue repeat this process for any wages that are less than $p=20$.
+
+This loose discussion suggests a guess: what if both firms offer a wage of $20$? Perhaps this is a Nash equilibrium (and a solution for the purposes of this class).
+\begin{itemize}
+    \item To prove this is an NE, we just need to check that given the other firm is playing $w_{-i}=p$, firm $i$ does not gain by playing something other than $w_i=p$.
+    \item First note that when $w_1=w_2=20$ profit for both is 0 because whichever firm gets the worker pays out exactly their productivity so: $0.5*(p-w_i)=0$
+    \item Suppose one firm attempts to outbid by offering some $w_i>p$ while other stays. Does the firm gain from doing this?
+    \item No: the firm which offers a higher wage wins the worker for sure, but now the worker is being paid more than their productivity, so the firm makes negative profit: $1*(p-w_i)<0$
+    \item What if one firm tries to undercut with a lower wage? Do they gain?
+    \item No: the firm which undercuts now misses out on the worker for sure, and continues to get a profit of 0.
+    \item Thus $w_1=w_2=p$ is an NE.
+\end{itemize}
+
+Now, you may wonder, is this the only solution? The only Nash equilibrium? It turns out it is. Showing this requires only a bit more work. We will prove this by contradiction.
+
+\begin{itemize}
+    \item Suppose, for sake of contradiction, there is another NE where at least one wage is not equal to productivity $p$.
+    \item For clarity, just assume that the high wage firm is 1: $w_1\geq w_2$.
+    \item \textbf{Case 1}: $p<w_1$. In this case, firm 1 gets the worker for sure but makes negative profit because wages are more than productivity. This is clearly worse than not getting the worker at all (0 profit) so it cannot be an NE.
+    \item \textbf{Case 2}: $p>w_1$. Now firm 1 is making positive profit (because $w_1 \geq w_2$). Firm 2 is either making 0 profit, or is splitting the positive profit with firm 1. But firm 2 can just slightly outbid firm 1 and offer $p>w_2'>w_1$ and make more profit!
+    \item \textbf{Case 3}: $p=w_1>w_2$: Now firm 1 wins the worker and makes 0 profit. Firm 2 loses and also makes 0 profit. This is therefore equivalent in terms of profit for the firms as our solution. But this is still not an NE! To see why, notice that firm 1 can slightly reduce the wage to $p>w_1'>w_2$. Firm 1 still wins, but now makes positive profit!
+    \item We have considered every other possible strategy of the two firms, and every other possible strategy has a profit deviation and is therefore not an NE. Therefore, $w_1=w_2=p$ is the unique NE!
+\end{itemize}
+
+
+
+\section{Company Call List - Static}
+
+    \begin{enumerate}
+        \item[a.] Write down the utility-maximization problem for worker $i$.\\
+        \textbf{Solution)}
+        $$
+        u_i=\max_{q_i}(120-q_i-q_{-i})q_i
+        $$
+        \item[b.] To find the optimal choices, we take the FOC of the utility expression. This si the partial derivative with respect to $q_i$:
+        $$
+        \frac{\partial u_i}{\partial q_i}=120-2q_i-q_{-i}=0\quad\iff\quad q_i=\frac{120-q_{-i}}{2}\quad\cdots(*)
+        $$
+        Notice that this depends on what each worker expects the other to do (this is why $q_{-i}$ is in the expression).
+        \item[c.] because the problem is the same for both players, we can now solve by finding a solution to the system of equations:
+        \textbf{Solution)}\\
+        \begin{align*}
+            &q_1=\frac{120-q_2}{2}\\
+            &q_2=\frac{120-q_1}{2}
+        \end{align*}
+        Plugging in the 2nd equation into the 1st one, we get:
+        \begin{align*}
+            &q_1=\frac{120-\frac{120-q_1}{2}}{2}=\frac{60}{2}+\frac{q_1}{4}\\
+            \iff\quad& \frac{3}{4}q_1=30
+        \end{align*}
+        So $q_1^*=40$ and $q_2^*=40$ (by symmetry).
+        \item[d.] Aside: Prove that this NE is unique (the only Nash Equilibrium).\\
+        \textbf{Solution)}\\
+        To prove uniqueness, it is sufficient for us to show that the objective function $u_i(q_i)$ is strictly concave so that the solution of the FOC is not only indeed a maximum but also the global maximum of the function. This will be true if $u_i(q_i)$ has a negative 2nd derivative:
+        \begin{align*}
+            &u'(q_i)=120-2q_i-q_{-i}\\
+            &u''(q_i)=-2<0
+        \end{align*}
+        Thus, there is a unique best response for every action of the other player, i.e. there is a unique best response to the Nash equilibrium strategy of the other player. This is also called checking the second order condition (SOC).
+        \item[e.] Now suppose there is a social planner that maximizes total surplus (the sum of both shepherd's profit). The planner controls both $q_1, q_2$. Find the values the social planner would choose\footnote{There may be more than one (or infinitely many) values.}. Show that one of the values is a Pareto improvement over the equilibrium actions (both players are better off than in NE).\\
+        \textbf{Solution)}\\
+        The social surplus (the objective function of the social planner) is:
+        $$
+        u_1+u_2=(120-q_1-q_2)q_1+(120-q_1-q_2)q_2=120q_1+120q_2-q_1^2-q_2^2-2q_1q_2
+        $$
+        So the maximization problem is:
+        $$
+        u_T=\max_{q_1,q_2}120q_1+120q_2-q_1^2-q_2^2-2q_1q_2
+        $$
+        By FOC, we have:
+        \begin{align*}
+            &\frac{\partial u_T}{\partial q_1}=120-2q_1-2q_2=0\quad\cdots(1)\\
+            &\frac{\partial u_T}{\partial q_2}=120-2q_2-2q_1=0\quad\cdots(2)
+        \end{align*}
+        Note that the equation (1) includes $2q_2$ rather than just $q_2$ (same for equation (2)). This can be interpreted as: The social planner is taking account for the externalities from the choices of $q_1$ and $q_2$.\\
+        Solving the above system, we get:
+        $$
+        120-2q_2=120-2q_1\quad\Rightarrow\quad q_1=q_2.
+        $$
+        This means that there are multiple (in fact, infinitely many) solutions. We can see this also by realizing that equations (1) and (2) are the same, so we have two variables and 1 equation (meaning many solutions). So any $q_1,q_2$ that solves equation (1) will maximize the social surplus. Thus, $q_1^{**},q_2^{**}$ are any values such that:
+        $$
+        q_1^{**}+q_2^{**}=60.
+        $$
+        Among these, the most natural solution would be $q_1^{**}=q_2^{**}=30$.\\
+        Then accordingly, the profits are:
+        \begin{align*}
+            &u_1(30)=(120-30-30)30=1800\\
+            &u_2(30)=1800.
+        \end{align*}
+        The profit from the Nash eqwuilibrium is lower:
+        $$
+        u_1(q_1^*)=u_2(q_2^*)=u_1(40)=(120-40-40)40=1600.
+        $$
+        Thus, we see that both workers would be strictly better off if they could commit to only making 30 calls each.
+        
+        \item[f.] How does this relate to the idea of externalities within a firm?
+        
+        \end{enumerate}
+  \section{Company Call List - Sequential}      
+Suppose everything about that problem is the same, except that player 1 moves first and then player 2 moves.
+    \begin{enumerate}
+        \item[a.] Draw the extensive form of the game (game tree).
+         Solution.
+
+            
+        \item[b.] Let;s solve using backwards induction.
+
+           Start with the second stage and worker 2, taking $q_1$ as fixed. Then worker 2 solves:
+           
+           \[\max_{q_2} q_2 (120-q_1-q_2) \]
+           
+           FOC:
+           
+           \[120-q_1-q_2-q_2=0 \implies q_2(q_1) = \frac{120-q_1}{2} \]
+           Now roll back. Worker 1 anticipates the above strategy by worker 2 in the next stage and solves:
+           
+           \[\max_{q_1} q_1(120-q_1-q_2(q_1)) = \max_{q_1} q_1(120-q_1-\frac{120-q_1}{2}) =   \max_{q_1} q_1(60-q_1/2)\]
+           FOC:
+           
+           \[\frac{du_1}{d q_1} = 60 -q_1/2-q_1/2=0 \implies q_1=60 \]
+           
+           Then the SPNE strategy is:
+           
+           \[q^* = 60 \qquad q_2^*(q_1) = \frac{120-q_1}{2} \]
+           Notice that worker 2's strategy is a function which states the number of calls to make for every possible number of calls made by worker 1. For example, if worker 1 made 120 calls, worker 2 makes 0. But if worker 1 makes none, worker 2 makes 60.
+           
+
+        
+        \item[c.] Compute profit for worker 1 and worker 2. Some games are said to exhibit a ``first-mover advantage." Does this game?
+         Solution.
+         \[u_1 = 60(120-60-30) = 1800 \]
+         \[u_2 = 30(120-60-30) = 900 \]
+         
+         Since $u_1>u_2$ and worker 1 moved first this game has a first-mover advantage. This is because the first-mover can call more peopleknowing that the worker will compensate by calling less people. We see that relative to the static problem, worker 1 is calling more  while worker 2 is calling less.
+         
+         
+  
+        
+    \end{enumerate}
+\end{document}

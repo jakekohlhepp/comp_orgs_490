@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 7}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Relative Performance Evaluation}
+
+Let's begin by deriving the worker's certainty equivalent for a wage given by $w(y_1, y_2)=\alpha + \beta (y_1-\gamma y_2)$. We will apply our certainty equivalent formula:
+\[d = \mu -r \frac{\sigma^2}{2}\]
+where $\mu=E[w(y_1, y_2)]$, $\sigma^2=Var[w(y_1, y_2)]$. The mean of the wage is:
+\begin{align}
+    E[w(y_1, y_2)] &= E[\alpha + \beta (Y_1-\gamma Y_2)]\\
+    &= \alpha +\beta E[Y_1-\gamma Y_2]\\
+    &= \alpha +\beta E[e_1+v_1 + v_s-\gamma (e_2+v_2+v_s)]\\
+    &= \alpha +\beta (e_1-\gamma e_2)\\
+\end{align}
+The variance is:
+\begin{align*}
+    Var[w(y_1, y_2)] &= Var[\alpha + \beta (Y_1-\gamma Y_2)]\\
+    &= Var[\alpha]  + Var[\beta (Y_1-\gamma Y_2)]\\
+     &= 0 + Var[\beta (Y_1-\gamma Y_2)]\\
+    &= \beta^2 Var[Y_1-\gamma Y_2]\\
+    &= \beta^2 Var[e_1+v_1 + v_s-\gamma (e_2+v_2+v_s)]\\
+    &= \beta^2 Var[v_1 + v_s-\gamma (v_2+v_s)]\\
+    &= \beta^2 Var[v_1 + (1-\gamma )v_s-\gamma v_2]\\
+    &= \beta^2 ( Var[v_1]+ Var[ (1-\gamma )v_s]+Var[\gamma v_2])\\
+    &= \beta^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )\\
+\end{align*}
+We can now plug this into the certainty equivalent formula to get the worker's incentives:
+\[d(w)=\alpha +\beta (e_1-\gamma e_2) -r \frac{\beta^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2}\]
+Consider the worker choosing effort for a fixed wage scheme. We focus on worker 1, but the analysis is the same either way. Worker 1 solves:
+\[\max_{e_1} d(w)-c(e_1)=\max_{e_1} \alpha +\beta (e_1-\gamma e_2) -r \frac{\beta^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e)\]
+Effort does not impact the middle term, and we have the normal condition: $\beta = c'(e_1)$. This proves that $\gamma$ does not directly impact the worker's choice of effort. It does however impact the risk the worker takes on. To see this notice the term $r \frac{\beta^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2}$. This term enters into the worker's utility negatively. By increasing $\gamma$, the firm shifts weight from $\sigma_s^2$ to $\sigma^2_2$. Can someone give an intuition for this? What does this intuitively mean?
+
+Let's then proceed as we normally do and define $\beta(e_1)=c'(e_1)$. The worker accepts the wage scheme if:
+\[u(accept) = \alpha +\beta(e_1) (e_1-\gamma e_2) -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 ) \geq \bar u\]
+The firm sets $\alpha$ as low as it can subject to the worker accepting. This amounts to making the last line an equality:
+
+\[ \alpha +\beta(e_1) (e_1-\gamma e_2) -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 ) =\bar u\]
+Solving for $\alpha$:
+
+\[ \alpha =\bar u-\beta(e_1) (e_1-\gamma e_2) +r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} +c(e_1 )\]
+Now we plug this into the firm's profit:
+
+\begin{align*}
+    \pi&= E[y_1-w_1]\\
+    &= E[e_1+v_1- \beta(e_1) (e_1+v_1+v_s-\gamma (e_2+v_2+v_s )) -\alpha ]\\
+    &= e_1 - \beta(e_1) (e_1-\gamma e_2)  -\alpha \\
+    &= e_1 -\beta(e_1) (e_1-\gamma e_2)-\bar u+\beta(e_1) (e_1-\gamma e_2) -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 )\\
+    &= e_1 -\bar u -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 )
+\end{align*}
+As before, the firm maximizes this expression. 
+\[\max_{e_1, \gamma} e_1 -\bar u -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 )\]
+Unlike before, notice that the firm has two objects it can control: effort and $\gamma$. (Remember $\beta$ is determined by $e_1$, so we have to choose to maximize with respect to $\beta $ or $e_1$). We need to take two FOCs. let's start with $e_1$ because it is more familiar:
+\[[e_1]: 1 - c'(e_1) -r \beta(e_1) ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )\beta'(e_1)=0\]
+Now, like before, remember that $\beta(e_1)=c'(e_1)$ therefore $\beta'(e_1)=c''(e_1)$. So our expression becomes:
+\[ 1 - c'(e_1) -r \beta(e_1) ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )c''(e_1)=0\]
+Now we just call $\beta(e_1)$, $\beta_{rel}$ and plug in that $c'(e_1)=\beta_{rel}$:
+\[ 1 - \beta_{rel} -r \beta_{rel} ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )c''(e_1)=0\]
+Simplifying:
+\[ 1 = \beta_{rel}\bigg (1+r  ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )c''(e_1) \bigg )\]
+\[ \frac{1}{1+r  ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )c''(e_1)} = \beta_{rel}\]
+if we squint at this we will see this looks just like our normal expression, but with more ``variance-related" terms. However, we are not done. The firm also gets to choose $\gamma$. We need to go all the way back to the profit expression.
+\[\max_{e_1, \gamma} e_1 -\bar u -r \frac{\beta(e_1)^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )}{2} -c(e_1 )\]
+
+before taking the FOC, notice that only the big variance term depends on $\gamma$, and even further, only the inside part of that expression depends on it. Thus we can zoom in on that part of the profit expression. The FOC for $\gamma$ is:
+\[[\gamma]: -\frac{r}{2} \bigg ( -2(1-\gamma) \sigma^2_s + 2\gamma \sigma_2^2 \bigg )=0 \]
+Simplifying:
+\[  (1-\gamma) \sigma^2_s - \gamma \sigma_2^2 =0 \]
+\[  -\sigma^2_s\gamma  - \sigma_2^2\gamma  =-\sigma^2_s \leftrightarrow \gamma (-\sigma^2_s -\sigma_2^2)= -\sigma^2_s\]
+\[ \gamma_{rel}= \frac{-\sigma^2_s}{-\sigma^2_s-\sigma_2^2}= \frac{\sigma^2_s}{\sigma^2_s+\sigma_2^2}\]
+
+This was a lot of work. I want to mention a trick that could have helped us obtain the answer faster. Recall that $\gamma$ does not impact effort. Also, let's look at the worker's wage again:
+
+\begin{align*}
+    w(y_1, y_2)&=\alpha + \beta (Y_1 - \gamma Y_2)\\
+    &= \alpha + \beta [e_1+v_s + v_1 - \gamma (e_2+v_s + v_2)]\\
+    &= \alpha + \beta [e_1- \gamma e_2 +(1-\gamma)v_s + v_1 -\gamma v_2)]\\
+    &= \alpha + \beta e_1- \beta \gamma e_2 +\beta (1-\gamma)v_s + \beta v_1 -\beta \gamma v_2\\
+    &= \underbrace{\alpha - \beta \gamma e_2}_{\text{constant stuff}}+ \underbrace{\beta e_1}_{\text{effort stuff}} +\beta\underbrace{ (1-\gamma)v_s + v_1 - \gamma v_2}_{\text{random stuff that is mean 0!}}\\
+\end{align*}
+So relative performance pay ($\gamma$) only shifts the constant stuff and then impacts the variance. In your homework, you show that shifting constant stuff ($\bar y$) just changes the base pay. So the only useful thing $\gamma$ does is change the variance. We now the risk-incentive trade-off hurts profit. This means that we could have just tried to minimize the variance with respect to $\gamma$ directly:
+
+\[\min_{\gamma} Var(w_1(y_1, y_2))=\min_{\gamma}\beta^2 ( \sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2 )\]
+The FOC is:
+\[[\gamma]: \beta^2 (-2(1-\gamma)\sigma_s^2 +2\gamma \sigma_2^2 )=0\]
+Solving:
+\[ (-(1-\gamma)\sigma_s^2 +\gamma \sigma_2^2 )=0\]
+\[ \gamma\sigma_s^2 +\gamma \sigma_2^2 =\sigma_s^2\]
+\[\gamma_{rel} = \frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2}\]
+
+To get the optimal $\beta$ we can just call all the random stuff $\epsilon_{TOTAL}= (1-\gamma)v_s + v_1 - \gamma v_2$ where $\sigma^2_{TOTAL}=\sigma_1^2+ (1-\gamma)^2\sigma_s^2 +\gamma^2 \sigma_2^2$ (we got this a few steos back) and use our formula from the theorem with $\sigma^2$ replaced with $\sigma^2_{TOTAL}$
+\[\beta_{rel}=c'(e_{rel})= \frac{1}{1+r \sigma^2_{TOTAL} c''(e_{rel})}=\frac{1}{1+r [\sigma_1^2+ (1-\gamma_{rel})^2\sigma_s^2 +\gamma_{rel}^2 \sigma_2^2]c''(e_{rel})}\]
+\section{Informativeness Principle}
+We wish to understand: when should we use the additional information $y_2$. Let's start by re-writing:
+\begin{align*}
+    w(y_1, y_{2}) &= \alpha + \beta (y_1 - \gamma Y_2)\\
+    &= \alpha + \beta y_1 - \beta \gamma y_2 \\
+    &= \alpha + \beta y_1 + b y_2 \\
+\end{align*}
+where $b = - \beta \gamma $. Using the additional information means that $b\neq 0$. We know that:
+\[\gamma_{rel} = \frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2} \]
+We also know that:
+\[\beta^* = \frac{1}{1+r \sigma^2_{TOTAL} c''(e^*)}>0 \]
+Since this is always positive, whether we use the additional information depends only on $\gamma_{rel}$. Therefore we use the additional information whenever:
+\[ \gamma_{rel} = \frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2}>0 \]
+
+Let's think through what this final expression means. $\sigma^2_s$ is the variance of the shared component of $y_1, y_2$. $\sigma_s^2+\sigma_2^2$ is the total variance of $y_2$. Thus $\frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2}$ is the fraction of total variance of $y_2$ that is informative about $y_1$. It is almost the correlation coefficient. We put more weight on the additional information $y_2$ whenever it better predicts output $y_1$. How does this impact effort and output?
+
+\[e^*=\beta^* = \frac{1}{1+r \sigma_{TOTAL}^2} \]
+where:$\sigma_{TOTAL}^2=\sigma_1^2 + \gamma^2 \sigma^2_2 + (1-\gamma)^2\sigma_s^2 $
+Plug in $\gamma_{rel}$:
+\[\sigma_{TOTAL}^2=\sigma_1^2 + \bigg ( \frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2} \bigg )^2 \sigma^2_2 + \bigg (1- \frac{\sigma_s^2}{\sigma_s^2+\sigma_2^2} \bigg )^2\sigma_s^2 \]
+\[\sigma_{TOTAL}^2=\sigma_1^2 + 2\bigg ( \frac{\sigma_s \sigma_2}{\sigma_s^2+\sigma_2^2} \bigg )^2   \]
+
+\end{document}

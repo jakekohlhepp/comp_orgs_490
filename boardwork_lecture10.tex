@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 10: Wells Fargo and Multitasking}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Destructive Effort}
+
+\subsection{Setup}
+\begin{itemize}
+    \item Output depends on a productive and destructive task:
+    \[y = 1+  ae_1 -b e_2, a>0, b>0\]
+    \item The $1$ is latent profit from operating at all.
+    \item The cost of effort is:
+    \[c(e_1, e_2) = (e_1^2+e_2^2)/2 \]
+    \item We measure and pay only based on total effort:
+    \[m=e_1+e_2\]
+    \[w(m)=\alpha + \beta m\]
+\end{itemize}
+
+\subsection{Solution}
+
+As always, we start with the agent's choice of effort given the wages are already set:
+\[\max_{e_1, e_2} \alpha + \beta (e_1+e_2)-(e_1^2+e_2^2)/2 \]
+\[[e_1:] \beta -e_1=0 \implies e_1=\beta \]
+\[[e_2:] \beta -e_2=0 \implies e_2=\beta \]
+Now we plug this in to get the utility the agent expects if they accept the wage:
+\[u(accept) = \alpha + \beta (\beta +\beta)-(\beta^2+\beta^2)/2\]
+It is helpful to simplify here a bit:
+\[u(accept) = \alpha + 2\beta^2-\beta^2= \alpha + \beta^2\]
+The firm always sets $\alpha$ to make the worker indifferent to accepting or rejecting:
+\[\alpha + \beta^2=0 \leftrightarrow \alpha = -\beta^2\]
+The firm's profit is:
+\[\pi = 1+  ae_1 -b e_2 -\alpha -\beta m\]
+plugging everything in:
+\[\pi = 1+  a\beta -b \beta +\beta^2 -2\beta^2=1+  (a-b) \beta -\beta^2\]
+The firm maximizes this with respect to $\beta$. Let's suppose everything is okay and we can take the FOC:
+\[[\beta:] (a-b) -2\beta=0 \leftrightarrow \beta^*= \frac{a-b}{2}\]
+But wait. This entire stream of logic only works if $a-b>0$. What if $a-b<0$? Then the marginal destructive effort we get with more incentives outweighs any productive effort. If that is true, more incentives only hurts profit. So the firm should set $\beta^* =0$. This is the final result!
+
+Profit is then given in two cases:
+\[\pi^* = \begin{cases}1+(a-b)^2/4\text{ if } a-b>0\\
+1 \text{ if } a-b\leq 0\end{cases}\]
+If the firm could do everything itself (first-best) what would it do? To find out, maximize surplus allowing the firm to pick efforts directly:
+\[\max_{e_1, e_2} 1+ ae_1 -be_2 -(e_1^2+e_2^2)/2\]
+Notice that $e_2$ is wasteful: it takes costly effort and only hurts surplus. Thus set $e_2^{FB}=0$. Then solve for $e_1$:
+\[[e_1:] a -e_1=0 \leftrightarrow e_1^{FB}=a\]
+Choose the amount of $e_1$ where marginal cost is equal to marginal benefit! profit under the first-best is:
+\[\pi^{FB} = 1+ ae_1 -be_2 -(e_1^2+e_2^2)/2 = 1+a^2/2\]
+Even if $b$ is very close to 0, we are still losing $a^2/4$ in profit from multitasking inefficiency. One way the firm could get this money back is to prohibit task 2. Then the firm can just set $\beta=a$ and everything is resolved. But is this realistic? Do firms always have the power to prohibit an activity entirely?
+
+
+
+\end{document}

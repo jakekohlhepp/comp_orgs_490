@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Problem Set 3}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\section{Relational Contracts}
+
+
+\subsection{Setup}
+\begin{itemize}
+    \item A firm and a worker both have discount rate $\delta$ and interact for many periods ($t=1,...,\infty$)
+    \item At each period $t$ the following occur:
+    \begin{itemize}
+        \item First the firm offers a flat wage $w_t$
+        \item Second the worker chooses high (H) or low (L) effort $e_t$
+    \end{itemize}
+    \item High effort has cost $c$, low effort has cost 0.
+    \item High effort yields revenue $v$, low effort yields revenue 0.
+    \item Firm outside option is 0, worker outside option is $\bar u>0$.
+    \item Assume the firm wants to motivate high effort.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Guess an equilibrium strategy for the firm in words. Guess an equilibrium strategy for the worker in words. (Hint: guess the same strategy as in class)
+
+    
+
+        \item Call the high wage $w_H$ and the low wage $w_L$. Assume the strategy we guessed is being played. What value of $w_L$ will the firm choose and why?
+
+ 
+    \item What is the worker's payoff in any period where the firm posts a wage of $w_L$? Justify your answer.
+
+    \item Write down the worker's present value utility if they slacked in the past but are now following our guessed strategy. Write down the worker's present value utility from two possible one shot deviations: taking the job and exerting low effort and taking the job and exerting high effort.
+
+     \item Write down inequalities for when there are no incentives for the worker to make these deviations. Make sure to simplify. When do they hold?
+
+    
+    \item Write down the worker's present value utility from not deviating (never slacking). Write down the worker's utility from a one shot deviation of slacking today when he/she has never slacked before.
+
+    \item Write down (and simplify) an inequality for when there is no incentive for the worker to deviate. When is it satisfied?
+
+    
+    \item Suppose $\delta = 0.4, v=3, \bar u = 1, c=1$. Is the relational contract we derived profitable for the firm?
+    \item Suppose $\delta = 0.6, v=3, \bar u= 1,c=1$. Is the relational contract we derived profitable for the firm?
+
+    \item Interpret the difference between your prior two answers.
+\end{enumerate}
+
+\section{Hold Up}
+
+
+\subsection{Setup}
+
+\begin{itemize}
+    \item Players: Elijah Wood (EW), New Line Cinema (NLC) 
+    \item NLC decides whether or not to start LOTR, which entails simultaneously announcing EW as Frodo, and paying fixed cost of production $c>0$.
+    \item After this, EW proposes a wage $w$ for all movies.
+    \item If NLC rejects, EW gets outside option $\bar u$ and NLC makes 0 box office revenue.
+    \item If they accept, NLC receives box office revenue from LOTR $b$.
+    \item Assume indifference is broken in favor of making LOTR.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+\item We solve using backwards induction, starting at the end of the game. For what wages $w$ will NLC accept EW's offer? Your answer should be an inequality.
+\item What wage $w$ will EW offer? Justify your answer.
+
+\item Write down an inequality under which NLC will start making LOTR.
+
+\item Suppose the expected box office revenue doubles. How does this impact the decision to make LOTR?
+    
+
+    Suppose the timing changes: EW now offers a wage first. If NLC accepts, they start and finish making LOTR and incur the fixed cost $c$, pay the wage $w$, and receive box office revenue $b$. If they reject everyone gets their outside option.
+
+    \item For which wages does NLC accept? Your answer should be an inequality.
+
+\item Which wage does EW offer? Justify your answer.
+
+    \item Is this outcome more or less efficient\footnote{You can assume efficiency means maximizes total surplus of both EW and NLC, not distribution.} than the outcome under sequential filming?
+
+    
+\end{enumerate}
+
+\section{Teamwork}
+
+Note: it may be easiest to just do all math with a generic worker $i$.
+
+\subsection{Setup}
+\begin{itemize}
+    \item There are N workers, indexed by $i=1,..,N$
+    \item Each worker can exert effort $e_i$ at cost $c_i(e_i)=e_i^2/2$
+    \item Output is the sum of everyone's effort: $y(e)=\sum_{i=1}^N e_i$
+    \item The firm can pay a wage to each worker based only on team output $w_i(y(e))$
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Find the first-best effort for each worker (the amount of effort which maximizes total surplus).
+
+ Consider a wage scheme $w_i(y(e)), ...,w_N(y(e))$ that is a partnership (see the definition from class). You may assume that the wage is differentiable.
+
+    
+    \item  Setup the worker's utility maximization problem. Also write down the budget-balance condition for partnerships.
+    \item Find and simplify the worker's effort first-order condition.
+    \item Use your answers from (1) and (4) and the fact that in partnerships all money must be paid out to prove that we cannot get first-best effort.
+
+  Consider a wage scheme  $w_1(y(e)),...., w_N(y(e))$ that is a group bonus (see the definition from class) where the target is total first-best effort $\bar y = \sum_{i=1}^N e_i^{FB}$ and the bonus amount is more than the effort cost $b_i\geq c_i(e_i^{FB})$.
+
+    \item Argue that each worker does not want to exert too little effort ($e_i<e_i^{FB}$).
+
+    \item Argue that each worker does not want to exert too much effort ($e_i>e_i^{FB}$).
+
+    \item Find a group bonus that gives everyone the same bonus $b_i=b$ and that achieves first-best effort.
+
+ \item Give a situation (an effort choice of each worker) where money is burned under this group bonus. Note that this situation does not need to be an equilibrium.
+
+
+
+ 
+    % \item Give an example (an effort choice of each worker $e_1,e_2$) where money is burned under the group bonus.
+
+    
+
+    
+\end{enumerate}
+
+\end{document}

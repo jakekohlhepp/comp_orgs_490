@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 13}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Career Concerns}
+%https://www.econstor.eu/bitstream/10419/20098/1/dp855.pdf
+
+Lets begin by considering the last period. Putting aside the unknown skill, notice that effort is costly, there is no performance pay and there is no future. Therefore workers never exert effort in period 2, so $e_2^*=0$.
+
+Next, notice that because workers also do not know their own skill, all workers will choose the same level of effort in period 1. (Or they will mix, but we will assume they do not). Firms understand that all workers exert the same effort. For reasons that will become clear, lets denote this effort level $\tilde e_1$.
+
+Now, firms do not observe effort. But in equilibrium they ``understand" that all workers exert $\tilde e_1$. This understanding is why we denote this effort with a tilde. They also observe revenue. Thus, after period 1 firms can just subtract effort from output to get skill: $y_1-\tilde e_1 =a+\tilde e_1 - \tilde e_1=a$.
+
+We need to specify what happens if the firm observes revenue less than $\tilde e_1$ or greater than $\tilde e_1+A$. We will assume for our simple model that firms believe $a=0$ in the first case and $a=A$ in the second case. The justification is that firms do not become more pessimistic when they see higher revenue and they do not become more optimistic when they see lower revenue. Notice that we need this assumption is important, because in the game revenue outside $[\tilde e_1, \tilde e_1+A]$ is not going to occur but the worker will think about what happens if they exert effort that causes revenue to go outside.
+
+In this way, in period 2 skill is known. The firms then compete Bertrand style for the worker. They know skill is $a$ and they know $e_2^*=0$, so revenue from the worker is just skill: $y_2=a+e_2^*=a$. Both firms bid a wage of $w_2^*=a$. To see why, consider any deviation from this strategy, keeping the other firm bidding at $a$. If either firm deviates to $w>a$, they win the worker but lose money because $a-w<0$. Suppose a firm bids a wage below $a$. Then they lose for sure and still get 0.
+
+Now consider the worker's choice of effort in period 1. The period 1 wage $w_1$ is already decided by this point and it is a flat wage, so it does not impact the worker's choice of effort.  When finding the worker's effort choice in period 1, we must be careful, because there are two efforts floating around. There is actual effort $e_1$, which the worker controls and the firm does not see, and there is $\tilde e_1$, the effort the firm expects the worker to put in. The worker can make the firm think that he/she is higher skill by exerting effort that is different than $\tilde e_1$. But the worker CANNOT impact the firm's belief about effort $\tilde e_1$. Thus when we take derivatives to find $e_1$ $\tilde e_1$ will behave as a constant.
+
+This is the heart of the model: the worker has an incentive to work harder to build a better reputation. The worker's payoff from effort in period 1 is the flat wage in period 1 and 2 less the cost of effort in both periods. Remember, the effort tin period 2 is always 0, so this drops out. Importantly, the period two wage is impacted by period 1 effort, because this determines what the market thinks about the worker's skill. Thus the worker maximizes:
+\[\max_{e_1} w_1 +E[w_2(e_1, \tilde e_1)]-e_1^2/2 \]
+The expected wage in period 2 given effort $e_1$ and expected effort $\tilde e_1$ is: 
+\[E[w_2(e_1, \tilde e_1)] = E[y_1-\tilde e_1] = E[a+e_1-\tilde e_1] =E[a] + e_1-\tilde e_1 \]
+Thus the maximization problem becomes:
+\[\max_{e_1} w_1 +E[a] + e_1-\tilde e_1-e_1^2/2 \]
+assuming $e_1$ is in the range $(\tilde e_1, \tilde e_1+A)$. Taking derivative with respect to only $e_1$ (not $\tilde e_1$):\footnote{We do not take derivatives with respect to $\tilde e_1$ because the worker cannot change the market's beliefs.}
+\[[e_1]: 1-e_1 =0 \leftrightarrow e_1^*=1\]
+In equilibrium, the market's belief must match reality, so $\tilde e_1 = e_1^*=1$. Notice that this is the first-best level of effort because it is equating the marginal cost of effort to the marginal benefit of effort. So career concerns motivate the worker to provide the efficient amount of effort!
+
+The last piece to recover is the period 1 wage. At this point, no one knows true skill $a$. So the value to the firms of the worker in period 1 is just expected skill plus the effort everyone exerts in period 1: $e_1=\tilde e_1=1$. By the same argument we used in period 2, firms bid exactly $E[a]+\tilde e_1$. The mean of a uniform random variable is just the middle of the range: $(A+0)/2$ so the wage in period 1 will be $w_1^*=A/2+\tilde e_1=A/2+1$.
+ 
+It turns out that there are some technical conditions we need to get these results. One condition that assures everything ``works" is that $A$ is sufficiently large.
+
+  \section{Wages}
+
+  Suppose $A=10$. Then wage in the first period is $A/2+1=6$. Workers are distributed uniformly between $[0,10]$. Wage in the second period is $a$. Thus for the 60\% of workers with skill $a<6$ wages go down over time, while for the 40\% of workers with skill $a>6$ wages go up.
+
+
+\section{References}
+
+This parsimonious career concerns model is from the following paper:
+
+ Irlenbusch, Bernd; Sliwka, Dirk (2003) : Career Concerns in a Simple
+Experimental Labour Market, IZA Discussion Papers, No. 855, Institute for the Study of Labor
+(IZA), Bonn
+
+
+
+\end{document}
