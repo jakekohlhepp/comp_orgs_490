@@ -1,0 +1,447 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 17: Up or Out} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge Discussion: MacLeod and Urquiola (2021)
+
+\end{frame}
+
+
+\begin{frame}
+\begin{definition}
+    An up or out contract consists of an initial period of employment followed by an evaluation after which the worker is either promoted or terminated.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge What are some occupations where up or out is used?
+
+\end{frame}
+
+\begin{frame}{Up or Out in the Wild}
+\begin{wideitemize}
+    \item Law firms: Cravath system says you must achieve partner in 10 years or leave.
+    \item Management consulting: Bain, BCG, Mckinsey 
+    \item Military (until recently): discharged if passed over for rank promotion twice.
+    \item Universities: tenure-track assistant professors
+\end{wideitemize}
+    
+\end{frame}
+\begin{frame}{Tenure as Up or Out}
+
+\begin{wideitemize}
+    \item Tenure is a unique form of up or out.
+    \item If you receive tenure, you receive some form of additional job security.
+    \item This can be viewed as a form of compensation!
+    \item Recall that if people are risk averse, lowering the variance of pay improves their utility.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Tenure at Research Universities}
+    \begin{wideitemize}
+        \item Six year period as a tenure-track assistant professor
+        \item During this period, the AP does research and teaches
+        \item At the end, they submit a packet documenting their accomplishments
+        \item Publication record is usually the main metric of success
+        \item The department votes, the college and dean also sign off on tenure decision
+        \item If given tenure, promoted to associate professor and typically not subject to termination except in extreme circumstances
+        \item If not, AP is terminated (all or nothing).
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge What are some benefits of tenure in the academic setting?
+\end{frame}
+
+\begin{frame}{Academic Freedom}
+\begin{wideitemize}
+    \item After tenure, tenure may promote academic freedom.
+    \item For example, a professor can study a topic or provide an answer that is controversial.
+    \item But before tenure, the need to get department support could weaken academic freedom.
+    \item For example, a professor may only study topics which interest a large number of colleagues.
+    \item There are many professions where truth is important, but where up or out/tenure is not used.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Riskier Projects}
+\begin{wideitemize}
+    \item Brogaard, Engelberg, and Van Wesep (2018) study economists after tenure.
+    \item They find total publications and ``home run publications" fall.
+    \item No evidence that economists try for riskier projects after tenure is granted.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Selecting and Sorting}
+
+\begin{wideitemize}
+    \item Industry pays (much) better for some academic disciplines at the PhD level.
+    \item For example, consulting offers for econ PhDs are often more than 2x an assistant professor salary
+    \item Tenure allows universities to compete for talent without higher salaries
+    \item It also sorts people: up or out is only attractive if you think you have a chance at moving up!
+\end{wideitemize}
+    
+\end{frame}
+
+%https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.32.1.179
+
+\begin{frame}
+\centering
+    \huge What are some costs of tenure in the academic setting?
+\end{frame}
+
+\begin{frame}{High to Low Powered Incentives}
+
+\begin{wideitemize}
+    \item Prior to tenure, professors face high powered incentives.
+    \item Produce research or lose your job!
+    \item But after, they face low powered incentives.
+    \item So there is incentive to reduce effort after tenure.
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{Why Up or Out?}
+
+    \begin{wideitemize}
+        \item We will review two prominent theories for why up or out contracts exist.
+        \item Both have to do with encouraging the worker to work hard/invest:
+        \begin{wideitemize}
+            \item[1.] Kahn and Huberman (1988): firm-specific human capital
+            \item[2.] Waldman (1990): general human capital, known only to the firm
+        \end{wideitemize}
+        \item We will only verbally discuss the logic of these theories.
+        \item You are not responsible for understanding the derivations or the model setup.
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Kahn and Huberman (1988): firm-specific human capital}
+
+\begin{wideitemize}
+    \item Suppose there is a worker who can invest (at a cost) to increase their productivity at a particular firm only.
+    \item This increase in productivity is random: sometimes investing increases productivity sometimes not.
+    \item Further, suppose this investment is observed only by the worker, and output only by the firm.
+    \item How can the firm get the worker to invest?
+    \item Problem: the investment does not increase the worker's market wage.
+    \item Discussion: Why?
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Kahn and Huberman (1988): firm-specific human capital}
+
+\begin{wideitemize}
+    \item One option: the firm can offer a high wage for high productivity.
+    \item But output is not seen by a court.
+    \item So when it comes time to pay, the firm can just claim the worker had low output.
+    \item The worker knows this, and so will not invest!
+    \item There are two key issues:
+    \begin{wideitemize}
+        \item[1.] The benefits of training go to the firm, and the costs are on the worker.
+        \item[2.] The firm paying the worker to invest/work hard is not credible.
+    \end{wideitemize}
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Kahn and Huberman (1988)}
+
+\begin{wideitemize}
+    \item One solution is an up or out contract.
+    \item If output is high ``promote" and pay a higher wage.
+    \item If output is low, terminate.
+    \item The firm does not want to claim output is low when it is not.
+    \item This is because it has to then fire the employee, and get 0.
+    \item So up or out compensates the worker for hard work, and is credible for the firm!
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{General vs. Firm-Specific Human Capital}
+    \begin{wideitemize}
+        \item In Kahn and Huberman (1988), investing in human capital only improves productivity at one firm.
+        \item This is called firm-specific human capital.
+        \item Because the worker incurs the cost and does not directly benefit this causes problems.
+        \item But many jobs do not have firm-specific human capital.
+        \item Example: most professors have discipline-specific knowledge that can be used at any university.
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{General vs. Firm-Specific Human Capital}
+    \begin{wideitemize}
+        \item Skills that can be used anywhere are called general human capital.
+        \item They raise productivity at any workplace.
+        \item As a consequence they raise a workers wage.
+        \item In this case the worker bares the cost but gets the benefit.
+        \item Issue: we still see up or out among professions with only general human capital!
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Waldman (1990): Result}
+\begin{wideitemize}
+    \item Keep almost everything the same as Kahn and Huberman (1988).
+    \item Except: now investment increases productivity at many firms.
+    \item Allow firms to make offers and counteroffers to the worker.
+    \item Result: firms offer up or out contracts that get workers to invest.
+    \item This is surprising: firms pay workers to invest even though their skills can be stolen by other firms!
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Waldman (1990): The Logic}
+\begin{wideitemize}
+    \item Investment either increases productivity or does not.
+    \item The firm currently employing the worker observes which case happens.
+    \item The firm retains if productivity is high (up) and terminates if not (out).
+    \item Other firms do not see productivity.
+    \item But they do see whether the worker is retained or terminated.
+    \item And they know the termination decision was made with full knowledge of the worker's productivity!
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{Waldman (1990): Retention As a Signal}
+\begin{wideitemize}
+    \item When other firms see a worker is retained, they know that productivity is high.
+    \item They try to lure the worker away with high wage offers.
+    \item To keep the worker, the original firm must counteroffer.
+    \item The counteroffer must be equal to the worker's high productivity (why?)
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Waldman (1990): Retention As a Signal}
+\begin{wideitemize}
+    \item When other firms see a worker is terminated, they know that productivity is low.
+    \item They make offers to the worker.
+    \item The equilibrium wage offer is exactly the worker's low productivity (low wage).
+    \item The original firm is not tempted to try to hire the worker back because the wage is equal to productivity.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Waldman (1990): Incentives to Invest/Work Hard}
+\begin{wideitemize}
+    \item The worker invests in their human capital (or works hard) initially.
+    \item They do this for the chance of being retained (up) rather than being terminated (out)
+    \item The fact that the firm terminates the worker makes up or out contracts credible.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Waldman (1990) and Academics}
+
+\begin{wideitemize}
+    \item The model we verbally walked through explains why up or out might be used even with general human capital.
+    \item This gives a reason why up or out is used for academics and lawyers who often have general human capital.
+    \item It also explains why tenure does not usually come with a large pay increase.
+    \item Instead, professors often go out and get counteroffers from other universities even when they make tenure!
+    \item Salary then increases to match these counteroffers.
+    \item This is especially true at state universities (why?).
+\end{wideitemize}
+    
+\end{frame}
+
+\end{document}
+
+
+
+

@@ -1,0 +1,410 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 1: Introduction} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Econ 490: Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge Why does compensation matter?
+\end{frame}
+
+\begin{frame}{How can this class help you?}
+
+\begin{wideitemize}
+    \item This class will teach you a critical way to think through business problems.
+    \item This class will teach you to digest empirical research.
+    \item This class will help you think through your own compensation in the future.
+    \item This class will make you think about why organizations are the way they are.
+    \item Compensation, Benefits, and Job Analysis Specialists is a growing field (U.S. Bureau of Labor Statistics)
+\end{wideitemize}
+
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Why mathematical models?
+\end{frame}
+
+
+\begin{frame}{Why Mathematical Models: The Monty Hall Problem}
+\begin{wideitemize}
+    \item The problem you just observed is equivalent to \textit{Let's Make a Deal?} or a simplified version of \textit{Deal or No Deal.}
+    \item It was posed to Marilyn vos Savant in the magazine \textit{Parade} in 1990.
+    \item vos Savant answered: you should always switch.
+    \begin{wideitemize}
+        \item 10,000 reader responses claimed this was incorrect (Krauss and Wang 2003)
+        \item Some respondents had PhDs in statistics.
+         \item In an experiment, only 16\% of people chose correctly (Krauss and Wang 2003).
+
+    \end{wideitemize}
+    \item Most people's intuition breaks down in the face of even moderately complex social science problems.
+    \begin{wideitemize}
+        \item But a simple game theoretic model reveals the correct answer!
+    \end{wideitemize}
+        
+
+\end{wideitemize}
+
+\end{frame}
+
+\begin{frame}[c]{Three Facts About Me}
+\centering
+      \begin{columns}
+          \column{0.45\linewidth}
+            \begin{wideitemize}
+                \item[1.] I am a Christian.
+                \item[2.] My wife and I have two daughters.
+                \item[3.] I lived in California most of my life.
+            \end{wideitemize}
+           \column{0.54\linewidth}
+                           \centering
+    \includegraphics[width=0.95\textwidth]{pictures/family_pic.jpg}
+    \end{columns} 
+         
+\end{frame}
+\begin{frame}{My Career in Economics}
+    \begin{wideitemize}
+        \item 2012-2016: UCLA Undergraduate
+        \begin{wideitemize}
+            \item BA in Economics, BA in Political Science
+            \item Worked in policy, government, and politics during summers
+        \end{wideitemize}
+        \item 2016-2018: Associate at Welch Consulting (acquired by Charles River)
+        \begin{wideitemize}
+            \item economics labor litigation consulting
+            \item pay equity, wage and hour violations, single plaintiff cases, etc.
+        \end{wideitemize}
+        \item 2017: Got married!
+        \item Early 2018: Almost Joined Activision HR
+        \begin{wideitemize}
+            \item Compensation analyst managing bonus program for game studios
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{My Career in Economics}
+    \begin{wideitemize}
+        \item 2018-2023: PhD in Economics
+        \begin{wideitemize}
+            \item Earned a master's in econ partway through.
+            \item My first daughter was born in 2021!
+            \item Started and closed a very small nonprofit.
+            \item Worked as a freelance consultant
+        \end{wideitemize}
+        \item 2023: Started at UNC.
+        \begin{wideitemize}
+            \item Tenure-track assistant professor (after 6 years, up or out)
+            \item My research focuses on job design, recruitment, and overtime assignment within organizations and what this means for the broader economy.
+            \item My second daughter was born in November 2023!
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+\section{Logistics}
+
+\begin{frame}
+\centering
+    \huge Syllabus Review
+\end{frame}
+
+\begin{frame}{Syllabus Highlights}
+\begin{wideitemize}
+    \item Checkpoint
+    \item Two Grading Schemes
+    \item Participation
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Problem Sets}
+
+\begin{wideitemize}
+    \item Because of the grading scheme you can opt out.
+    \item However they are meant to help you study for the test.
+    \item I suggest working alone first then working together.
+    \item You must submit individual answers.
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Game Theory/Risk Aversion Tools}
+    \centering
+    \huge We will discuss this at length in the next 1-2 lectures.
+\end{frame}
+
+\begin{frame}{Mathematical Readiness}
+    \centering
+    \huge See the board.
+\end{frame}
+
+\begin{frame}{Board Work}
+
+\begin{wideitemize}
+    \item In many lectures, I will switch to the board to solve models.
+    \item I will post typed up versions of the ``board work" on the course website.
+    \item It is still important to work through it in class.
+    \item The typed up versions should help you fill in gaps that you miss in lecture, but they may not be comprehensive!
+\end{wideitemize}
+
+\end{frame}
+
+\section{Reading Peer Reviewed Articles}
+
+\begin{frame}{Readings}
+    \begin{wideitemize}
+        \item Most lectures have one or two assigned articles.
+        \item Most are peer-reviewed research articles. We will discuss how to read these next.
+        \item I will ask a few questions on the midterm and final about the readings.
+        \item I will also randomly ask a few students each lecture questions about the readings (eahc person will be called a few times during the semester).
+        \item As long as your answer reflects some engagement with the reading (even just a little) you will get full credit.
+        \item If you are absent for an unapproved reason you get 0 credit (submit absences to the logistics Google Form).
+        \item If you wish to pass (for 0 credit) just say pass or do not answer. 
+    \end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{What is Peer Review?}
+
+\begin{wideitemize}
+    \item Peer review is the independent evaluation of research by experts in a field.
+    \begin{wideitemize}
+        \item Author submits paper to a journal often using feedback from presentations/prior rejections.
+        \item Editor quickly reviews paper and either desk rejects or sends it for review.
+        \item Editor selects 2-4 referees: experts in the area.
+        \item Experts read the paper and write often detailed reports about the flaws and merits of the paper.
+        \item Experts usually make a recommendation: reject, revise and resubmit, accept.
+        \item Editor, based on expert reports, makes decision. if revise, repeat all steps until reject or accept.
+    \end{wideitemize}
+    \item If a paper passes peer review at a journal, it is published.
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{Journal Quality}
+
+    \begin{wideitemize}
+        \item Not all journals have the same level of rigor or quality
+        \item Number of citations and impact factors can help you understand what people are reading.
+        \item But just because a journal or an article is cited often does not mean it is reliable/rigorous.
+        \item Journal quality is subjective, but 5 journals have the best ``reputations" in economics:
+        \begin{wideitemize}
+            \item \textit{American Economic Review},\textit{Econometrica}, \textit{Quarterly Journal of Economics},\textit{Journal of Political Economy}, \textit{Review of Economic Studies} 
+        \end{wideitemize}
+        \item Below these 5, there are reputable journals in each subfield. Relevant ones for our class:
+        \begin{wideitemize}
+            \item \textit{Journal of Labor Economics}, \textit{Journal of Economic Theory}, \textit{AEJ: Applied}
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Reading an Academic Article}
+
+\begin{wideitemize}
+    \item You do not need to read each line to get main idea.
+    \item Articles are organized so you can go to the section you want to understand.
+    \item If we want to understand the theory, we can read that section.
+    \item If we want empirical results, we can go there.
+    \item The introduction and abstract give us the high-level findings and main approach.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Practice with ``Performance Pay and Productivity" (Lazear AER 2000)
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+

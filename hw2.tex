@@ -15,44 +15,13 @@
 
 The purpose of this homework is to work through a multitasking problem and a relative performance evaluation problem. There are only minor differences between these problems and the ones we did in class, so your notes should be very helpful in completing this problem set.
 
-\section{Relative Performance Evaluation}
-
-This problem is exactly the same as what we did in class on the board during the relative performance pay lectures.
-
-\subsection{Setup}
-\begin{itemize}
-    \item Suppose there are two workers labeled 1 and 2.
-    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
-    \item The noise terms are distributed:
-    \begin{itemize}
-        \item $\epsilon_1= v_s + v_1$
-        \item $\epsilon_2= v_s + v_2$
-        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
-    \end{itemize}
-    \item Let's focus just on worker 1 (so do all questions for worker 1 but not 2)
-    \item The firm can offer linear wages:
-    \begin{itemize}
-        \item $w(y_1, y_{2}) = \alpha + \beta (Y_1 - \gamma Y_2)$
-    \end{itemize}
-\end{itemize}
-
-\subsection{Questions}
+\section{Multitasking}
+There are two key differences in the setup of this problem vs. what we did in class:
 
 \begin{enumerate}
-    \item Derive the certainty equivalent of the worker's wage, and subtract effort costs to get an expression for the worker's utility.
-
-    \item Stare at the expression you obtained. Argue that $\gamma$ does not impact the worker's choice of effort at all, either mathematically or verbally.
-
-    \item Argue as in class that $\gamma$ only impacts the variance, so to find the optimal $\gamma$ we only need to minimize the variance of the wage.
-
-    \item Minimize the variance of the wage to find the profit maximizing $\gamma$. Call it $\gamma_{rel}$ and do not ever plug it into anything for the rest of this problem.
-    \item Interpret your expression for $\gamma$ in terms of the informativeness principle.
-    \item Write wages as three parts as in lecture: constant objects, effort of worker 1 times bonus, and bonus times random objects.
-    \item Find the variance of the random part of wages and call it $\sigma^2_{tot}$. (Hint: $\beta$ should not be in this formula at all because it is multiplying the random objects.)
-    \item Find the profit-maximizing $\beta$ by using our formula from the performance pay lecture $\beta=c'(e)=\frac{1}{1+r\sigma^2c''(e)}$ with $\sigma^2_{tot}$ replacing $\sigma^2$.
+    \item Task 1 effort is measured in different ``units."
+    \item I am telling you specific values for $a,b$ in the last part of the problem.
 \end{enumerate}
-\section{Multitasking}
-The important difference between this and what we did in class is that I am telling you specific values for $a,b$ in the last part of the problem. So up until I tell you what $a,b$ are this is EXACTLY what we did in class!
 
 \subsection{Setup}
 \begin{itemize}
@@ -64,9 +33,9 @@ The important difference between this and what we did in class is that I am tell
         \end{cases}\]
       \item We assume that without incentives the worker supplies all 0 cost effort and splits effort evenly:
       \[e_1=e_2=\bar e\]
-    \item Only task 1 effort is measured: $m=e_1$
-    \item The firm can only pay based on task 1: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
-    \item The firm's outside option is 0, the worker is $\bar u$
+    \item Only task 1 effort is measured: $m=k \cdot e_1$, where $k>0$.
+    \item The firm can only pay based on task 1: $w(m)=\alpha + \beta  m =\alpha + \beta k e_1$
+    \item The firm's and worker's outside options are 0.
 \end{itemize}
 
 \subsection{Questions}
@@ -90,11 +59,58 @@ The important difference between this and what we did in class is that I am tell
 
     \item Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
 
-    \item Now assume that $a=2, b=1,\bar e=1$. Provide a real life example where $a$ would be positive.
+    \item Now assume that $a=2, b=1,\bar e=1$. Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
 
-    \item Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
+    \item Do your answers to any of these questions depend on $k$? Interpret your answer.
 \end{enumerate}
 
+\section{Relational Contracts}
 
+
+\subsection{Setup}
+\begin{itemize}
+    \item A firm and a worker both have discount rate $\delta$ and interact for many periods ($t=1,...,\infty$)
+    \item At each period $t$ the following occur:
+    \begin{itemize}
+        \item First the firm offers a flat wage $w_t$
+        \item Second the worker chooses high (H) or low (L) effort $e_t$
+    \end{itemize}
+    \item High effort has cost $c$, low effort has cost 0.
+    \item High effort yields revenue $v$, low effort yields revenue 0.
+    \item Firm outside option is 0, worker outside option is $\bar u>0$.
+    \item Assume the firm wants to motivate high effort.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Guess an equilibrium strategy for the firm in words. Guess an equilibrium strategy for the worker in words. (Hint: guess the same strategy as in class)
+
+    
+
+        \item Call the high wage $w_H$ and the low wage $w_L$. Assume the strategy we guessed is being played. What value of $w_L$ will the firm choose and why?
+
+ 
+    \item What is the worker's payoff in any period where the firm posts a wage of $w_L$? Justify your answer.
+
+   \item Consider the case when trust was already broken in the past. Write down the worker's present value utility from not deviating, that is following our guessed strategy. Write down the worker's present value utility from deviating from a one shot deviation from our guessed strategy that involves taking the job and exerting low effort.
+
+     \item Consider the case when trust was already broken in the past. Write down an inequality for when there are no incentives for the worker to deviate in this case. Make sure to simplify. When does this inequality hold?
+
+    
+    \item Consider the case when trust has never been broken. Write down the worker's present value utility from not deviating and following our guessed strategy. Write down the worker's utility from a one shot deviation of exerting low effort today.
+
+
+\item Consider the case when trust has never been broken. Argue that the worker would always prefer to take the job and exert low effort rather than not take the job.
+
+    \item Consider the case when trust has never been broken. Write down (and simplify) an inequality for when there is no incentive for the worker to deviate. When is it satisfied?
+
+   Assume $w_H$ in equilibrium is the lowest possible wage such that the inequality is satisfied. 
+   
+    \item Suppose $\delta = 0.4, v=3, \bar u = 1, c=1$. Is the relational contract we derived profitable for the firm?
+    \item Suppose $\delta = 0.6, v=3, \bar u= 1,c=1$. Is the relational contract we derived profitable for the firm?
+
+    \item Interpret the difference between your prior two answers.
+\end{enumerate}
 
 \end{document}

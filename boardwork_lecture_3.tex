@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
 \newtheorem{lemma}{lemma}
 \title{Board Work for Lecture 3: Effort-Based Pay}
 \author{Jacob Kohlhepp}
@@ -13,22 +15,22 @@
 Before we begin, let's derive the worker's utility. In this case, we can notice that the worker's utility is not random. There is no uncertainty because effort is chosen by the worker. Therefore the certainty equivalent of the wage is just the wage:
 \[d = \alpha + \beta e\]
 
-This is a special case. In general we need to apply the actual formula (we will do this next lecture). We solve backwards, starting with the worker's choice of effort given some fixed wage scheme. The worker solves:
+This is a special case. Whenever there is uncertainty, we need to apply the certainty equivalent formula from last lecture. With utility in hand, we solve backwards, starting with the worker's choice of effort given some fixed wage scheme. The worker solves a decision problem taking everything else as given (because past decisions have already been made):
 \[\max_e w(e) - c(e) = \max_e \alpha + \beta e - c(e)\]
 We take the first-order condition and set equal to 0:
 \[\beta -c'(e)=0 \leftrightarrow \beta = c'(e)\]
-We now know how $\beta$ impacts effort. Let's take a moment to interpret this. It means that the agent chooses the effort that equalizes the marginal benefit of effort to them ($\beta$) to the marginal cost of effort. Let's call the incentives needed to get effort $e$ $\beta(e)$. If $c(e)=e^2/2$ ( as will often be the case) $\beta(e)=c'(e)=e$. Next, we plug this condition into the worker's utility from accepting the wage scheme:
-\[u(accept) = \alpha + \beta(e) e-c(e) \]
+We now know how $\beta$ impacts effort. Let's take a moment to interpret this. It means that the agent chooses the effort that equalizes the marginal benefit of effort to them ($\beta$) to the marginal cost of effort. We will use this equation later. Next, we consider how the worker decides whether to take the job:
+\[u(accept) = \alpha + \beta e-c(e) \]
 The worker knows his/her future self will choose effort level $e$ and he/she will therefore accept the wage if it is greater than his/her outside option:
 \[u(accept) \geq \bar u\]
 Let's now consider the firm's choice of base pay $\alpha$. As we showed before, $\alpha$ does not impact effort at all. It only impacts whether the worker accepts the wage scheme. Among all $\alpha$ such that the worker accepts, firm profit decreases with $\alpha$. So the firm sets $\alpha$ as low as possible such that the worker still accepts:
-\[u(accept) = \alpha + \beta(e) e-c(e)=\bar u \leftrightarrow \alpha = \bar u +c(e)-\beta(e) e  \]
+\[u(accept) = \alpha + \beta e-c(e)=\bar u \leftrightarrow \alpha = \bar u +c(e)-\beta e  \]
 Now we can plug this into firm profit:
 \begin{align}
     \pi&= E[y-w|e(\beta)]\\
-    &= E[e+\epsilon - \beta(e) e -\alpha |e]\\
-    &= e - \beta(e) e-\alpha \\
-    &= e - \beta(e) e - [\bar u +c(e)-\beta(e) e]\\
+    &= E[e+\epsilon - \beta e -\alpha |e]\\
+    &= e - \beta e-\alpha \\
+    &= e - \beta e - [\bar u +c(e)-\beta e]\\
     &=e - \bar u-c(e)
 \end{align}
 Let's interpret this: firm profit is the benefit of effort minus the cost of effort, minus the worker's outside option. This is total surplus: the firm is getting everything above and beyond the worker's outside option. What is the worker getting? Well remember, the firm chose $\alpha$ so that the worker's surplus was equal to the outside option. So the worker gets $\bar u$. We call this property full surplus extraction, and it happens because the firm proposes the wage. if the worker proposed, the worker would get all surplus. This property also means that the firm is choosing a wage to maximize the total value of the relationship.
@@ -49,7 +51,7 @@ Therefore effort-based pay achieves the first-best level of effort! There is a s
 
 \section{Specific Effort Cost}
 
-We used a general effort cost function to sovle this problem. Let;s also solve this for a more specific effort cost function, $c(e)=e^2/2$. This is a nice cost function because in this case $c'(e)=e$. Plugging this directly into our last result we have that:
+We used a general effort cost function to solve this problem. Let's also solve this for a more specific effort cost function, $c(e)=e^2/2$. This is a nice cost function because in this case $c'(e)=e$. Plugging this directly into our last result we have that:
 
 \[\beta^*=c'(e^*)=1 \leftrightarrow \beta^*=e^*=1\]
 

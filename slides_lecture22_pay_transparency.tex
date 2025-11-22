@@ -1,0 +1,351 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 22: Pay Transparency} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}{What You Are Paid vs. Who Knows What You Are Paid?}
+    \begin{wideitemize}
+        \item Most of this class focuses on what people are paid.
+        \item In this last lecture, we think about how much people know about how others are paid.
+        \item Why might this matter?
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Discussion}
+
+\huge How much will you be paid in your first job?
+% How much am I paid? How much was I paid?
+%https://uncdm.northcarolina.edu/salaries/index.php#
+\end{frame}
+\begin{frame}{The Pay of Economics Graduates}
+\centering 
+\includegraphics[width=0.6\textwidth]{pictures/major_salaries.png}
+
+\hfill Source:  NACE SALARY SURVEY (2022)
+\end{frame}
+
+\section{Pay Transparency in the UNC System}
+\begin{frame}{Discussion}
+
+\Large 
+
+The UNC System maintains a public salary database that is current to December 31, 2024.
+% How much am I paid? How much was I paid?
+%https://uncdm.northcarolina.edu/salaries/index.php#
+\end{frame}
+
+\begin{frame}[shrink=4]{Pay Distribution by Job Class in Econ. Departments System-Wide}
+\centering
+    \input{tex_pieces/top15}
+     \hfill The top 15 campus-job class pairs by median salary.
+\end{frame}
+
+
+\begin{frame}[shrink=4]{Pay Distribution Econ Assistant Professors}
+\centering
+    \input{tex_pieces/assistants}
+\end{frame}
+
+\begin{frame}[shrink=4]{Salary Inversion Across Institutions}
+\centering
+    \input{tex_pieces/inversion}
+\end{frame}
+
+
+\section{Pay Transparency in General}
+
+\begin{frame}{Discussion}
+
+\huge Cullen (2024)
+\end{frame}
+
+
+\begin{frame}{Partial Equilibrium vs. General Equilibrium}
+\begin{wideitemize}
+    \item \textbf{Decision Problems:} Given everything is fixed, what happens if I do x vs. y?
+    \begin{itemize}
+        \item Most everyday decisions.
+        \item Many people (including policymakers) consider.
+        \item Intuition/common sense works well here.
+    \end{itemize}
+    \item \textbf{Games/Partial Equilibrium:} Given you respond to me, what happens if I do x vs. y if we fix most other things?
+    \begin{itemize}
+        \item Most of this class (employer designs contract understanding worker will react)
+        \item Some people think this way for big decisions (college, job offers, etc.)
+        \item Some government policy consider this (Ledbetter case)
+        \item Intuition/common sense sometimes works well here.
+    \end{itemize}
+    \item \textbf{General Equilibrium:} Given you respond to me and everything around us also responds, what happens if I do x vs. y?
+     \begin{itemize}
+        \item This class largely ignored this.
+        \item People almost never think this way (and this is largely rational).
+        \item With the exception of macroeconomists, many economists abstract from this.
+        \item Intuition/common sense are often wrong here.
+        \item But this matters for pay transparency, because we change the info. everyone has.
+    \end{itemize}
+\end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{The Ledbetter Case and ``Decision Problem" Thinking}
+
+\begin{wideitemize}
+    \item Ledbetter learns the salary of a coworker doing similar work.
+    \item It turns out this was true of the other (male) coworkers.
+    \item Ledbetter presses charges against her company.
+    \item Decision problem thinking works here, because this is a single company and one employee.
+    \item This is also ``horizontal" pay transparency.
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{The 2009 Lilly Ledbetter Fair Pay Act}
+
+\begin{wideitemize}
+    \item People have tried to use Ledbetter as an example for larger reforms.
+    \item But scaling the logic from one case can be dangerous.
+    \item There can be partial and general equilibrium effects.
+    \item Question: What does this mean?
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Horizontal Pay Transparency Has Unintended Consequences}
+\centering
+    \includegraphics[width=0.65\textwidth]{pictures/pay_transparency.png}
+
+\end{frame}
+
+\begin{frame}{Unintended Consequence 1: A Partial Equilibrium Effect }
+\begin{wideitemize}
+    \item One explanation relates directly to this class.
+    \item When a worker sees they are paid less than peers, they become discouraged.
+    \item They then exert less effort and are less productive.
+    \item The firm then pays even lower wages.
+    \item In what ways it this similar to the logic of relational contracts?
+    \item How is it not?
+    % hint behavioral/fairness element. outside option did not necessarily change.
+    % crucially, if discrimination is economy-wide then learning a male coworker doing the same work is paid more should have no relational contract influence.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Unintended Consequence 2: A General Equilibrium Effect }
+\begin{wideitemize}
+    \item Consider an organization with $100$ workers with wage $x$ before pay transparency.
+    \item If one of the workers asks for a raise of $x+1$, the firm can grant the raise at cost of $1$.
+    \item After pay transparency, if the worker asks for a raise of $1$ the cost is now $100$!
+    \item The firm will now negotiate more aggressively against requests for raises.
+    \item And importantly, the firm can credibly say ``If I give it to you, I must give it to everyone."
+    \item Finally, workers will not negotiate aggressively because they could be fired, and the benefit of a raise is shared.
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Discussion}
+
+\huge What is the first-year total compensation of an economics PhD at a consulting firm?
+% How much am I paid? How much was I paid?
+%https://uncdm.northcarolina.edu/salaries/index.php#
+\end{frame}
+
+\begin{frame}{Vertical Pay Transparency (Cullen and Perez-Truglia (2022))}
+
+\begin{wideitemize}
+    \item  Employees underestimated the average salary of their manager's position by 14\%
+    \item This inflates future expectations about their own earnings.
+    \item Employees responded by increasing sales by 1.1\%, emails by 1.3\%, and hours by 1.5\% for each 10\% increase in the perceived manager's pay.
+    \item This is a productivity improving, career-concerns-like-effect.
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+\end{document}
+
+
+
+

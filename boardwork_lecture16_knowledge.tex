@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 16: Knowledge as Compensation}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Write Payoffs From $t=0$}
+We will solve this model in sections. We begin by considering what the payoffs of the apprentice and the expert look like in general. If the apprentice quits at time $\tau$, the expert receives the revenue from the apprentice's knowledge less the wage until $\tau$ and gets 0 thereafter:
+\[\Pi_0 = \int^\tau_0 [(x_t-\theta)^+ - w_t]e^{-rt} dt +\int^\infty_\tau 0 dt =\int^\tau_0 [(x_t-\theta)^+ - w_t]e^{-rt} dt\]
+where $()^+$ means the maximum of the expression or 0. The apprentice receives their wage until they quit, at which point their knowledge is frozen but they directly acrue it:
+\[U_0 = \int_0^\tau w_te^{-rt}dt  + \int_\tau^\infty (x_t-\theta)^+ e^{-rt}dt \]
+
+The expert designs the wage and the flow of knowledge. The first step of the analysis is to ask: can we forget about the agent quitting?
+\section{Argue the expert Can Focus on No-Quit Contracts}
+
+We will argue that in any situation where the apprentice quits, the expert can do just as well using another contract where the apprentice does not quit. Consider a contract where the apprentice quits at $\tau$. The worker's utility when they quit is a stream of $x_\tau$ forever after. The expert could offer a different contract, which is the same for all $t<\tau$, but where at $\tau$ they set the apprentice's wage to be $w_t=(x_\tau-\theta)^+$ and freeze knowledge transfer at $x_t=x_\tau$ forever after, and this gives the worker the exact same utility. Since everything is the same before $\tau$, the expert's flow payoff is the same up to $\tau$. What about after $\tau$? The expert receives at each moment $y_t-w_t=(x_\tau-\theta)^+-(x_\tau-\theta)^+=0$, so the expert continues to make 0 forever after. Thus the expert has the same payoff as under the original contract!
+
+\section{Writing Down the Expert's Problem}
+
+We can then restrict the expert to contracts where the apprentice never quits. The expert's problem is:
+
+\[\max_{\{x_t\},\{w_t\}}   \int_0^\infty (x_\tau-\theta)^+-w_t ]e^{-rt} dt\]
+subject to the apprentice not quitting, which requires that at each moment of time, the apprentice finds it more valuable to stay then leave:
+\[ U_t = \int_0^\infty w_{t+\tau} e^{-r\tau}d\tau\geq \int_\tau^\infty (x_t-\theta)^+ e^{-r\tau}d\tau= \frac{(x_t-\theta)^+}{r}  \]
+
+We will define $T$ to be the first time when all knowledge has been transferred, that is $T:=inf\{t| x_t=1\}$.
+\section{Argue Wages Are 0 Prior to $T$}
+
+Suppose for sake of contradiction that $w_t>0$ for some small unit of time, $[t,t+dt]$ that occurs before all knowledge is transferred. Then the expert could reduce wages by a small amount $\epsilon$, $w_{t}'=w_t-\epsilon$. This MIGHT make the apprentice quit, so what can the expert do? The expert can take these wages and back load them to $T$ (the end of training), so that $w_T'=w_T+\frac{\epsilon}{e^{r(T-t)}}$. The small $e$ term is NPV adjusting wages. This will increase the apprentice's desire to stay at each point in time, fixing the worker's desire to quit at $t$, but also making the apprentice enjoy the job even more at every point between some $s$ and $T$. This means mathematically that we have:
+\[\int_0^\infty w_{s+t} e^{-rt}dt> \frac{(x_s-\theta)^+}{r} \]
+The expert can exploit this opportunity, and give the apprentice more knowledge between $s$ and $T$. Giving the apprentice more knowledge gives the expert more profit. Thus we have contradicted that the original wage and knowledge transfer where profit maximizing for the expert.
+
+\section{Argue Expert Gives More Knowledge Than $\theta$ Immediately}
+
+Remember, the expert can give knowledge at any speed they want. The apprentice produces 0 whenever knowledge is below generative AI's knowledge. This is true whether the apprentice workers for the expert or is self-employed. Will the expert gradually give the apprentice the knowledge between $[0, \theta]$? Well, we know the expert charges 0 wages during this period, so this has no direct cost. But it also has no direct benefit, because the apprentice does not produce anything that AI is not already doing, so it gives no direct benefit. And it has an indirect cost: it delays production until $\theta$ is reached remember, the discount factor!). Thus, the expert will always immediately give the apprentice at least enough knowledge to compete with AI. mathematically: $x_0> \theta$. This means we have that $(x_t-\theta)^+=x_t-\theta$ (we are always weakly above AI's knowledge and only produce zero potentially at $t=0$.
+
+\section{Argue the expert Gives the Apprentice Everything After Training is Complete}
+
+Training is complete, that is $x_t=1$, starting at $T$. At this point, the apprentice has nothing more to learn from the expert. Further, the apprentice can quit and start their own business making the maximum output forever after. To stop this from happening, the expert must now give the apprentice all of output, that is for all $t\geq T$, we have that $w_t=y_t=x_t-\theta=1-\theta$. The apprentice has become the master! To see this more formally, use the constraint:
+\[ \int_0^\infty w_{t+\tau} e^{-r\tau}d\tau \geq \frac{(x_t-\theta)^+}{r}=\frac{1-\theta}{r}  \]
+Tjis becomes an equality because the expert will not pay more than necessary. Then plug in our guess $w_t=1-\theta$:
+\[ \int_0^\infty w_{t+\tau} e^{-r\tau}d\tau = (1-\theta)(0+\frac{1}{r})=\frac{1-\theta}{r} \]
+
+\section{Argue that During Training, the expert Pays Just Enough to Prevent Quitting}
+
+We want to show that the expert does not pay the apprentice more than the outside option at each point of time between $0$ and the end of training.  We know from earlier that the apprentice only gets wages after training, so this means that their utility at each point is just the NPV of those future wages. The NPV of a stream of $1-\theta$ at $T$ from the perspective of $t$ is:
+\[U_t= (1-\theta)e^{-r(T-t)}\]
+Suppose the expert did pay strictly more. This means that:
+\[U_t>  \leftrightarrow \frac{(1-\theta)}{r}e^{-r(T-t)} > \frac{x_t-\theta}{r}  \]
+Thus , we can increase $x_t$ throughout until the inequality becomes an equality without the apprentice quitting with the knowledge. This additional knowledge transfer makes the apprentice produce more earlier, which strictly raises the profit of the expert, a contradiction.
+
+\section{Figure Out How Knowledge is Transferred}
+
+At this point, we actually fully understand wages: they are $0$ until training is complete at $T$, and then $1-\theta$ after. We do not know how knowledge is transferred, other than the fact that the worker is given immediately more knowledge than AI: $x_0>\theta$. we will use the binding constraint to get how knowledge is transferred. Our constraint is:
+\begin{equation}
+    \frac{(1-\theta)}{r}e^{-r(T-t)} = \frac{x_t-\theta}{r} \leftrightarrow (1-\theta)e^{-r(T-t)} = x_t-\theta\label{eq:alltime}
+\end{equation}
+This should hold everywhere, including $t=0$, which gives:
+\begin{equation}
+    \frac{(1-\theta)}{r}e^{-r(T)} = \frac{x_0-\theta}{r} \leftrightarrow x_0-\theta= (1-\theta) e^{-rT} \label{eq:t0}
+\end{equation}
+
+Notice that the RHS of \ref{eq:t0} is part of the LHS of \ref{eq:alltime}, thus:
+\begin{equation}
+     (x_0-\theta) e^{rt}=x_t-\theta  \label{eq:unite}
+\end{equation}
+Now, this equation is rue when $t=T$, so we have that:
+\begin{equation}
+     (x_0-\theta) e^{rT}=x_T-\theta=1-\theta  \label{eq:bigt}
+\end{equation}
+
+\section{Maximize Profit of Expert}
+
+The expert receives no profit after training of the apprentice completes, so we need only focus on profit from $0$ to $T$:
+
+\begin{align}
+\Pi = \int_0^T e^{-rt} (x_t-\theta) dt \\
+&= \int_0^T e^{-rt} (x_t-\theta) dt \text{ substitute equation (\ref{eq:unite})}\\
+&= T(x_0-\theta)\\
+&= T(1-\theta)e^{-rT} \text{ substitute equation (\ref{eq:t0})}
+\end{align}
+This is a single equation of one variable (the training end time $T$). Taking the FOC:
+\[[T]: (1-\theta) e^{-rT} -rT(1-\theta) e^{-rT}=0 \leftrightarrow 1-rT=0 \implies T^*=\frac{1}{r} \]
+Plugging this back in to \ref{eq:bigt} gives $x_0^*$:
+\[(x_0-\theta)e^{rT} = 1-\theta \leftrightarrow (x_0-\theta)e = 1-\theta \leftrightarrow x_0 = \theta +(1-\theta)e^{-1} \]
+which note is indeed bigger than AI's knowledge! The expert's maximize profit from hiring the apprentice is then:
+\[\Pi = T(x_0-\theta) = \frac{(1-\theta)e^{-1}}{r} \]
+
+Notice that as AI becomes more advanced ($\theta$ rises) the profit from training the apprentice shrinks to 0!
+
+
+
+\end{document}

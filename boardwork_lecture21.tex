@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage[margin=1in]{geometry}
+
+\title{Board Work for Lecture 21}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Job Market Signaling}
+
+As usual, we work backwards. Given the education decisions of both types of worker, the firms have a belief about the probability the worker is high or low productivity given an observed education level. The firm belief that the worker is high productivity given high education is $Pr(t=H|E=1)$ while the probability given low education is $Pr(t=H|E=0)$.
+
+The expected revenue of a worker with education is then:
+\[Pr(t=L|E=1) \cdot 0 + Pr(t=H|E=1)\cdot \pi =Pr(t=H|E=1)\cdot \pi\]
+Similarly the revenue from a worker without education is:
+\[Pr(t=L|E=0) \cdot 0 + Pr(t=H|E=0)\cdot \pi =Pr(t=H|E=0)\cdot \pi\]
+The two firms both post a wage to compete for the worker. This is Bertrand style competition, so they will both post exactly their value of the worker: $Pr(t=H|E=1)\cdot \pi$ if high education and $Pr(t=H|E=0)\cdot \pi$ if low. We can now stop our analysis of the firm for a second.
+
+Consider now how the worker decides to get an education. If they get an education, they are paid $Pr(t=H|E=1)\cdot \pi$ and have to pay the education cost. If they do not they pay no cost but receive a different wage $Pr(t=H|E=0)\cdot \pi$. Workers know their own type, so their decision depends on their type and is represented by this inequality:
+\[Pr(t=H|E=1)\cdot \pi - c_t \geq Pr(t=H|E=0)\cdot \pi\]
+
+At this point, lets try to guess an equilibrium. Let's guess that high productivity people get an education while low productivity people do not. In equilibrium, what firms believe must match what workers do, so $Pr(t=H|E=1)=1$ and $Pr(t=H|E=0)=0$. The inequality we just derived becomes:
+\[\pi - c_t \geq 0\]
+We now need to check that workers actually want to do what we guessed. We can use our inequality to check this. First, low workers want to not get an education if:
+\[\pi - c_L \leq  0\]
+And high type workers want to get an education if:
+\[\pi - c_H \geq 0\]
+Putting these together, we have that:
+\[c_h \leq \pi \leq c_L\]
+Whenever this holds, education can be used as a signal of productivity. It is important to understand that this is not the only equilibrium. Suppose for example no one gets an education. In this case, when firms observe someone without an education they do not update their beliefs. That is, they continue to believe that the probability this person is high productivity is $p$. However, we are left with deciding what firms believe when they see someone with an education. Because no one gets an education, this is a bit like asking how fast a unicorn flies. We can rule out some beliefs though. For example, the firms cannot believe that those with an education are high productivity for sure. If they did, the wage offered to those with an education would be $\pi$, which would induce at least some people to get an education, violating our original assumptions and collapsing our equilibrium.
+
+One possibility is for firms to assume that those with an education have the same probability of being high productivity ($p$). This is consistent with our guess, because then getting an education does not change employer's perception of my productivity. Because it is costly, no one gets an education and we have confirmed our guess. Thus this is also an equilibrium.
+
+Another possibility is that everyone gets an education. This is the flip side of the case we just discussed. Now people who don't have an education are the unicorns. Firms cannot believe that workers without an education are high productivity. If they did workers would switch to no education and our equilibrium would unravel.
+
+
+\end{document}

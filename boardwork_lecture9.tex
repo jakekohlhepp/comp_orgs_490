@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amsmath} 
+\usepackage{geometry}
+\geometry{margin=1in}
 \newtheorem{lemma}{lemma}
 \title{Board Work for Lecture 9: Multitasking}
 \author{Jacob Kohlhepp}
@@ -20,10 +22,10 @@
             0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
             (e_1+e_2-2\bar e)^2/2 & \text{ if } e_1+e_2 > 2 \bar e 
         \end{cases}\]
-      \item We assume that without incentives the worker supplies all 0 cost effort and splits effort evenly:
-      \[e_1=e_2=\bar e\]
-    \item Only task 1 effort is measured: $m=e_1$
+          \item Only task 1 effort is measured: $m=e_1$
     \item Only what is measured is rewarded: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
+    \item We assume that without incentives the worker supplies all ``free effort" (all total effort up to $2\bar e$) and splits total effort evenly across the two tasks:
+      \[e_1=e_2=\bar e\]
 \end{itemize}
 
 \section{Solution: First-Best}
@@ -41,7 +43,7 @@ So have the worker do the intrinsic motivation effort level plus the marginal be
 
 In the actual model, we only measure task 1. As always we start with the last stage and ask what effort the worker chooses given some wage $w(e_1)=\alpha + \beta e_1$.
 \[\max_{e_1, e_2} \alpha + \beta e_1 - c(e_1, e_2)\]
-There are two cases. if $\beta=0$ (no incentives) the worker provides the bare minimum $e-1=e_2=\bar e$. If $\beta>0$, the worker is getting a benefit from task 1 but no benefit from task 2. Since both types of effort are costly, the worker will set $e_2=0$. That is, incentives cause $e_2$ to be crowded out!
+There are two cases. if $\beta=0$ (no incentives) the worker provides the bare minimum $e_1=e_2=\bar e$. If $\beta>0$, the worker is getting a benefit from task 1 but no benefit from task 2. Since both types of effort are costly, the worker will set $e_2=0$. That is, incentives cause $e_2$ to be crowded out!
 
 What about the first task? Well, the agent will supply all of the free effort to task 1 ($2\bar e$) and a little more. How much more? Well, once again we know that $e_1>2\bar e$ so we are above the pointy part and calculus works again. So we can setup the FOC with $e_2^*=0$:
 \[\max_{e_1, e_2} \alpha + \beta e_1 - (e_1-2\bar e)^2/2\]

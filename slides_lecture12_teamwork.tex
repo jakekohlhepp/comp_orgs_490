@@ -1,0 +1,390 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 12: Teamwork} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}{Teamwork vs. Relative Performance Pay}
+
+\begin{wideitemize}
+    \item We have studied when and why it can be helpful to pay workers based on their performance relative to others.
+    \item That is, when should wages depend on more than just own output?
+    \item But we always assumed workers produced separately.
+    \begin{wideitemize}
+            \item i.e. $y_1=e_1+\epsilon_1$ and $y_2=e_2+\epsilon_2$
+
+    \end{wideitemize}
+    \item But what if workers produce together?
+    \begin{wideitemize}
+            \item i.e. $y=e_1+e_2$
+    \end{wideitemize}
+    \item We call this teamwork.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Discussion: Friebel, Heinz, Krueger, and Zubanov (2017)
+
+\end{frame}
+
+\begin{frame}{Model (``Moral Hazard in Teams," Holmstrom (1982))}
+
+\begin{wideitemize}
+    \item There are $N$ workers, indexed by $i=1,...,N$
+    \item Each worker can exert effort $e_i$ at cost $c_i(e_i)$
+    \item We will refer to $e=(e_1,...,e_N)$ as a list which contains everyone's effort.
+    \item Output is the sum of everyone's effort: $y(e)=e_1+e_2+...+e_N$
+    \item The firm can pay a wage to each worker based only on team output $w_i(y(e))$
+    \item For technical reasons we assume all $c_i(e_i)$ are convex, increasing  and differentiable with $c_i(0)=0$.
+\end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Understanding Free Riding}
+
+\begin{wideitemize}
+    \item Consider the case where we use the intuitive wage $w_i(y(e))=y(e)/N$
+    \item That is everyone splits everything evenly.
+    \item We will see that people free ride.
+    \item This is similar to the struggles of group projects in school.
+\end{wideitemize}
+
+\begin{definition}
+    Free riding is the under supply of effort because the marginal benefits of effort are shared.
+\end{definition}
+    
+\end{frame}
+
+
+\begin{frame}{Understanding Free Riding: Solution}
+
+\Huge See the board!
+    
+\end{frame}
+
+\begin{frame}{The First-Best Benchmark}
+
+\begin{wideitemize}
+    \item Consider the case where the firm can choose effort levels directly.
+    \item Suppose the firm maximizes total surplus (output minus total effort costs)
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{The First-Best Benchmark: Solution}
+
+\Huge See the board!
+    
+\end{frame}
+
+\begin{frame}{Is There Any Way to Get First-Best Effort Using Wages?}
+\begin{wideitemize}
+    \item Now return to the actual model where the firm can only control effort via wages.
+    \item Wages can only depend on total output.
+    \item We consider several types of wage schemes.
+    \item We ask: can the wage scheme achieve $e^*$?
+    \item We ignore individual rationality/outside options.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Partnerships}
+
+\begin{definition*}
+    A partnership is a wage scheme where $w_i(y(e))\geq 0$ and:
+    \[\sum_{i=1}^N w_i(y(e))=y(e)\]
+    for every output $y(e)$.
+\end{definition*}
+
+    \begin{wideitemize}
+        \item This is also called budget balanced because everything that is produced is paid out.
+        \item It is called a partnership because we are choosing the share each person gets.
+        \item Assume for this case only that wages are differentiable, so derivatives are well defined.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Can Partnerships Achieve the First-Best?}
+
+\Huge See the board
+    
+\end{frame}
+
+
+\begin{frame}{Can Partnerships Achieve the First-Best?}
+
+\begin{theorem*}
+    There does not exist a partnership which achieves the first-best level of effort $e^*$.
+\end{theorem*}
+    \begin{wideitemize}
+        \item There is inherent free-riding with teamwork.
+        \item To overcome free-riding we must pay each person the marginal dollar produced
+        \item But because the budget must balance, there is only one marginal dollar!
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Can Group Bonuses Achieve the First-Best?}
+We now relax budget balance.
+\begin{definition*}
+    A group bonus is a wage scheme where:
+    \[w_i(y)=\begin{cases}b_i \text{ if } y(e)\geq \bar y \\
+    0 \text{ else }
+    \end{cases}\]
+\end{definition*}
+    \begin{wideitemize}
+        \item This is clearly not budget balanced because if output is below $\bar y$ but not 0:
+        \[\sum_i w_i(y(e))=0 < y(e)\]
+        \item If there was an outside option for the workers pay would look like a flat wage plus a bonus if a group target is achieved.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Can Group Bonuses Achieve the First-Best?}
+
+\Huge See the board
+    
+\end{frame}
+
+\begin{frame}{Can Group Bonuses Achieve the First-Best?}
+\begin{theorem*}
+    A group bonus with $\sum_i b_i=y(e^*)$, $b_i>c_i(e_i^*)$ and $\bar y = y(e^*)$ achieves the first-best level of effort.
+\end{theorem*}
+    
+\end{frame}
+
+% \begin{frame}{Can Group Bonds Achieve the First-Best?}
+% We now relax budget balance and allow wages to be negative.
+% \begin{definition}
+%     A group bond is a wage scheme where:
+%     \[w_i(y)=-b_i+\begin{cases}  b_i \text{ if } y(e)\geq \bar y\\
+%     0 \text{ else }
+%     \end{cases}\]
+% \end{definition}
+%     \begin{wideitemize}
+%         \item This is called a bond because like in finance you pay upfront and get something back later.
+%         \item This is never budget balanced. 
+%     \end{wideitemize}
+% \end{frame}
+
+% \begin{frame}{Can A Group Bond Achieve the First-Best?}
+
+% \Huge See the board
+    
+% \end{frame}
+% \begin{frame}{Can A Group Bond Achieve the First-Best?}
+% \begin{theorem}
+%     A group bond with $b_i=y(e^*)$ and $\bar y = y(e^*)$ achieves the first-best level of effort.
+% \end{theorem}
+    
+% \end{frame}
+
+\begin{frame}{Money Burning}
+
+\begin{wideitemize}
+    \item We showed that organizations which give out everything in wages cannot achieve the first-best.
+    
+    \item We showed that there are organizations that do not balance the budget that can!
+
+    \item Specifically group bonuses require us to commit to burn money.
+    \item That is, some of the output must be destroyed or given to someone else.
+    \item Discussion: if the firm is owned by the workers is money burning credible?
+    \pause
+
+    \item No: once output is produced we will want to pay it out.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Worker Co-Op vs. Corporations vs. Partnerships}
+
+\huge Discussion: separation of ownership and control
+    
+\end{frame}
+\end{document}
+
+
+
+

@@ -1,0 +1,391 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 14: Relational Contracts} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+\section{Relational Contracts}
+
+
+\begin{frame}
+\centering
+    \huge Discussion: Cheveleir and Ellison (1998)
+
+\end{frame}
+
+\begin{frame}{Aside: Discounting}
+\begin{wideitemize}
+    \item The discount rate $\delta$ captures how much a dollar tomorrow is worth (to someone) today.
+    \item If $\delta=0.9$, a dollar tomorrow is worth 90 cents today.
+    \item If $\delta=0.99$, a dollar tomorrow is worth 99 cents today.
+    \item Interpretation 1: If I have a higher $\delta$, I am more patient.
+    \item Interpretation 2: $\delta$ is the chance we meet again tomorrow.
+    \begin{wideitemize}
+          \item Then the probability we meet again $T$ times (assuming independence) is just $\delta^T$
+    \end{wideitemize}
+  
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{Aside: Discounting}
+\begin{wideitemize}
+    \item Suppose I receive a payment (or utility) $u$ for $T$ periods. The present value of this stream of payments is:
+    \[\sum_{t=0}^T \delta^t u=u+\delta u +\delta^2 u+...+\delta^Tu\]
+    \pause
+    \item Suppose $T\to \infty$. Then:
+    \begin{align*}
+        \sum_{t=0}^\infty \delta^t u&=u+\delta u +\delta^2 u+...\\
+        &= u + \delta (u + \delta u + \delta^2 u...)\\
+        &=  u + \delta  \sum_{t=0}^\infty \delta^t u\\
+        \sum_{t=0}^\infty \delta^t u = u + \delta  \sum_{t=0}^\infty \delta^t u &\leftrightarrow (1-\delta)\sum_{t=0}^\infty \delta^t u  = u \leftrightarrow \sum_{t=0}^\infty \delta^t u = \frac{u}{1-\delta}
+    \end{align*}
+\end{wideitemize}
+\end{frame}
+
+\begin{frame}{Model}
+\begin{wideitemize}
+    \item A firm and a worker both have discount rate $\delta$ and interact for many periods ($t=1,...,\infty$)
+    \item At each period $t$ the following occur:
+    \begin{wideitemize}
+        \item First the firm offers a flat wage $w$
+        \item Second the worker chooses high (H) or low (L) effort
+    \end{wideitemize}
+    \item High effort has cost $c$, low effort has cost 0.
+    \item High effort yields revenue $v$, low effort yields revenue 0.
+    \item Firm outside option is 0, worker outside option is $\bar u$.
+    \item Assume the firm wants to motivate high effort.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Quick Tutorial: Infinitely Repeated Games}
+\begin{wideitemize}
+    \item We will not fully cover how to solve infinitely repeated games.
+    \item For this class you only need to be able to solve variants of the exact problem in this lecture.
+    \item The procedure is as follows:
+    \begin{wideitemize}
+        \item We guess a simple strategy for the firm and the worker.
+        \item We verify that there are no one-shot deviations.
+    \end{wideitemize}
+    \item For more information on infinitely repeated games see the slides from my game theory course.
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{Step 1: Guess a simple strategy}
+\begin{wideitemize}
+    \item Nothing stops the firm and worker from choosing different wages and efforts at each point in time.
+    \item They can even condition their choices on the past in complicated ways!
+    \item We will look for equilibria where strategies are simple.
+    \item We guess that the firm pays a wage $w_H$ as long as the worker exerts high effort, and a wage $w_L$ forever after the worker does not exert high effort (outside option or low effort).    
+    \item We guess that the worker exerts high effort as long as they are paid $w_H$. As soon as they are paid anything else, they either exert low effort or take the outside option.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Step 2: Verify}
+\begin{wideitemize}
+    \item We now need to verify that our guess is an equilibrium.
+    \item This means we need to check that both the firm or the worker cannot gain from using some other strategy.
+    \item We will focus on the worker's incentives to deviate.
+    \item In general there are many other possible strategies, many of which can be complex.
+    \item We have a shortcut: the one shot deviation principle.
+\end{wideitemize}
+    
+\end{frame}
+\begin{frame}{Step 2: Verify}
+\begin{definition}
+    The \textbf{one-shot deviation principle} states that a strategy profile is a subgame-perfect Nash equilibrium if and only if no player can increase their payoff by changing a single decision in a single period. 
+    \end{definition}
+
+    \begin{wideitemize}
+        \item Our guess generates a very simply set of outcomes.
+        \item On path: the worker exerts high effort and is paid $w_H$ forever.
+        \item Off path: the worker slacked off in the past, is paid $w_L$ forever and exerts low effort forever.
+        \item The one-shot deviation principle means we only need to check for deviations in these two cases.
+        \item Further, we only need to consider one-shot (single period) deviations.
+    \end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Solving the Model}
+\centering
+    \huge See the board!
+
+\end{frame}
+
+\begin{frame}{Model Solution}
+
+\begin{theorem}
+    If $\delta(v-\bar u) \geq c$, there is a subgame perfect Nash equilibrium where the firm offers a wage of $w_H^*=\frac{c}{\delta}+\bar u$ as long as the worker exerts high effort, and a wage of $w_L^*=0$ forever after the worker exerts low effort once.
+\end{theorem}
+    \begin{wideitemize}
+        \item We say ``there is" because this is only one of many equilibria.
+        \item Notice that whenever the firm offers $w_L^*=0$ the worker takes the outside option.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Why is this ``Relational"?}
+
+\begin{wideitemize}
+    \item The firm pays the worker a high wage and ``trusts" the worker will work hard.
+    \item The worker then works hard because they value the future relationship with the firm.
+    \item Suppose one party breaks this trust (by exerting low effort or not paying a high wage).
+    \item Both players stop working together forever after.
+    \item In this way the value of employment encourages high effort.
+    \item Employment is valuable because the worker is paid more than their outside option.
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Working Hard to Keep a Good Job}
+
+\begin{wideitemize}
+    \item The firm does not use performance pay in this model.
+    \item There is a fixed wage that is paid regardless of output.
+    \item The worker works hard because they want to keep their job.
+    \item But the worker only wants to keep their job because it pays better than ``the market."
+    \item Thus high salaries paired with the possibility of termination can work like performance pay!
+    \item I would argue most US workers are motivated this way.
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+
+\begin{frame}{When Do Relational Contracts Work?}
+Recall that our result only holds when:
+\[\delta(v-\bar u) \geq c\]
+Relational contracts are more likely when...
+\begin{wideitemize}
+    \item  everyone is more patient ($\uparrow \delta $)
+    \item the value of working together is higher ($\uparrow v $)
+    \item the worker's outside option is worse ($\downarrow \bar u $)
+    \item effort is less costly ($\downarrow c $)
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Other Equilibria}
+
+\begin{wideitemize}
+    \item The firm's strategy we studied is rather harsh: if the worker slacks, they are essentially fired forever.
+    \item Sometimes there are other equilibria with less severe or less eternal consequences.
+    \item For example: after low effort pay the low wage for some $T<\infty$ periods, then revert to high wage.
+    \item However these work ``less of the time" (for fewer values of $c,\delta, v,\bar u$)
+    \item Our harsh strategy works ``more of the time" (for many values of $c,\delta, v,\bar u$)
+    \item It is a grim trigger strategy (discuss this).
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}{Efficiency Wages}
+\begin{definition}
+    Efficiency wages refers to the practice of paying workers above the market rate in order to improve productivity.
+\end{definition}
+\begin{wideitemize}
+    \item We can think of a worker's productivity as their effort.
+    \item On path, the worker exerts high effort and is productive.
+    \item If they ever exert low effort (are unproductive) they never work with the firm again.
+    \item Thus the worker is more ``efficient" when wages are higher.
+    \item This is a microfoundation (discuss this word) for efficiency wages.
+\end{wideitemize}
+    
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+

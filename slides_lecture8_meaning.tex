@@ -173,7 +173,7 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[diss]{Lecture 7: Relative Performance Evaluation} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[diss]{Lecture 8: Meaning and Performance} % The short title appears at the bottom of every slide, the full title is only on the title page
 \author{Compensation in Organizations} % Your name
 \institute[shortinst]{Jacob Kohlhepp}
 \date{\today} % Date, can be changed to a custom date
@@ -185,143 +185,183 @@
 
 \end{frame}
 
-\begin{frame}{Relative Performance Evaluation is Not Teamwork}
+\begin{frame}{Discussion}
+\centering
+    \huge  Ashraf, Bandiera, Minni, and Zingales (2025)
 
+    \normalsize (Not Yet Published)
+\end{frame}
+
+\begin{frame}{Meaning and Karl Marx?}
+
+    \begin{quote}
+                “What, then, constitutes the alienation of labor? First, the fact that labor is external to the worker; that in his work, he does not feel content but unhappy, does not develop freely his physical and mental energy...The worker therefore only feels himself outside his work, and in his work feels outside himself. He feels at home when he is not working, and when he is working he does not feel at home.”\\
+\hfill — Marx, Karl, 1844. Estranged labor.
+    \end{quote}
+
+\end{frame}
+
+\begin{frame}{Recall Effort Based Pay Model (Lecture 3)}
+    \begin{wideitemize}
+        \item The only benefit workers derive from work is the wage.
+        \item The costs are several, but most notably the cost of effort.
+        \item We often specify this as:
+        \[c(e) = e^2/2\]
+        \pause 
+        \item Three questions:
+        \begin{wideitemize}
+            \item Should this vary across people?
+            \pause 
+            \item Should it vary across jobs for the same person?
+            \pause
+            \item Can it be changed?
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{Adding Meaning to Our Model}
 \begin{wideitemize}
-    \item Sometimes multiple people's effort goes into the final product
-    \item When we only observe total output ($y=e_1+e_2$) and we cannot tell how much each person contributed
-    \item We call this teamwork and study it after the midterm but not now.
-    \item We care about when we observe output for each but with uncertainty
-    \item For example: $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
-    \item Question: what is the point of grouping the workers at all?
-\end{wideitemize}
+    \item Change the cost of effort:
+    \[c(e) = \frac{e^2}{2(1+\lambda_i m_{ij})} \]
+
+    \item The cost of effort now varies across people and jobs!
+    \item Meaning is measured by $m_{ij}$ because:
+    \[\lim_{m_{ij}\to \infty} c(e)= \lim_{m_{ij}\to \infty}\frac{e^2}{2(1+\lambda_i m_{ij})}=0\]
+    \item ``If you love your job, you will never work a day in your life."
     
+\end{wideitemize}
+
+    \hfill \footnotesize Source: Ashraf, Bandiera, Minni, and Zingales (2025)
 \end{frame}
 
-\begin{frame}{Relative Performance Evaluation: A Model}
-
+\begin{frame}{Adding Meaning to Our Model}
 \begin{wideitemize}
-    \item Suppose there are two workers labeled 1 and 2 with the same cost of effort $c(e_i)$.
-    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
-    \item The noise terms are distributed:
+    \item A worker ``sees meaning" if $\lambda_i$ is large.
+    \item If a worker does not see meaning, $\lambda_i=0$, and we return to our original model!
+    \item We add just what we need to capture ``meaning."
     \begin{wideitemize}
-        \item $\epsilon_1= v_s + v_1$
-        \item $\epsilon_2= v_s + v_2$
-        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+        \item We drop risk aversion.
+            \item Does dropping risk aversion matter?
     \end{wideitemize}
-    \item Let's focus just on worker 1.
-    \item The firm can offer linear wages:
-    \begin{wideitemize}
-        \item $w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)$
-    \end{wideitemize}
+
 \end{wideitemize}
-    
+
+    \hfill \footnotesize Source: Ashraf, Bandiera, Minni, and Zingales (2025)
 \end{frame}
 
-\begin{frame}{Interpreting the Model}
 
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at the same company?
-
-
-    
-\end{frame}
-
-\begin{frame}{Interpreting the Model}
-
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at different companies?
-    
-\end{frame}
-
-\begin{frame}{Interpreting the Model}
-
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret the variances of $v_s, v_1, v_2$? i.e. what does it mean if $\sigma_s^2>\sigma_1^2$?
-\end{frame}
-
-\begin{frame}{Some Observations}
-\[w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)\]
+\begin{frame}{Some Other Updates}
 \begin{wideitemize}
-    \item[1.] If $\gamma=0$ we have no relative performance evaluation (back to base model)
-    \begin{wideitemize}
-        \item Since $\gamma$ is a choice, access to relative performance evaluations must weakly improve profit!
-    \end{wideitemize}
-    \pause
-    \item[2.] $\gamma$ does not influence effort.
-    \begin{wideitemize}
-        \item Question: Why?
-        % Because the worker 1 cannot influence Y_2
-    \end{wideitemize}
-    \pause
-    \item[3.] $Y_2$ contains information about $Y_1$
-    \begin{wideitemize}
-        \item Question: Why?
-        % Because of $v_s$
-    \end{wideitemize}
+    \item The worker's job at the firm is labeled $j=p$.
+    
+    
+    \item The worker's outside option is a job labeled $j=a$.
+    \item We will solve this model once for general $j$ treating base pay as exogenous.
+    \item Finally, let output be: $y=\theta_i e$, where note the two changes.\footnote{We can drop noise because the worker is risk neutral.}
+    \item The contract is based on output: $w_{ij}(y_{ij})= \alpha_{ij} + \beta_{ij} y_{ij}=\alpha_{ij} + \beta_{ij} \theta_i e_{ij} $
+
 \end{wideitemize}
+
+    \hfill \footnotesize Source: Ashraf, Bandiera, Minni, and Zingales (2025)
+\end{frame}
+
+
+\begin{frame}{Solving the Model: Effort and Bonus}
+
+\begin{proposition}
+    The worker's equilibrium effort at job $j$ is $e^*_{ij}=\beta \theta_i(1+\lambda_i m_{ij})$, the firm's equilibrium bonus is $\beta^*=1/2$.
+\end{proposition}
+
     
 \end{frame}
+
 
 \begin{frame}{Solving the Model}
-    \huge See the board!
-\end{frame}
 
-\begin{frame}{Solving the Model}
-      \begin{theorem}
-       Under relative performance evaluation, worker 1's wage is $w(y_1, y_2)=\alpha_{rel} + \beta_{rel} (y_1 - \gamma_{rel} y_2)$ where
-      \[\gamma_{rel}=\frac{\sigma^2_s}{\sigma^2_s + \sigma^2_2}\]
- \[  \beta_{rel}=\frac{1}{1+r  ( \sigma_1^2+ (1-\gamma_{rel})^2\sigma_s^2 +\gamma_{rel}^2 \sigma_2^2 )c''(e_1)}\]
- \[\alpha_{rel} = \bar u - \beta_{rel}(e_1-\gamma_{rel} e_2) + \frac{r\beta_{rel}^2[\sigma_1^2 + (1-\gamma_{rel})^2\sigma^2_s + \gamma_{rel}^2\sigma^2_2] }{2}   \]
-    \end{theorem}
-
-    \footnotesize A nice comprehension check is to figure out how these would change for worker 2.
-\end{frame}
-
-
-
-\section{The Informativeness Principle}
-
-\begin{frame}{Thinking More Generally}
-
+\begin{proposition}
+    The worker will take the job $p$ rather than the outside option job $a$ if:
+    \[\alpha_p -\alpha_a \geq \frac{\lambda_i \theta_i^2}{8} (m_{ia}-m_{ip}) \]
+\end{proposition}
+Two types of workers at the firm:
 \begin{wideitemize}
-    \item We thought of $Y_2$ as the output of a coworker or comparable worker.
-    \item But we just showed that it does not matter for incentives.
-    \item The firm only uses it to reduce the noise in performance evaluations.
-    \item What if we think of $Y_2$ as just some extra information?
-    \begin{wideitemize}
-        \item Question: What are some examples?
-        %weather, stock market performance, unemployment rate.
-    \end{wideitemize}
+    \item Those there for money: $\alpha_p-\alpha_a>>0$.
+    \item Those there for meaning: $m_{ip}-m_{ia}>>0$.
 \end{wideitemize}
-\end{frame}
 
-\begin{frame}{Working It Out}
-
-\huge See the board!
     
 \end{frame}
 
-\begin{frame}{The Informativeness Principle}
+\begin{frame}{The Experiment Increases $\lambda_i$ from $\lambda_C\to \lambda_T$ }
+The model replicates two impacts of the experiment:
+\begin{wideitemize}
+    \item[1.] Workers there for the salary tend to exit, workers there for meaning tend to stay, and this raises productivity.
+    \[\text{ average } m_{ip} \uparrow \implies \text{ average }  c(e) \downarrow \implies \text{ average } y \uparrow  \]
 
-    \begin{theorem}
-        The firm should use additional information $Y_2$ to set pay for worker 1 whenever the information is informative about worker 1's output: $\sigma_s^2>0$.
-    \end{theorem}
-
-    \begin{wideitemize}
-    \item The firm uses $Y_2$ to purge $Y_1$ of noise/luck/etc.
-    \item This reduces the effective variance the worker faces for each level of bonus $\beta$.
-    \item This relieves the risk-incentive trade-off.
-    \item Therefore it improves profit and total surplus!
+    Similar to the selection effect in Lazear (2000)!
+    
+    \item[2.] Workers who stay become more productive.
+\[ e^*_T=\frac{1}{2} \theta_i(1+\lambda_T m_{ij})>\frac{1}{2} \theta_i(1+\lambda_C m_{ij})=e^*_{C} \]
+       Similar to the productivity effect in Lazear (2000)!
+     
 \end{wideitemize}
 
+    
+\end{frame}
 
+\begin{frame}{Verification 1: Exit Increases Productivity}
+\centering
+ \includegraphics[width=0.8\textwidth]{pictures/meaing_exit.png}
+
+    
+\end{frame}
+\begin{frame}{Verification 2: Stayers Productivity Increased}
+\centering
+ \includegraphics[width=0.8\textwidth]{pictures/meaning_performance.png}
+
+    
 \end{frame}
 
 
+\begin{frame}{The Experiment Increases $\lambda_i$ from $\lambda_C\to \lambda_T$ }
+The model has several additional implications:
+\begin{wideitemize}
+    \item[1.] The meaning-pay frontier will flatten.
+
+    High salary, low meaning workers leave because they start to value meaning.
+    
+    \item[2.] Treated workers that stay have increased utility.
+
+Compute utility on the board.
+     
+\end{wideitemize}
+
+    
+\end{frame}
+
+\begin{frame}{Additional Implication 1: Flattening the Meaning-Pay Frontier}
+\centering
+ \includegraphics[width=0.7\textwidth]{pictures/meaing_frontier.png}
+
+    
+\end{frame}
+\begin{frame}{Additional Implication 2: Increased Utility for Treated Stayers}
+\centering
+ \includegraphics[width=0.7\textwidth]{pictures/meaing_utility.png}
+
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Who Chose to Find Their Meaning?}
+
+\centering
+
+ \includegraphics[width=0.6\textwidth]{pictures/meaning_compliers.png}
+
+    
+\end{frame}
 
 \end{document}
 

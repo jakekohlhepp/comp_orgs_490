@@ -173,7 +173,7 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[diss]{Lecture 7: Relative Performance Evaluation} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[diss]{Lecture 16: Knowledge as Compensation} % The short title appears at the bottom of every slide, the full title is only on the title page
 \author{Compensation in Organizations} % Your name
 \institute[shortinst]{Jacob Kohlhepp}
 \date{\today} % Date, can be changed to a custom date
@@ -185,143 +185,114 @@
 
 \end{frame}
 
-\begin{frame}{Relative Performance Evaluation is Not Teamwork}
+\begin{frame}{Discussion}
+\centering
+    \huge  Garicano and Rayo (2025)
+
+    \normalsize (Not Yet Published)
+\end{frame}
+
+
+\begin{frame}{Discussion}
+\centering
+    \huge  Garicano (2025)
+
+    \normalsize (Blog Post on Silicon Continent)
+\end{frame}
+
+\begin{frame}{Medieval Apprentices and Generative AI?}
 
 \begin{wideitemize}
-    \item Sometimes multiple people's effort goes into the final product
-    \item When we only observe total output ($y=e_1+e_2$) and we cannot tell how much each person contributed
-    \item We call this teamwork and study it after the midterm but not now.
-    \item We care about when we observe output for each but with uncertainty
-    \item For example: $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
-    \item Question: what is the point of grouping the workers at all?
-\end{wideitemize}
+    \item Smart people  are willing to do grunt work. What are examples?
+
+    \item It is hard to get firms to provide general training to workers. Why?
+
+    \item How does this connect to medieval apprenticeships?
+
+    \begin{wideitemize}
+        \item Entry-level workers reap the gains of training through future wages.
+        \item Entry-level workers do not have the money to pay for training today.
+        \item So they pay for training via grunt work.
+    \end{wideitemize}
     
+\end{wideitemize}
 \end{frame}
 
-\begin{frame}{Relative Performance Evaluation: A Model}
+
+\begin{frame}{Transferring Knowledge}
+    \begin{wideitemize}
+        \item Time is continuous and infinite: $t\geq 0$.
+        \item Both the firm and the worker exponentially discount the future at rate $r$.\footnote{Do not worry I will show what this means.}
+        \item Expert E commits to wage path $\{w_t\}$ and knowledge transfer path $\{x_t\}$.
+        \begin{wideitemize}
+            \item Starting knowledge is $0$, maximum is $1$, knowledge cannot decrease.
+        \end{wideitemize}
+        \item The Apprentice's output at time t is $0$ if $x_t<\theta $, and $(x_t-\theta)$ otherwise.
+        \item While employed, the Apprentice A gets the discounted flow of wages.
+            \item Apprentice decides a time to quit $\tau\geq 0$, they work for themselves and receive the discounted flow of their output forever after.
+           \item The expert gets the discounted flow of output less wages while the worker is employed, and 0 after.
+
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Transferring Knowledge: Adding Generative AI}
 
 \begin{wideitemize}
-    \item Suppose there are two workers labeled 1 and 2 with the same cost of effort $c(e_i)$.
-    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
-    \item The noise terms are distributed:
-    \begin{wideitemize}
-        \item $\epsilon_1= v_s + v_1$
-        \item $\epsilon_2= v_s + v_2$
-        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
-    \end{wideitemize}
-    \item Let's focus just on worker 1.
-    \item The firm can offer linear wages:
-    \begin{wideitemize}
-        \item $w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)$
-    \end{wideitemize}
+    \item Where was AI?
+    \item The parameter $\theta$ represents the level of generative AI.
+    \item As $\theta$ rises AI can perform more of the basic knowledge tasks.
+    \item The expert and apprentice cannot sell tasks that AI can do. Why?
 \end{wideitemize}
     
 \end{frame}
 
-\begin{frame}{Interpreting the Model}
+\begin{frame}{The Apprentice Becomes the Expert!}
 
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at the same company?
-
-
-    
-\end{frame}
-
-\begin{frame}{Interpreting the Model}
-
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret $v_s, v_1, v_2$ when workers 1 and 2 are at different companies?
-    
-\end{frame}
-
-\begin{frame}{Interpreting the Model}
-
-\[\epsilon_1= v_s + v_1 \qquad \epsilon_2= v_s + v_2\]
-
-\huge How can we interpret the variances of $v_s, v_1, v_2$? i.e. what does it mean if $\sigma_s^2>\sigma_1^2$?
-\end{frame}
-
-\begin{frame}{Some Observations}
-\[w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)\]
-\begin{wideitemize}
-    \item[1.] If $\gamma=0$ we have no relative performance evaluation (back to base model)
+\begin{theorem}
+    During a training period that lasts from $0\leq t \leq \frac{1}{r}$, the apprentice receives 0 wages ($w_t=0$) and knowledge is transferred:
+    \[x_t = \theta + (1-\theta)e^{-1} exp(rt).\]
+    From $\frac{1}{r}$, all knowledge has been transferred ($x_t=1$) and the apprentice is paid all output $w_t=y_t=1-\theta$.
+\end{theorem}
     \begin{wideitemize}
-        \item Since $\gamma$ is a choice, access to relative performance evaluations must weakly improve profit!
+        \item The apprentice stays for 0 wages initially! Why?
+        \item The apprentice is given an immediate burst of knowledge. Why?
     \end{wideitemize}
-    \pause
-    \item[2.] $\gamma$ does not influence effort.
-    \begin{wideitemize}
-        \item Question: Why?
-        % Because the worker 1 cannot influence Y_2
-    \end{wideitemize}
-    \pause
-    \item[3.] $Y_2$ contains information about $Y_1$
-    \begin{wideitemize}
-        \item Question: Why?
-        % Because of $v_s$
-    \end{wideitemize}
-\end{wideitemize}
-    
-\end{frame}
-
-\begin{frame}{Solving the Model}
-    \huge See the board!
-\end{frame}
-
-\begin{frame}{Solving the Model}
-      \begin{theorem}
-       Under relative performance evaluation, worker 1's wage is $w(y_1, y_2)=\alpha_{rel} + \beta_{rel} (y_1 - \gamma_{rel} y_2)$ where
-      \[\gamma_{rel}=\frac{\sigma^2_s}{\sigma^2_s + \sigma^2_2}\]
- \[  \beta_{rel}=\frac{1}{1+r  ( \sigma_1^2+ (1-\gamma_{rel})^2\sigma_s^2 +\gamma_{rel}^2 \sigma_2^2 )c''(e_1)}\]
- \[\alpha_{rel} = \bar u - \beta_{rel}(e_1-\gamma_{rel} e_2) + \frac{r\beta_{rel}^2[\sigma_1^2 + (1-\gamma_{rel})^2\sigma^2_s + \gamma_{rel}^2\sigma^2_2] }{2}   \]
-    \end{theorem}
-
-    \footnotesize A nice comprehension check is to figure out how these would change for worker 2.
 \end{frame}
 
 
-
-\section{The Informativeness Principle}
-
-\begin{frame}{Thinking More Generally}
+\begin{frame}{Generative AI and the Old Training Model}
 
 \begin{wideitemize}
-    \item We thought of $Y_2$ as the output of a coworker or comparable worker.
-    \item But we just showed that it does not matter for incentives.
-    \item The firm only uses it to reduce the noise in performance evaluations.
-    \item What if we think of $Y_2$ as just some extra information?
-    \begin{wideitemize}
-        \item Question: What are some examples?
-        %weather, stock market performance, unemployment rate.
-    \end{wideitemize}
-\end{wideitemize}
-\end{frame}
-
-\begin{frame}{Working It Out}
-
-\huge See the board!
+    \item Profit for the expert from training the apprentice is given by:
+    \[\Pi = \frac{1-\theta}{r \cdot e}\]
+    \item As $\theta$ rises, profit falls, eventually converging to 1 when AI reaches the expert.
+    \item Entry-level workers benefit through wages from general training/knowledge.
+    \item The old ``deal" was that entry-level workers did menial work for cheap in exchange for training.
+    \item This grunt work compensates the expert for the training.
+    \item AI destroys this paradigm.
     
-\end{frame}
-
-\begin{frame}{The Informativeness Principle}
-
-    \begin{theorem}
-        The firm should use additional information $Y_2$ to set pay for worker 1 whenever the information is informative about worker 1's output: $\sigma_s^2>0$.
-    \end{theorem}
-
-    \begin{wideitemize}
-    \item The firm uses $Y_2$ to purge $Y_1$ of noise/luck/etc.
-    \item This reduces the effective variance the worker faces for each level of bonus $\beta$.
-    \item This relieves the risk-incentive trade-off.
-    \item Therefore it improves profit and total surplus!
 \end{wideitemize}
-
-
 \end{frame}
 
 
+\begin{frame}{Employment Growth and AI Exposure: Early Career}
+
+\centering
+
+ \includegraphics[width=0.7\textwidth]{pictures/canaries_early.png}
+
+\raggedright\hfill \footnotesize ``Canaries in the Coal Mine?" by Brynjolfsson, Chandar, Chen (2025)
+\end{frame}
+
+\begin{frame}{Employment Growth and AI Exposure: Mid-Late Career}
+
+\centering
+
+ \includegraphics[width=0.7\textwidth]{pictures/canaries_mid.png}
+
+\raggedright \hfill \footnotesize ``Canaries in the Coal Mine?" by Brynjolfsson, Chandar, Chen (2025)
+\end{frame}
 
 \end{document}
 

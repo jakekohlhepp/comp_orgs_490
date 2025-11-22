@@ -1,21 +1,10 @@
 \documentclass{article}
-\usepackage{amsmath}
-\usepackage{array}
-\usepackage{enumerate}
-\usepackage{bbm}
-\usepackage{hyperref}
-\usepackage{amssymb}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{tikz}
-\usepackage{istgame}
-\usepackage{adjustbox}
-\usepackage{float}
-\usepackage[margin=1in]{geometry}
-\usepackage{mathtools}
-\title{Board Work for Lecture 15: Hold Up}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 15}
 \author{Jacob Kohlhepp}
 \date{\today}
 
@@ -23,29 +12,49 @@
 
 \maketitle
 
-\section{Hold Up}
-%\input{tikz/holdup_base}
 
-We solve via backwards induction. Suppose NLC has started LOTR (paid fixed cost c) and EW has proposed a wage $w$. NLC accepts and pays $w$ if profit from accepting exceeds the outside option:
-\[ \pi(accept) \geq \pi (reject) \leftrightarrow b-w-c \geq -c \leftrightarrow b \geq w\]
-Knowing this, EW ``holds up" NLC: he proposes a wage which extracts all box office revenue: $w=b$. Any higher wage means NLC rejects. Any lower wage is leaving money on the table. 
+\section{Career Concerns}
+%https://www.econstor.eu/bitstream/10419/20098/1/dp855.pdf
 
-Then, NLC decides whether to start LOTR. They evaluate the profit of doing so against the outside option:
-\[\pi(start) \geq \pi (not) \leftrightarrow  b-w-c \geq 0\]
-Remember that $w=b$, therefore it is never profitable to film LOTR (the following inequality does not hold)
-\[b-w-c \geq 0 \leftrightarrow -c \geq 0 \]
+Lets begin by considering the last period. Putting aside the unknown skill, notice that effort is costly, there is no performance pay and there is no future. Therefore workers never exert effort in period 2, so $e_2^*=0$.
 
-Thus LOTR never is made, even when box office revenues $b$ are extremely large.
+Next, notice that because workers also do not know their own skill, all workers will choose the same level of effort in period 1. (Or they will mix, but we will assume they do not). Firms understand that all workers exert the same effort. For reasons that will become clear, lets denote this effort level $\tilde e_1$.
 
-\section{Hold Up: Back-to-Back Filming}
-%\input{tikz/holdup_more}
+Now, firms do not observe effort. But in equilibrium they ``understand" that all workers exert $\tilde e_1$. This understanding is why we denote this effort with a tilde. They also observe revenue. Thus, after period 1 firms can just subtract effort from output to get skill: $y_1-\tilde e_1 =a+\tilde e_1 - \tilde e_1=a$.
 
-We model back-to-back filming as EW proposing a wage beforehand. By accepting the wage offer, NLC agrees to start LOTR. So the fixed cost occurs after the wage is set. We solve via backwards induction. NLC accepts a wage offer if the profit of doing so exceeds the outside option:
-\[\pi(start) \geq \pi (not) \leftrightarrow  b-w-c \geq 0\]
-Knowing this, EW proposes the highest wage NLC will accept, which is box office revenue less the fixed cost of production:
-\[w = b-c\]
-This is true as long as $b-c\geq \bar u$. If $b-c<\bar u$ there is no wage that EW can propose that is acceptable to both parties, so EW will propose any high wage $w>b-c$, NLC will reject, and both get their outside options.
+We need to specify what happens if the firm observes revenue less than $\tilde e_1$ or greater than $\tilde e_1+A$. We will assume for our simple model that firms believe $a=0$ in the first case and $a=A$ in the second case. The justification is that firms do not become more pessimistic when they see higher revenue and they do not become more optimistic when they see lower revenue. Notice that we need this assumption. Revenue outside $[\tilde e_1, \tilde e_1+A]$ is not going to occur in equilibrium but the worker will still consider choosing a very different effort level that could make it possible. These are ``global deviations." 
 
-When is LOTR made? First, box office revenues less the fixed cost must be positive: $b-c\geq 0$. Once this is true, NLC agrees to the wage EW proposes. Second, $b-c$ must be at least EW's outside option: $\bar u$. Otherwise, there does not exist a wage that both NLC and EW will accept. Putting this together, LOTR is made whenever $b-c-\bar u\geq 0$. This is exactly when it is efficient to make LOTR: when real benefits are greater than real costs, and total surplus is maximized.
+In this way, in period 2 skill is known. The firms then compete Bertrand style for the worker. They know skill is $a$ and they know $e_2^*=0$, so revenue from the worker is just skill: $y_2=a+e_2^*=a$. Both firms bid a wage of $w_2^*=a$. To see why, consider any deviation from this strategy, keeping the other firm bidding at $a$. If either firm deviates to $w>a$, they win the worker but lose money because $a-w<0$. Suppose a firm bids a wage below $a$. Then they lose for sure and still get 0.
+
+Now consider the worker's choice of effort in period 1. The period 1 wage $w_1$ is already decided by this point and it is a flat wage, so it does not impact the worker's choice of effort.  When finding the worker's effort choice in period 1, we must be careful, because there are two efforts floating around. There is actual effort $e_1$, which the worker controls and the firm does not see, and there is $\tilde e_1$, the effort the firm expects the worker to put in. The worker can make the firm think that he/she is higher skill by exerting effort that is different than $\tilde e_1$. But the worker CANNOT impact the firm's belief about effort $\tilde e_1$. Thus when we take derivatives to find $e_1$, the effort the firm thinks will happen, $\tilde e_1$, will behave as a constant.
+
+This is the heart of the model: the worker has an incentive to work harder to build a better reputation. The worker's payoff from effort in period 1 is the flat wage in period 1 and 2 less the cost of effort in both periods. Remember, the effort in period 2 is always 0 which has no cost. Importantly, the period two wage is impacted by period 1 effort, because this determines what the market thinks about the worker's skill. Thus the worker maximizes:
+\[\max_{e_1} w_1 +E[w_2(e_1, \tilde e_1)]-e_1^2/2 \]
+The expected wage in period 2 given effort $e_1$ and expected effort $\tilde e_1$ is: 
+\[E[w_2(e_1, \tilde e_1)] = E[y_1-\tilde e_1] = E[a+e_1-\tilde e_1] =E[a] + e_1-\tilde e_1 \]
+Thus the maximization problem becomes:
+\[\max_{e_1} w_1 +E[a] + e_1-\tilde e_1-e_1^2/2 \]
+assuming $e_1$ is in the range $(\tilde e_1, \tilde e_1+A)$. Taking derivative with respect to only $e_1$ (not $\tilde e_1$):\footnote{We do not take derivatives with respect to $\tilde e_1$ because the worker cannot change the market's beliefs.}
+\[[e_1]: 1-e_1 =0 \leftrightarrow e_1^*=1\]
+In equilibrium, the market's belief must match reality, so $\tilde e_1 = e_1^*=1$. Notice that this is the first-best level of effort because it is equating the marginal cost of effort to the marginal benefit of effort. So career concerns motivate the worker to provide the efficient amount of effort!
+
+The last piece to recover is the period 1 wage. At this point, no one knows true skill $a$. So the value to the firms of the worker in period 1 is just expected skill plus the effort everyone exerts in period 1: $e_1=\tilde e_1=1$. By the same argument we used in period 2, firms bid exactly $E[a]+\tilde e_1$. The mean of a uniform random variable is just the middle of the range: $(A+0)/2$ so the wage in period 1 will be $w_1^*=A/2+\tilde e_1=A/2+1$.
+ 
+It turns out that there are some technical conditions we need to get these results. One condition that assures everything ``works" is that $A$ is sufficiently large.
+
+  \section{Wages}
+
+  Suppose $A=10$. Then wage in the first period is $A/2+1=6$. Workers are distributed uniformly between $[0,10]$. Wage in the second period is $a$. Thus for the 60\% of workers with skill $a<6$ wages go down over time, while for the 40\% of workers with skill $a>6$ wages go up.
+
+
+\section{References}
+
+This parsimonious career concerns model is from the following paper:
+
+ Irlenbusch, Bernd; Sliwka, Dirk (2003) : Career Concerns in a Simple
+Experimental Labour Market, IZA Discussion Papers, No. 855, Institute for the Study of Labor
+(IZA), Bonn
+
+
 
 \end{document}

@@ -1,8 +1,9 @@
-\documentclass[14pt]{article}
+\documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amsmath} 
-\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
 \newtheorem{lemma}{lemma}
+\usepackage[margin=1in]{geometry}
+
 \title{Board Work for Lecture 12}
 \author{Jacob Kohlhepp}
 \date{\today}
@@ -12,78 +13,89 @@
 \maketitle
 
 
-\section{Relational Contracts}
+\section{Free Riding Problem}
 
-\subsection{Guessing a Strategy}
+To get a feel for the problem associated with teamwork, consider the intuitive wage scheme where we all split output evenly. That is: $w_i(y)=y/N=(e_1+e_2+...e_N)/N$. The marginal benefit to the worker of additional effort is:
+\[\frac{\partial w_i(y)}{\partial e_i} = \frac{\partial }{\partial e_i} \frac{e_1+e_2+...e_i+...+e_N}{N} = \frac{1}{N} \]
+The worker equates this to the marginal cost to find the effort they provide:
+\[c_i'(e_i)=\frac{1}{N} \]
+In general this is too little effort. To see this consider when $c_i(e_i)=e_i^2/2$. In this case individual output less effort cost looks like our effort-based pay model ($e_i-e_i^2/2$). And the first-best effort is $e_i^*=1$. However, what actually happens is given by: $c_i'(e_i)=1/N \implies e_i=1/N$. Each worker provides a fraction of the first-best effort, and the effort provided gets lower as the group gets bigger.
 
-We guess two strategies, one for the firm and one for the worker. Our strategies must specify what each player does for any possible history of play. This is just one of infinitely many equilibria. It is easier to analyze because strategies are simple. But this simplicity comes at a cost: if you think about what the worker and the firm do when either deviates, it is rather extreme.
+Effectively people are free riding: they know that the benefits of their effort are split across $N-1$ other people but they bare the full costs of their effort directly. So what do they do? They provide too little effort. Since everyone does this, we collectively get a total effort of 1 instead of the first-best total effort $\sum_{i=1}^N e^*_i = N$.
 
-For the worker, we guess they take the job and exert high effort as long as the firm pays a high wage $w_t=w_H$. The first time they  observe any wage other than $w_H$, they never take the job again regardless of what the firm offers in the future.
+\section{First-Best}
 
-For the firm, we guess they first post a high wage $w_H$. They continue to post this wage as long as they observe the worker providing high effort in the prior period, $e_{t-1}=H$. The first time the worker does not exert high effort (takes the outside option or exerts low effort) the firm post a low wage $w_L$ forever after regardless of what the worker does in the future.
+The first-best benchmark is the amount of effort from each worker that maximizes total surplus. Total surplus is all the real benefits less all the real costs (wages are transfers from the firm to the worker so they wash out). The real benefits are output and the real costs are each worker's effort cost, so the first-best effort solves:
 
-If the firm and the worker do this strategy, the outcome of the game is simple: the firm posts a high wage, the worker exerts high effort, and this repeats forever. This is called ``on path" because it is what actually happens on the equilibrium path. This is sustained by ``off path" consequences: if either party fails to uphold their end, both sides start ``punishing" the other: the firm posts low wages and the worker never takes the job forever. Notice that these are extreme punishments: the worker gets their outside option $\bar u$ forever, while the firm gets $0$ profit forever.
+\[\max_{e} y(e) -\sum_{i=1}^N c_i(e_i)\]
+where remember that $e$ contains each effort of each worker. Remember that $y(e)=e_1+e_2+...+e_N$. Take the FOC for worker $i$'s effort:
+\[\frac{\partial y(e)}{\partial e_i} -c_i'(e_i)=0 \leftrightarrow \frac{\partial e_1+e_2+...+e_N}{\partial e_i}-c_i'(e_i)=0\leftrightarrow 1 -c_i'(e_i)=0\]
+Thus the first-best effort is defined as the $e_i^*$ that solve:
+\[ c_i'(e_i^*)=1\]
+for all $i$. This is one equation for each worker, so we can find $e_i^*$ for everyone. We call the list of all of the first-best effort $e^*$.
+
+\section{Partnerships}
+
+% \begin{definition}
+%     A partnership is a wage scheme where $w_i(y(e))\geq 0$ and:
+%     \[\sum_{i=1}^N w_i(y(e))=y(e)\]
+%     for every output $y(e)$.
+% \end{definition}
+
+We now want to know if there exists a wage scheme that is a partnership that also achieves first-best effort $e^*$. To find out, we suppose for sake of contradiction that there exists a wage scheme $w_i(e)$ which implements first-best effort $e^*$. Given a wage scheme $w_i(e)$, worker $i$ chooses effort based on the FOC:
+\[\frac{\partial w_i(y(e))}{\partial e_i}-c_i'(e_i)=0\]
+We can expand the first term using the chain rule:
+\[\frac{\partial w_i(y(e))}{\partial e_i}=w_i'(y) \frac{\partial y(e)}{\partial e_i} \]
+Remember that output is just the sum of everyone's effort so:
+\[\frac{\partial y(e)}{\partial e_i} = \frac{\partial e_1..+e_i+...e_N}{\partial e_i}= 1 \]
+Therefore:
+\[\frac{\partial w_i(y)}{\partial e_i}=w_i'(y) \frac{\partial y(e)}{\partial e_i} = w_i'(y(e))\]
+Putting everything together, we have that worker $i$'s effort solves:
+\[ w_i'(y(e)) =c_i'(e_i) \]
+If we want to get first-best effort, we need $e^*$ to solve this equation for everyone. Therefore each of the $N$ equations must hold if we plug in $e^*$:
+\[ w_i'(y(e^*)) =c_i'(e_i^*) \]
+But we also have that $c_i(e^*_i)=1$, so:
+\[ w_i'(y(e^*)) =c_i'(e_i^*)=1 \]
+So we must be paying each worker a dollar for their marginal effort. Recall that a partnership by definition is a wage scheme where what is paid out to everyone is equal to the output produced:
+\[\sum_{i=1}^N w_i(y(e))=y(e)\]
+We now work with this ``budget balance" equation. Take the derivative of both sides of this equation with respect to total output/effort $y(e)$ (not individual effort):
+\[ \frac{\partial } {\partial y(e)} \bigg ( \sum_{i=1}^N w_i(y(e)) \bigg )=\frac{\partial } {\partial y(e)} \bigg ( y(e) \bigg ) \]
+\[  \sum_{i=1}^N \frac{\partial w_i(y(e))} {\partial y(e)}  =1 \]
+\[  \sum_{i=1}^N w_i'(y(e))  =1 \]
+This means that the marginal dollar paid to all workers must sum up to 1. But under the first-best, everyone must get the marginal dollar produced: $w_i'(y(e^*))=1$. But if we plug this in, we get a contradiction:
+\[  \sum_{i=1}^N w_i'(y(e^*)) = \sum_{i=1}^N 1=N  \neq 1 \]
+This is because under a partnership we must split the marginal dollar! Therefore a partnership cannot implement the first-best level of effort. This was a proof by contradiction: we assumed the wage scheme accomplished the first-best effort and it was a partnership. We then showed that this is impossible.
+
+
+\section{Group Bonus}
+
+We will start by guessing that $\bar y = y(e^*)$ and $b_i\geq c_i(e_i^*)$. Why might these properties be necessary to get the first-best? We will proceed by showing that under this scheme everyone chooses $e_i^*$ in equilibrium. We will end by asking if these properties are actually feasible. That is, is there enough money to pay bonuses that satisfy these properties?
+
+The first thing to remember is that in equilibrium, the worker assumes everyone else is contributing first-best effort. The question is then given this, does the worker want to follow suit and contribute first-best effort? or do they want to free ride or work too hard? Notice that if everyone, including the worker contributes exactly the first-best level of effort each person makes a positive amount of money because everyone gets the bonus, and the bonus is greater than the effort cost at $e_i^*$ (because of the property $b_i\geq  c_i(e_i^*)$).
+
+
+If the worker overworks ($e_i>e_i^*$) the worker earns no additional money (the bonus is fixed at $b_i$) but pays an additional effort cost. This is clearly worse than just contributing first-best effort $e_i^*$. If the worker free rides and contributes too little effort ($e_i<e_i^*$) then $y(e)<y(e^*)$ and everyone including the worker we are considering does not get the bonus. The worker's payoff goes from something positive to something that is at best 0 (if the worker chooses $e_i=0$) and potentially negative (if $e_i^*>e_i>0$). Combining these arguments we have that each worker wants to contribute exactly first-best effort under a group bonus with the properties we guessed.
+
+Now, is the group bonus we proposed feasible? Is there money to pay for it? Yes! We first consider the case when $e_i=e_i^*$. Remember that first-best effort is defined as the level of effort which solves:
+\[\max_e y(e) - \sum_i c_i(e_i)\]
+We assumed that if everyone contributes 0 effort, this is zero cost but also zero output. Since $e^*$ is first-best it achieves more total surplus than 0 effort from everyone. This means that:
+\[y(e^*)- \sum_i c_i(e_i^*)>0\]
+In words, output is greater than the total effort cost. Thus, there is enough money to pay each worker for their effort cost. There are many bonuses that can work: they just need to cover each worker's cost of effort  and add up to the total output.
+
+For example, if there are two workers which both contribute 2 to output, and the cost of effort for both is 1, any bonus that adds up to 4 and gives each person at least 1 works. For example, $(2.9, 1.1)$ and $(2,2)$ both work.
+
+
+We also must consider when $y(e)<y(e^*)$. In this case bonuses are 0, so it is trivially true that we can afford to pay them out. Taken together we have shown that a specific type of group bonus is feasible and implements first-best effort.
 
 
 
 
-\subsection{No Incentive to Deviate: Checking One-Shot Deviations}
 
-To show our guessed strategies form a subgame perfect Nash equilibrium, we must check all one shot deviations. We will check the worker's one shot deviations thoroughly, and only briefly consider the firm. This is mainly to make this model less of a burden for tests/homework. In graduate school if you were to use this model you would want to check the firm's side as well. The deviations we need to check are as follows:
+\section{Money Burning}
 
-\begin{enumerate}
-    \item Taking the job and exerting low effort when the worker is supposed to be not taking the job (because they slacked in the past and are being offered $w_L$).
-    \item Taking the job and exerting high effort when the worker is supposed to be not taking the job (because they slacked in the past and are being offered $w_L$).
-    \item Not taking the job when the worker is supposed to take the job (because they have never slacked before and are being offered $w_H$)
-    \item Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because they have never slacked before and are being offered $w_H$).
-\end{enumerate}
+Consider the group bonus. When everyone performs first-best effort, all output is paid out in bonuses because $\sum_i b_i = y(e^*)$. However, whenever too little effort is provided by anyone, nothing is paid out. Even if only one person slacks off, or even if everyone only slightly slacks off, nothing gets paid out. Yet, except for some particular output functions, something will be produced.
 
-Think about 1 and 2 for a second. Notice that if the worker does deviation 1 or 2, the consequence starting tomorrow is the same: the low wage forever after. However, deviation 2 also incurs an effort cost of $c$ today. Thus we can see that as long as deviation 1 is not profitable, deviation 2 will also not be profitable. In the same way, deviations 3 and 4 have the same consequence tomorrow: trust is broken and the low wage is offered forever. However, deviation 4 is slightly better because the worker gets the high wage for one period instead of the outside option. Since the high wage must be at least $\bar u +c$, this is always the more attractive deviation. So we if 4 is not profitable, 3 will also not be profitable. This leaves only two deviations we need to check:
-
-\begin{enumerate}
-    \item Taking the job and exerting low effort when the worker is supposed to be not taking the job (because they slacked in the past and are being offered $w_L$).
-    \item Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because they have never slacked before and are being offered $w_H$).
-\end{enumerate}
-
-Before we check for deviations, we need to think about what low wage $w_L$ the firm will choose. If the wage $w_L$ is above $\bar u$ the worker takes the wage and their payoff is just $w_L$. However, if the wage is less than $\bar u$ the worker takes the outside option and gets $\bar u$. Will the firm offer a wage above $\bar u$? Well, a wage above $\bar u$ only makes exerting low effort more tempting, and it also costs the firm money. So it will not offer a wage above $\bar u$. Will it offer exactly $w_L=\bar u$? Well, this gets the worker to take the job, but the worker exerts low effort, so the firm gets $0$ revenue from this and then has to pay out a positive wage. This generates negative profit, so the firm will not do it. 
-
-Therefore the firm will offer any wage where $w_L<\bar u$. The one I suggest specifying is $w_L^*=0$. Any time the firm offers such a low wage, the worker will want to take the outside option. As a result, the worker's payoff in a single period whenever the firm posts a low wage is $\bar u$. 
-
- With this in hand, let's consider deviation (1): Taking the job and exerting low effort when the worker is supposed to be not taking the job (because they slacked in the past and are being offered $w_L$). Not deviating in this case means never taking the job, which gives the worker $\bar u$ forever: 
-\[u(\textit{don't deviate, slacked in past})=\sum_{t=0}^\infty w_L=\frac{\bar u}{1-\delta}\]
-
-Deviating and taking the job and exerting low effort in this case yields the low wage today ($w_L=0$) and no effort cost, and then $\bar u$ starting tomorrow until the end of time:
- \[u(\textit{deviate to accept and low effort, slacked in past}) =  0+\delta \sum_{t=0}^\infty \delta^t \bar u=   \frac{\delta \bar u}{1-\delta}\]
-
-Comparing deviating to not deviating we have that:
-   \[u(\textit{don't deviate, slacked in past})  \geq u(\textit{deviate to accept and low effort, slacked in past}) \]
-   \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta} \leftrightarrow  \bar u \geq 0 \]
-The outside option is always weakly positive, so this is always true. There is no incentive to deviate in this way. 
-
-Now consider deviation (2): taking the job and exerting low effort when they are supposed to take the job and exert high effort (because they have never slacked before and are being offered $w_H$). Let's consider first the worker's payoff from doing what they are supposed to do (never slacking off). The worker receives $w_H$ forever and pays the effort cost $c$:
-\[u(\textit{don't deviate, never slacked})=\sum_{t=0}^\infty (w_H-c)=\frac{w_H-c}{1-\delta}\]
-The worker compares this to a one-shot-deviation: exerting low effort today (at 0 cost), still getting paid $w_H$ today, but then getting offered $w_L$ forever after. Remember, the worker changes action only in one period and is assumed to follow through on our guessed strategy everywhere else. The gain today from this is $w_H$ without any effort cost. The loss is that the firm now posts $w_L$ forever. Putting this all together, we have:
-\[u(\textit{deviate, never slacked})=w_H+\delta \sum_{t=0}^\infty w_L = w_H+ \frac{\delta \bar u}{1-\delta}\]
-The worker has no incentive to deviate if:
-\[u(\textit{don't deviate, never slacked}) \geq u(\textit{deviate, never slacked}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
-
-This is a substantive inequality: it will not always be true for reasonable parameter values ($\delta, c, v, \bar u$). Also, it involves a choice variable: $w_H$.
-
-\subsection{Finding the High Wage}
-
-First, simplify the inequality we derived:
-
-\[\frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
-\[w_H-c \geq (1-\delta) w_H +\delta \bar u\]
-\[\delta w_H \geq c +\delta \bar u\]
-\[w_H \geq   \frac{c}{\delta}+\bar u\]
-We see that this inequality is more likely to be satisfied the higher $w_H$ is. However, the firm maximizes profit by paying the lowest wage that satisfies the inequality, changing the inequality into an equality:
-\[w_H^*=\frac{c}{\delta}+\bar u\]
-The firm's profit is the revenue less the high wage, because on path the worker never slacks:
-\[\pi = \sum_{t=0}^\infty \delta^t (v-w_H^*)=\frac{v-\frac{c}{\delta}-\bar u}{1-\delta}\]
-If you stare at this you will notice that profit is increasing in $\delta$. We can also see that a relational contract is profitable if:
-\[\delta(v-\bar u) \geq c\]
-The more patient the worker and the firm are the more likely this is to hold. The higher the value of working together the more likely this is to hold. The higher the cost of effort and the higher the outside option the more unlikely this is to hold.
+Implementing the first-best using group bonuses thus requires credibly destroying or getting rid of output when people slack. In some organizations there is no third party boss or shareholder, so it is hard to credibly commit to destroy output rather than pay out. This provides a reason for the existence of an organization, like a corporation, where ownership and control are separated.
 
 
 \end{document}

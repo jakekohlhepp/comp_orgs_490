@@ -1,0 +1,430 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,usenames,dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{bib.bib}
+\usepackage{graphicx}
+% \hypersetup{
+%     colorlinks,
+%     %citecolor=black,
+%     linkcolor=black
+% }
+\usepackage{array}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{epigraph} 
+\usepackage{lscape}
+\usepackage{adjustbox}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{\ensuremath{#2}}}%
+\usepackage{import}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}
+\usepackage{xcolor}
+\def\boxit#1#2{%
+    \smash{\color{red}\fboxrule=1pt\relax\fboxsep=2pt\relax%
+    \llap{\rlap{\fbox{\phantom{\rule{#1}{#2}}}}~}}\ignorespaces
+}
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-fct}
+\usepackage{amsthm}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\mode<presentation> {
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes} -
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen} -
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester} -
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+  \setbeamertemplate{enumerate items}[default]
+  %\setbeamertemplate{page number in head/foot}{\insertframenumber}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem*{assumption}{Assumption}
+\usetikzlibrary {positioning}
+\renewcommand{\arraystretch}{1.5}
+\newcommand\hideit[1]{%
+  \only<0| handout:1>{\mbox{}}%
+  \invisible<0| handout:1>{#1}}
+\usepackage[default]{lato}
+
+\setbeamercolor{block body alerted}{bg=alerted text.fg!10}
+\setbeamercolor{block title alerted}{bg=alerted text.fg!20}
+\setbeamercolor{block body}{bg=structure!10}
+\setbeamercolor{block title}{bg=structure!20}
+\setbeamercolor{block body example}{bg=green!10}
+\setbeamercolor{block title example}{bg=green!20}
+
+
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+%\usepackage {xcolor}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[diss]{Lecture 10: Multitasking} % The short title appears at the bottom of every slide, the full title is only on the title page
+\author{Compensation in Organizations} % Your name
+\institute[shortinst]{Jacob Kohlhepp}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+\begin{frame}[shrink=30]{Examples of Gaming}
+
+\begin{tabular}{c|c|c|c}
+    Paper &  Setting  & Gaming Described & $\Delta$ Worker$+$Firm Surplus? \\
+    \toprule
+    Roy (1952) & US steelworkers & deliberate slacking & ambiguous\\ 
+     Oyer (1998) & US manufacturing & higher end of year sales & price decreases (weak $-$)  \\
+     Larkin (2014) & software salespeople & higher last day sales & price decreases (weak $-$)  \\
+     Courty and Marschke (2004) & federal bureaucrats & graduation date of trained workers &  earnings reductions ($-$)\\
+    Alexander (2020) & doctors in New Jersey & sorting patients & ambiguous
+
+\end{tabular}
+
+    
+\end{frame}
+
+\begin{frame}
+\centering
+    \huge Discussion: Dinerstein and Opper (2025)
+    \footnotesize (Still working paper)
+\end{frame}
+
+
+\begin{frame}{Gaming vs. Multitasking}
+
+\begin{wideitemize}
+    \item I view gaming as manipulating the rules, typically via timing, to improve payouts.
+    \begin{wideitemize}
+        \item Example: Closing a deal early to increase commission.
+        \item Example: Grading more leniently on a standardized test that is used for benchmarking.
+        \item Example: Working very hard for the first 4 hours of a shift and relaxing for the remaining 4.
+    \end{wideitemize}
+    \item Multitasking involves choosing how much effort to spend on different tasks.
+    \begin{wideitemize}
+        \item Example: Seeing more patients for less time vs. fewer patients for more time.
+        \item Example: Teaching more tested material at the expense of untested material.
+        \item Example: Producing more oil now rather than shutting down for maintenance. 
+    \end{wideitemize}
+    \item There are many situations that are both gaming and multitasking.
+    \begin{wideitemize}
+        \item Example: Spending time opening fake bank accounts s opposed to real accounts at Wells Fargo.
+    \end{wideitemize}
+\end{wideitemize}
+    
+\end{frame}
+
+\begin{frame}[shrink=30]{Examples of Multitasking}
+\begin{tabular}{c|c|c|c}
+    Paper &  Setting & Performance Pay Change & Multitasking Impact? \\
+    \toprule
+     Dumont et. al. (2008) & doctors in Quebec &  less & $\uparrow$ teaching and time per service, $\downarrow$ volume  \\
+     Tayan (Pop. Press 2019) & Wells Fargo bankers & more? & $\uparrow $ fake accounts \\
+     Alexander (2020) & doctors in New Jersey & more & no impact\\
+    Gong et. al (2021) & doctors in China & more & $\uparrow $ intensity, $\downarrow$ inpatient stays\\
+     Dinerstein and Opper (2023) & teachers in NYC & more & $\uparrow $ tests scores, $\downarrow$ grades \& attendance
+\end{tabular}
+\end{frame}
+
+\begin{frame}[c]{Dumont et. al. (2008)}
+\centering
+\includegraphics[width=0.9\textwidth]{pictures/multitask_doctors.png}
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge Discussion: Tayan (2019) 
+    
+    \normalsize (Note: popular press article not peer reviewed research)
+\end{frame}
+
+\begin{frame}{The One Task Assumption}
+    \begin{wideitemize}
+        \item So far we have assumed that there is a single, productive task.
+        \item This captures many jobs and environments well.
+        \item The trade-off is between exerting effort and not exerting effort.
+        \item But some jobs have more than one type of productive effort.
+        \begin{wideitemize}
+            \item Question: Can you give examples?
+        \end{wideitemize}
+        \item Some jobs have destructive tasks!
+        \begin{wideitemize}
+            \item Question: Can you give examples?
+        \end{wideitemize}
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{The Multitasking Model: Dropping Uncertainty}
+    \begin{wideitemize}
+        \item We want to capture a new force (multiple tasks)
+        \item To keep things simple, we drop noise/luck/uncertainty ($\epsilon$)
+        \item We no longer need to think about certainty equivalents, variances, etc.
+        \item We also will assume an outside option of 0 for the worker.
+    \end{wideitemize}
+\end{frame}
+
+\begin{frame}{The Multitasking Model: Adding Multiple Tasks}
+    \begin{wideitemize}
+        \item The worker will have two tasks, numbered 1 and 2.
+        \item The cost of exerting effort $e_1$ at task 1 and $e_2$ will be $c(e_1, e_2)$
+        \item We will assume this function is increasing in each argument, but not much else.
+        \item Output is given by $y=a e_1 + b e_2$, where $a,b$ can be positive or negative.
+        \item We can only pay based on some measurement of effort: $m(e_1, e_2)$
+    \end{wideitemize}
+\end{frame}
+
+
+\section{Crowding Out}
+
+\begin{frame}{Model}
+\begin{wideitemize}
+    \item Output is $y=a e_1+b e_2, a>0, b>0$
+    \item Cost of effort is:
+       \[c(e_1, e_2) = \begin{cases}
+            0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+            (e_1+e_2-2\bar e)^2/2 & \text{ if } e_1+e_2 \geq 2 \bar e 
+        \end{cases}\]
+    \item Only task 1 effort is measured: $m=e_1$
+    \item Only what is measured is rewarded: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
+    \item Assume that without incentives (if $\beta=0$) the worker supplies all ``free effort" (total effort up to $2\bar e$) and splits total effort evenly across the two tasks:
+      \[e_1=e_2=\bar e\]
+\end{wideitemize}
+    
+\end{frame}
+
+
+\begin{frame}{First-Best Solution}
+\centering
+    \huge See the board!
+\end{frame}
+
+\begin{frame}{Equilibrium Solution (What Actually Happens)}
+\centering
+    \huge See the board!
+\end{frame}
+
+\begin{frame}{Equilibrium Solution (What Actually Happens)}
+\begin{theorem}
+    The firm uses high-powered incentives ($\beta^*=a$) and the worker focuses entirely on task 1 ($e_1^*=a + 2\bar e, e_2^*=0$) if:
+\[a \geq 2\bar e\frac{ b - a }{a}\]
+    Otherwise the firm uses a flat salary ($\beta^*=0$) and total effort is low and evenly split ($e_1^*=e_2^*=\bar e$)
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}{Deepwater Horizon}
+
+\begin{wideitemize}
+    \item Cost reductions were rewarded ($e_1$).
+    \item But improving ``safety" or ``latent risk" was not.
+    \item Part of this is not nefarious: cost reductions are easy to measure.
+    \item Avoided disasters are impossible to measure!
+    \item In some instances incentives are worse than no incentives!
+\end{wideitemize}
+
+\end{frame}
+% \begin{frame}{The Multitasking Model Variants}
+%     \begin{wideitemize}
+%         \item "Crowding Out":
+%         \[c(e_1, e_2) = \begin{cases}
+%             0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+%             (e_1+e_2-2e)^2/2 & \text{ if } e_1+e_2 \geq 2 \bar e 
+%         \end{cases}\]
+%         \[m = e_1\]
+%         \[a>0, b>0\]
+%         \item "Destructive Effort"
+%         \[c(e_1, e_2) = (e_1^2+e_2^2)/2 \]
+%         \[m = e_1+e_2\]
+%         \[a>0, b<0\]
+%     \end{wideitemize}
+% \end{frame}
+
+
+% \begin{frame}{The Multitasking Model Variants}
+%     \begin{wideitemize}
+%         \item "Crowding Out":
+%         \[c(e_1, e_2) = \begin{cases}
+%             0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+%             (e_1+e_2-2e)^2/2 & \text{ if } e_1+e_2 \geq 2 \bar e 
+%         \end{cases}\]
+%         \[m = e_1\]
+%         \[a>0, b>0\]
+%         \item "Destructive Effort"
+%         \[c(e_1, e_2) = (e_1^2+e_2^2)/2 \]
+%         \[m = e_1+e_2\]
+%         \[a>0, b<0\]
+%     \end{wideitemize}
+% \end{frame}
+
+\begin{frame}{Counterterrorism at the FBI}
+    \begin{wideitemize}
+        \item The FBI was created to fight traditional crime, like murders.
+        \item Traditional crime is easy to measure:
+        \begin{wideitemize}
+            \item How many suspects did you bring in?
+            \item How much evidence did you collect?
+            \item Was there a conviction?
+        \end{wideitemize}
+        
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Counterterrorism at the FBI}
+    \begin{wideitemize}
+         \item During the 1990s, the FBI tried to also handle domestic terrorism.
+        \item But how do you measure this?
+        \item Terrorism is rare.
+        \item Successful counterterrorism prevents things from happening.
+    \end{wideitemize}
+\end{frame}
+
+
+\section{Teaching to the Test?}
+
+\begin{frame}
+\centering
+    \huge Recall: Dinerstein and Opper (2025)
+    \footnotesize (Still working paper)
+\end{frame}
+
+
+\begin{frame}
+\centering
+    \huge Discussion: Lavy (2009)
+
+\end{frame}
+
+
+
+
+
+
+       
+\end{document}
+
+
+
+
+
+
+

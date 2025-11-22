@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Board Work for Lecture 1: A Quick Check}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Compensation Package}
+
+The CEO of fictional company HiTech has a total compensation of \$100 million. 99\% of his pay is salary and the remaining 1\% is stock options. A technology industry association puts out a list of best practices, and advises all tech companies should pay no more than 98\% of their CEO's total compensation in salary. The justification is that paying too much in a flat salary makes the CEO not aligned with the shareholder's values.
+
+Suppose HiTech decides to reduce the CEO's salary in order to follow the best practices. What is the minimum amount, in dollars, that HiTech needs to reduce the CEO's salary?
+
+\section{Solving}
+
+To begin, notice that we want the minimum amount. This means we want to get the percentage salary to be exactly 98\%. Going any lower would make HiTech compliant but would require reducing the salary by a larger amount.
+
+From here, there is an intuitive way to solve this problem and a mathematical way. We begin with intuitive. Notice that 98\% salary implies 2\% stock, which means we need to double the total fraction paid out in stock. Since we cannot change the amount paid in stock, we need to reduce the total compensation by half. 
+
+That is, we can bring the CEO's total compensation down from \$100 million to \$50 million. Since the \$1 million in stock cannot be changed, this means the new salary must be \$49 million, which is a \$50 million reduction (more than 50\% decrease).
+
+This is very wordy. We could have used algebra. We want to achieve a pay package that is 98\% salary. Denote $x$ as the dollar reduction in salary. Then we wish to solve:
+
+\[\frac{99-x}{100-x}=0.98 \leftrightarrow 99-x = 98-0.98x \leftrightarrow 1=0.02x \leftrightarrow x= 50\]
+
+
+\end{document}

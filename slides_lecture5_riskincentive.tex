@@ -437,7 +437,7 @@ The amount sharecroppers keep ($\beta$) is positively associated with noise ($\s
 \begin{frame}{Choosing What to Do}
 
 \begin{wideitemize}
-    \item The firm has two choices: (1) choose what the agent can do and specify an effort based wage (2) let the agent choose and specify and output based wage.
+    \item The firm has two choices: (1) choose what the agent can do and specify an effort based wage (2) let the agent choose and specify an output based wage.
     \item We can get the right effort from (1), but the firm might choose the wrong  activity.
     \item We will get the wrong effort from (2) but the worker will choose the right activity (why?)
     \item The key observation is that the maximum of random variables generally depends on variance.
@@ -454,14 +454,14 @@ The amount sharecroppers keep ($\beta$) is positively associated with noise ($\s
 \begin{wideitemize}
      \item For two normal random variables with mean 0 and variance $\sigma^2$ we have:
     \[E[\max\{\epsilon_1, \epsilon_2\}]=\frac{\sigma}{\pi} \]
-    \item So ``delegation" using performance pay $w(y)$ (option 1) becomes better relative to effort-based pay and command and control (option 2) when variance is larger.
+    \item So ``delegation" using performance pay $w(y)$ (option 2) becomes better relative to effort-based pay and command and control (option 1) when variance is larger.
     \item This overturns our earlier result and suggests a positive relationship between risks and performance pay!
     \item CEOs, franchising, etc. requires making complex decisions with situation-specific knowledge.
 \end{wideitemize}
 
 
 
-\small Supporting source: ``The Tenous Trade-off Between Risk and Incentives" (Prendergast 2002)
+\small Supporting source: ``The Tenuous Trade-off Between Risk and Incentives" (Prendergast 2002)
 
     
 \end{frame}
@@ -469,10 +469,11 @@ The amount sharecroppers keep ($\beta$) is positively associated with noise ($\s
 \begin{frame}{Favoritism in Performance Evaluations}
 
 \begin{wideitemize}
-     \item If a supervisor likes a subordinate, it is costly to give them a bad performance evaluation.
-     \item And this cost is larger when more is on the line (think about if the evaluation costs the person their job)
-     \item Therefore stronger incentives make supervisors less truthful about employee performance.
-     \item Firms might care about evaluations not just to induce effort but also to assign the employee to the right tasks.
+    \item It is typically supervisors, not firms, that measure output via performance evaluations.
+     \item But it is is costly for supervisors to give employees they like bad performance evaluations.
+     \item And the cost grows when more is on the line: that is when $\beta$ is higher!
+     \item Therefore stronger incentives (higher $\beta$) makes supervisors less truthful about employee performance.
+    \item Example: If you and I are good friends at work, I want you to make more money.
 \end{wideitemize}
 
 
@@ -486,20 +487,71 @@ The amount sharecroppers keep ($\beta$) is positively associated with noise ($\s
 \begin{frame}{Favoritism in Performance Evaluations}
 
 \begin{wideitemize}
-     \item In this context, we can think of risk as the supervisor knowing less about the employee's performance
-     \item So their evaluation is noisy and not useful for assigning the worker to tasks.
-     \item So the firm uses more performance pay because the ``sorting distortion" is low.
-     \item This causes a positive link betwene incentives and risk!
+    \item But suppose a firm (not the supervisor) uses performance evaluations for two things:
+    \begin{wideitemize}
+        \item[1.] To encourage effort (as in our model).
+        \item[2.] To allocate the worker to the right job (not in our model).
+    \end{wideitemize}
 \end{wideitemize}
 
-
-
-\small Source ``Uncertainty and Incentives" (Prendergast 2002)
 
     
 \end{frame}
 
 
+\begin{frame}{Favoritism in Performance Evaluations}
+
+\begin{wideitemize}
+    \item How does favoritism impact goal 1 (encouraging effort)?
+    \item Suppose a supervisor's favoritism for a person is given by $K$ that just adds to their reported output: $\tilde y = K+ y=K+e+\epsilon$.
+    \item When $K>0$ there is biased towards the person, when $K<0$ they are biased against the person.
+    \item The supervisor and the worker know $K$ exactly.
+    \item From the firm's perspective the supervisor's favoritism for a person is given by a random variable $K$ that just adds to their reported output: $\tilde y = K+ y=K+e+\epsilon$.
+    \item Suppose on average favoritism is unbiased ($E[K]=0$) and independent of everything else.
+\end{wideitemize}
+
+    
+\end{frame}
+
+\begin{frame}{Favoritism in Performance Evaluations}
+    \begin{wideitemize}
+    \item Then for fixed effort and wages, the worker will receive:
+    \[w(\tilde y) = \alpha + \beta \tilde y = \alpha + \beta (K+e+\epsilon )\]
+    \item From the perspective of the worker, favoritism is known and just shifts utility by a constant:
+    \[E[w(\tilde y)] = E[\alpha + \beta (K+e)] + E[\beta \epsilon ] = \alpha + \beta e =\beta K \]
+    \[Var(w(\tilde y)) = Var(\alpha + \beta (K+e)) + Var(\beta \epsilon )= 0+\beta^2 \sigma^2\]
+    \item From the perspective of the firm, profit is:
+    \[\pi = E[y - w(\tilde y)] = E[e +\epsilon - \alpha - \beta (K+e+\epsilon ) ] = e-\beta e-\alpha \]
+    where $K$ has dropped out entirely because the firm is risk neutral.
+    \item Therefore the firm can easily account for favoritism in the wage.
+    \end{wideitemize}
+\end{frame}
+
+
+\begin{frame}{Favoritism in Performance Evaluations}
+
+\begin{wideitemize}
+      \item But when performance evaluations are used for goal 2 (allocation) there are big problems.
+      \item When a supervisor reports a biased evaluation $\tilde y \neq y$, the firm cares about whether bias is positive or negative.
+      \item Otherwise they may accidentally assign the worker to a task they are actually bad at doing!
+      \item As $\beta$ rises, $\tilde y$ becomes more biased.
+      \item Then $\tilde y$ becomes less useful for allocating talent.
+        \item This is a new tension between encouraging effort and allocating people, and it is real (e.g. talent hoarding).  
+\end{wideitemize}
+
+   
+\end{frame}
+
+\begin{frame}{Favoritism in Performance Evaluations}
+    \begin{wideitemize}
+        \item How does this impact the risk/incentive trade-off?
+        \pause
+       \item In this context, we can think of $\sigma^2$ as measuring how much output reflects true talent.
+     \item The higher $\sigma^2$, the less output tells us about talent.
+     \item But if $\sigma^2$ is high, even if there is no bias ($\tilde y = y$) performance evaluations are useless for allocating talent!
+     \item Therefore goal 2 does not matter, and we have a potential positive correlation between risk and incentives!
+    \end{wideitemize}
+\end{frame}
 
 \begin{frame}{Deciding When to Investigate}
 

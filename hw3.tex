@@ -12,53 +12,10 @@
 
 \maketitle
 
+The purpose of this homework is to work through three models we solved in class. There are only minor differences between these problems and the ones we did in class, so your notes should be very helpful in completing this problem set.
 
 
 
-\section{Relational Contracts}
-
-
-\subsection{Setup}
-\begin{itemize}
-    \item A firm and a worker both have discount rate $\delta$ and interact for many periods ($t=1,...,\infty$)
-    \item At each period $t$ the following occur:
-    \begin{itemize}
-        \item First the firm offers a flat wage $w_t$
-        \item Second the worker chooses high (H) or low (L) effort $e_t$
-    \end{itemize}
-    \item High effort has cost $c$, low effort has cost 0.
-    \item High effort yields revenue $v$, low effort yields revenue 0.
-    \item Firm outside option is 0, worker outside option is $\bar u>0$.
-    \item Assume the firm wants to motivate high effort.
-\end{itemize}
-
-\subsection{Questions}
-
-\begin{enumerate}
-    \item Guess an equilibrium strategy for the firm in words. Guess an equilibrium strategy for the worker in words. (Hint: guess the same strategy as in class)
-
-    
-
-        \item Call the high wage $w_H$ and the low wage $w_L$. Assume the strategy we guessed is being played. What value of $w_L$ will the firm choose and why?
-
- 
-    \item What is the worker's payoff in any period where the firm posts a wage of $w_L$? Justify your answer.
-
-    \item Write down the worker's present value utility if they slacked in the past but are now following our guessed strategy. Write down the worker's present value utility from two possible one shot deviations: taking the job and exerting low effort and taking the job and exerting high effort.
-
-     \item Write down inequalities for when there are no incentives for the worker to make these deviations. Make sure to simplify. When do they hold?
-
-    
-    \item Write down the worker's present value utility from not deviating (never slacking). Write down the worker's utility from a one shot deviation of slacking today when he/she has never slacked before.
-
-    \item Write down (and simplify) an inequality for when there is no incentive for the worker to deviate. When is it satisfied?
-
-    
-    \item Suppose $\delta = 0.4, v=3, \bar u = 1, c=1$. Is the relational contract we derived profitable for the firm?
-    \item Suppose $\delta = 0.6, v=3, \bar u= 1,c=1$. Is the relational contract we derived profitable for the firm?
-
-    \item Interpret the difference between your prior two answers.
-\end{enumerate}
 
 \section{Hold Up}
 
@@ -91,7 +48,7 @@
 
 \item Which wage does EW offer? Justify your answer.
 
-    \item Is this outcome more or less efficient\footnote{You can assume efficiency means maximizes total surplus of both EW and NLC, not distribution.} than the outcome under sequential filming?
+    \item Suppose $c=1$ and $b=3$, $\bar u =1$. Is the outcome under back-to-back filming (that you just derive) more or less efficient\footnote{You can assume efficiency means maximizes total surplus of both EW and NLC, not distribution.} than the outcome under sequential filming?
 
     
 \end{enumerate}
@@ -103,7 +60,7 @@ Note: it may be easiest to just do all math with a generic worker $i$.
 \subsection{Setup}
 \begin{itemize}
     \item There are N workers, indexed by $i=1,..,N$
-    \item Each worker can exert effort $e_i$ at cost $c_i(e_i)=e_i^2/2$
+    \item Each worker can exert effort $e_i$ at cost $c_i(e_i)=1/2+e_i^2/2$
     \item Output is the sum of everyone's effort: $y(e)=\sum_{i=1}^N e_i$
     \item The firm can pay a wage to each worker based only on team output $w_i(y(e))$
 \end{itemize}
@@ -118,7 +75,7 @@ Note: it may be easiest to just do all math with a generic worker $i$.
     
     \item  Setup the worker's utility maximization problem. Also write down the budget-balance condition for partnerships.
     \item Find and simplify the worker's effort first-order condition.
-    \item Use your answers from (1) and (4) and the fact that in partnerships all money must be paid out to prove that we cannot get first-best effort.
+    \item Use your answers from (1) and (3) and the fact that in partnerships all money must be paid out to prove that we cannot get first-best effort.
 
   Consider a wage scheme  $w_1(y(e)),...., w_N(y(e))$ that is a group bonus (see the definition from class) where the target is total first-best effort $\bar y = \sum_{i=1}^N e_i^{FB}$ and the bonus amount is more than the effort cost $b_i\geq c_i(e_i^{FB})$.
 
@@ -131,13 +88,79 @@ Note: it may be easiest to just do all math with a generic worker $i$.
  \item Give a situation (an effort choice of each worker) where money is burned under this group bonus. Note that this situation does not need to be an equilibrium.
 
 
+\item Interpret the change in the cost function in this problem relative to our ``normal" cost function $c(e_i)=e_i^2/2$. How does this change impact the solution?
 
- 
-    % \item Give an example (an effort choice of each worker $e_1,e_2$) where money is burned under the group bonus.
+
+\item If workers had an outside option and were allowed to choose to take the job prior to choosing effort, how would the change to the cost function impact how the firm design's compensation?
+
 
     
 
     
 \end{enumerate}
 
+\section{Career Concerns}
+
+
+\subsection*{Setup}
+\begin{itemize}
+        \item There are two firms and one worker.
+        \item The worker has a skill level $a$ that no one knows.
+        \item However, everyone knows that skills are distributed uniformly between $[0,A]$. That is, $a\sim U[0,A]$
+        \item The worker exerts unobserved, costly effort: $c(e)=e^2/2$.
+        \item Revenue is equal to effort plus skill: $y=e+a$
+        \item The worker is hired and exerts effort in two periods.
+        \item The worker is hired in each period by the firm that posts the highest wage, and if there is a tie they randomly pick a firm (Bertrand style)
+        \item All outside options are 0.
+\end{itemize}
+
+\subsection*{Questions}
+\begin{enumerate}
+
+  \item What is the first-best level of effort for a single period? That is, the $e_{FB}$ that maximizes output less the cost of effort?
+
+
+    \item How much effort will the worker exert in period 2? Justify your answer.
+
+
+
+    \item Denote the effort the firm believes the worker exerts in period 1 $\tilde e_1$. How can the firm recover the worker's skill using $\tilde e_1$ and output $y_1$?
+
+
+    \item What output levels $y_1$ will the firm never observe if the worker does the effort that is expected ($\tilde e_1$)?
+
+
+
+    \item Suppose the firms believe skill is $a$ in period 2. What wage will they bid in period 2? Justify your answer.
+
+
+    \item Solve for the worker's effort in period 1.
+
+
+
+    \item What wage do the firms in period 1 bid? Justify your answer.
+
+\vspace{4cm}
+
+
+\item How does this effort compare to the effort in sub question 1? Why is the worker working hard?
+
+
+
+
+
+    \item Suppose $A=100$. If a worker has skill $50$, by what amount does their wage change from period 1 to period 2?
+
+
+
+
+\item Explain, either verbally or mathematically, what effort and wages in each period would be if the worker's skill was just a fixed number, $a$, that everyone knew from the very beginning. How does this help explain why the worker exerts effort in the main model where skill is unknown?
+
+
+\item Explain, either verbally or mathematically, what effort and wages in each period would be if skill was just a fixed number, $a$, that everyone knew from the very beginning AND both firms could use performance pay (i.e. a wage where $w(y)=\alpha +\beta y$). Assume that each firm ``bids" a performance pay $w_1(y), w_2(y)$ and the worker chooses the performance pay that they expect to give them the highest utility. Hint: the firms use $\alpha$ to ``get" the worker and they use $\beta$ to get the right effort once the worker is hired.
+
+
+
+
+\end{enumerate}
 \end{document}

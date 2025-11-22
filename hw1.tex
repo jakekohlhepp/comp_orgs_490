@@ -15,32 +15,34 @@
 
 The purpose of this homework is to work through our main principal-agent model with uncertainty. The only difference between the model you will solve in this homework and the one in class is that output is not mean 0. You can use the work we did in class as a reference when you get stuck, but please show all steps.
 
+You may solve this two ways: either derive everything assuming a general cost function ($c(e)$) and plug in the explicit forms of $c(e), c'(e), c''(e)$ at the end, or plug in $c(e)=e^2/2$ from the beginning. Both are acceptable.
+
 \section*{Setup}
-\subsection{Players}
+\subsection*{Players}
 \begin{itemize}
     \item There is a firm (the principal) who is risk neutral (exponential utility with parameter $\theta=0$).
     \item There is a worker (the agent) who is risk averse (exponential utility with parameter $\theta=r\geq 0$).
 \end{itemize}
-\subsection{Actions}
+\subsection*{Actions}
     \begin{itemize}
     \item Firm chooses a linear wage which depends on effort ($w(e)$) or output ($w(y)$)
     \item After seeing the wage, the worker either accepts or rejects the job.
     \item If they accept, worker chooses effort $e$ at an increasing, convex cost $c(e)=e^2/2$
 \end{itemize}
-\subsection{Output}
+\subsection*{Output}
     \begin{itemize}
-    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(\bar y,\sigma^2)$
+    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(1,\sigma^2)$
     \item Notice that output is now not mean 0.
-    \item This implies output is normal with mean $\bar y+e$ and variance $\sigma^2$
+    \item This implies output is normal with mean $1+e$ and variance $\sigma^2$
 \end{itemize}
-\subsection{Payoffs}
+\subsection*{Payoffs}
     \begin{itemize}
     \item If accepted, firm's payoff $\pi$ is expected output minus expected wages: $E[y-w|e]$
     \item If accepted, worker's payoff is expected utility of the wage minus effort cost: $E[u(w) -c(e)|e]$
-    \item If rejected, worker has ``outside option" of $\bar u$ and firm has ``outside option" of 0
+    \item If rejected, worker has ``outside option" of $\bar u$ and firm has ``outside option" of 0.\footnote{We will assume throughout that the firm prefers to hire the worker ex-ante.}
 \end{itemize}
 
-\subsection{Timing}
+\subsection*{Timing}
  The same as in class. The firm proposes a wage schedule, the worker accepts or rejects, the worker exerts effort, output occurs, and then the wage is paid out.
 
 
@@ -71,18 +73,48 @@ Suppose the firm can pay based ONLY on output: $w(y)=\alpha + \beta y$ (effort i
     \item For a fixed wage ($\alpha, \beta$) what level of effort does the agent choose? Hint: your answer should be a function of $\beta$
     \item For what $\alpha, \beta$ does the worker accept the job? I suggest that you not substitute away $\beta$ yet.
     \item What $\alpha$ will the firm choose, and why? Hint: use the answer to the previous question.
-    \item Write the firm's profit. DO not simplify or plug anything in.
+    \item Write the firm's profit. DO NOT simplify or plug anything in.
     \item Simplify the firm's profit. You should get an expression that is a function of only $\beta$ or $e$ (either is fine)
     \item What is the profit-maximizing $\beta$? What is the profit maximizing effort $e$?
     \item What is the profit-maximizing $\alpha$?
 \end{enumerate}
 
-\section{Conclusion}
+
+\section{Relative Performance Evaluation}
+
+This problem is exactly the same as what we did in class on the board during the relative performance pay lectures.
+
+\subsection{Setup}
+\begin{itemize}
+    \item Suppose there are two workers labeled 1 and 2 with the same cost of effort $c(e_i)$.
+    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item The noise terms are distributed:
+    \begin{itemize}
+        \item $\epsilon_1= v_s + v_1$
+        \item $\epsilon_2= v_s + v_2$
+        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+    \end{itemize}
+    \item Let's focus just on worker 1 (so do all questions for worker 1 but not 2)
+    \item The firm can offer linear wages:
+    \begin{itemize}
+        \item $w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)$
+    \end{itemize}
+\end{itemize}
 
 \subsection{Questions}
+
 \begin{enumerate}
-    \item How did allowing for a non-zero average output change the results (hint: we solved the zero mean version in class)?
-    \item Provide an intuition or interpretation. Hint: this is deliberately open ended.
+    \item Derive the certainty equivalent of the worker's wage, and subtract effort costs to get an expression for the worker's utility.
+
+    \item Stare at the expression you obtained. Argue that $\gamma$ does not impact the worker's choice of effort at all, either mathematically or verbally.
+
+    \item Argue as in class that $\gamma$ only impacts the variance, so to find the optimal $\gamma$ we only need to minimize the variance of the wage.
+
+    \item Minimize the variance of the wage to find the profit maximizing $\gamma$. Call it $\gamma_{rel}$ and do not ever plug it into anything for the rest of this problem.
+    \item Interpret your expression for $\gamma$ in terms of the informativeness principle.
+    \item Write wages as three parts as in lecture: constant objects, effort of worker 1 times bonus, and bonus times random objects.
+    \item Find the variance of the random part of wages and call it $\sigma^2_{tot}$. (Hint: $\beta$ should not be in this formula at all because it is multiplying the random objects.)
+    \item Find the profit-maximizing $\beta$ by using your answers from the performance pay questions, with $\sigma^2_{tot}$ replacing $\sigma^2$.
 \end{enumerate}
 
 
