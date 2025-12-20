@@ -1,0 +1,203 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Midterm: Econ 490 Compensation in Organizations}
+\author{Instructor: Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+You have 75 minutes to complete this exam. Please stop writing when told to do so. Write all answers in the space provided, and show your work. If you run out of room, make a note and use the additional pages attached at the end of the exam. This is a closed book exam. The only materials you may use are a pen and paper. By taking this exam, you agree to follow the UNC Chapel Hill honor code, in particular the standards of academic integrity. All academic dishonesty will be reported to the Office of Student Conduct and the Student Attorney General, and you will receive a $0$ on this exam.
+
+All questions in section 1 are worth 6 points. All questions in sections 2 and 3 are worth 4 points. There are 100 points possible.
+
+
+\section{Readings}
+Answer these questions in 3 sentences or less.
+\begin{enumerate}
+
+     \item Describe the ``gaming" that Larkin finds in his paper ``The Cost of High-Powered Incentives: Employee Gaming in Enterprise Software Sales." Be specific.
+
+\vspace{4cm}
+    
+    
+    \item Describe one of the two pieces of evidence that Hartzell, Parsons, Yermack (2010) provide in support of the risk-incentive trade-off.
+    
+\newpage
+
+   \item In Dumont et. al. (2008), there was a change from fee for service to a mixed compensation system. What did physicians spend more time doing and what did physicians spend less time doing?
+
+\vspace{4cm}
+
+\item In Lazear (2000), Safelite switched to performance pay and productivity increased. How did average worker earnings change?
+
+\vspace{4cm}
+    
+\end{enumerate}
+
+
+\section{Performance Pay}
+
+This problem is the same as the one we solved in class except that I do not ask you to solve effort-based pay. An important thing to notice is that I do not explicitly tell you the cost function until the very end. Here is the setup:
+\subsection*{Setup}
+\subsubsection*{Players}
+\begin{itemize}
+    \item There is a firm (the principal) who is risk neutral.
+    \item There is a worker (the agent) who is risk averse (exponential utility with parameter $r>0$).
+\end{itemize}
+\subsubsection*{Actions}
+    \begin{itemize}
+    \item Firm chooses a linear wage which depends on effort ($w(e)$) or output ($w(y)$)
+    \item After seeing the wage, the worker either accepts or rejects the job.
+    \item If they accept, worker chooses effort $e$ at an increasing, convex cost $c(e)$. Do not assume $c(e)$ takes a specific form until you are told to do so at the end of the problem.
+\end{itemize}
+\subsubsection*{Output}
+    \begin{itemize}
+    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(0,\sigma^2)$
+    \item This implies output is normal with mean $e$ and variance $\sigma^2$
+\end{itemize}
+\subsubsection*{Payoffs}
+    \begin{itemize}
+    \item If accepted, the firm's payoff $\pi$ is expected output minus expected wages: $E[y-w]$
+    \item If accepted, the worker's payoff is expected utility of the wage minus effort cost: $E[u(w) -c(e)]$
+    \item If rejected, the worker receives an outside option of $\bar u$ and firm receives an outside option of 0
+\end{itemize}
+
+\subsubsection*{Timing}
+ The same as in class. The firm proposes a wage schedule, the worker accepts or rejects, the worker exerts effort, output occurs, and then the wage is paid out.
+
+
+\subsection{Questions}
+ For this question, suppose the firm can pay based on performance $w(y)=\alpha + \beta y$. Put a star superscript next to all the objects you derive, for example $\beta^*$.
+
+ 
+\begin{enumerate}
+    \item Write the worker's certainty equivalent for a wage with fixed ($\alpha, \beta$) and fixed effort $e$.
+
+\vspace{6cm}
+
+    \item For a fixed wage ($\alpha, \beta$) what level of effort does the agent choose? Hint: your answer should be a function of $\beta$
+
+     \newpage
+    
+    \item For what $\alpha, \beta$ does the worker accept the job?
+
+    \vspace{5cm}
+
+
+     
+
+    
+    \item What $\alpha$ will the firm choose, and why?
+
+ \vspace{5cm}
+ 
+    \item Write the firm's profit. DO NOT simplify or plug anything in.
+
+
+      \vspace{4cm}
+      
+
+
+    \item Simplify the firm's profit. You should get an expression that is a function only on $e$.
+
+
+    \newpage
+    
+      
+    \item Derive the expression from class that relates the profit-maximizing $\beta$ and effort $e$.
+
+
+    \vspace{6cm}
+    
+    
+    \item Suppose $r=1, \sigma^2=1$. Derive profit maximizing $\beta$ and $e$ when $c(e)=e^2/2$ and $c(e)=e^2$.
+
+
+\vspace{5cm}
+
+
+    \item Provide an economic interpretation for the differences you found in the last subquestion.
+
+\newpage
+    
+       
+\end{enumerate}
+
+
+\section{Relative Performance Evaluation}
+
+This problem is mathematically identical to the one we did in class and in the problem set, except that the noise terms have an explicit interpretation. This interpretation should not impact how you solve for equilibrium, but it will impact how you interpret the results.
+
+\subsection{Setup}
+\begin{itemize}
+    \item Suppose there are two workers labeled 1 and 2 with the same cost of effort $c(e_i)$.
+    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item The noise terms are distributed:
+    \begin{itemize}
+        \item $\epsilon_1= v_s + v_1$
+        \item $\epsilon_2= v_s + v_2$
+        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+    \end{itemize}
+    \item Let's focus just on worker 1 (so do all questions for worker 1 but not 2)
+    \item The firm can offer linear wages:
+    \begin{itemize}
+        \item $w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Derive the certainty equivalent of the worker's wage, and subtract effort costs to get an expression for the worker's utility.
+
+\newpage
+
+    \item Stare at the expression you obtained. Argue that $\gamma$ does not impact the worker's choice of effort at all, either mathematically or verbally.
+
+\vspace{6cm}
+
+    \item Argue as in class that $\gamma$ only impacts the variance, so to find the optimal $\gamma$ we only need to minimize the variance of the wage.
+
+
+\vspace{6cm}
+
+
+    \item Minimize the variance of the wage to find the profit maximizing $\gamma$. Call it $\gamma_{rel}$.
+
+\newpage
+
+\item Derive the variance of wages when $\gamma=\gamma_{rel}$, simplifying as time permits. Exclude the $\beta^2$ term. Call it $\sigma^2_{Tot}$.
+
+\vspace{6cm}
+
+\item Derive the profit-maximizing $\beta$ as a function of $\sigma^2_{Tot}$. If you remember the theorem for $\beta$ from lecture or from deriving it in the last problem on this test you may use it without proof. Otherwise, you can derive it the long way by maximizing profit with respect to $\alpha,\beta$ given $\gamma=\gamma_{rel}$.
+
+\vspace{6cm}
+
+  \item Suppose $\sigma_2^2$ decrease. How does this impact the profit-maximizing $\gamma$ and $\beta$? Relate your answer to the risk incentive trade-off.
+
+\newpage
+
+\,
+
+\newpage 
+
+\,
+
+\newpage
+\,
+
+\newpage
+
+\,
+
+  
+\end{enumerate}
+
+\end{document}

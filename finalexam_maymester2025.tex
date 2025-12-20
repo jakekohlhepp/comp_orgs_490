@@ -1,0 +1,282 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Final Exam: Econ 490 Compensation in Organizations}
+\author{Instructor: Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+
+Name: \underline{\qquad \qquad \qquad \qquad\qquad \qquad \qquad\qquad \qquad\qquad \qquad} \quad \quad \quad  PID:  \underline{\qquad \qquad \qquad \qquad\qquad \qquad\quad \quad }
+\\
+
+You have 3 hours to complete this exam. Please stop writing when told to do so. Write all answers in the space provided, and show work where possible. If you run out of room, make a note and use the additional pages attached at the end of the exam. This is a closed book exam. The only materials you may use are a pen and paper. By taking this exam, you agree to follow the UNC Chapel Hill honor code, in particular the standards of academic integrity. All academic dishonesty will be result in a 0 on this exam and will be reported to the Office of Student Conduct. Each individual question (both reading and models) is worth 4 points, for a total of 132 points.
+
+\section{Readings}
+Answer these questions in 3 sentences or less.
+\begin{enumerate}
+
+    \item Lavy (2009) studies performance pay among teachers in Israel via a natural experiment. Describe the natural experiment.
+
+  \vspace{4cm}
+  
+
+    \item Bandiera et. al. (2005) show evidence that it is not pure altruism which causes workers to internalize the impact their effort has on others under relative incentives. Describe the evidence.
+
+ \newpage
+ 
+
+    \item MacLeod and Urquiola (2021) provide a set of reasons for US research dominance. What is the main way that they measure US research dominance?
+
+ \vspace{4cm}
+    
+
+    \item Gong, Zhang, Zhou (2023) study broad-based employee stock options in China. What is the main finding?
+
+ \vspace{4cm}
+ 
+
+    \item Friebel, Heinz, Krueger, and Zubanov (2017) randomly assign team bonuses to bakeries. What was the effect on shops in rural vs urban areas.
+
+  \vspace{4cm}
+
+    
+    
+    \item How does Aryal et. al. (2022) decompose the increase in wages due to education? Include the share of each component.
+
+ \vspace{4cm}
+ 
+  
+
+\end{enumerate}
+
+ 
+
+\section{Career Concerns}
+
+
+\subsection*{Setup}
+\begin{itemize}
+        \item There are two firms and one worker.
+        \item The worker has a skill level $a$ that no one knows.
+        \item However, everyone knows that skills are distributed uniformly between $[0,A]$. That is, $a\sim U[0,A]$
+        \item The worker exerts unobserved, costly effort: $c(e)=e^2/2$.
+        \item Revenue is equal to effort plus skill: $y=e+a$
+        \item There are two periods, and the following sequence of events occurs in each period:
+        \begin{enumerate}
+            \item Both firms simultaneously post a wage for the worker.
+            \item The worker chooses to work for the firm that posts the highest wage, and picks randomly if the wages are the same.
+            \item The worker chooses effort.
+            \item Output realizes.
+        \end{enumerate}
+        \item All outside options are 0.
+\end{itemize}
+
+\subsection*{Questions}
+\begin{enumerate}
+
+  \item What is the first-best level of effort for a single period? That is, the $e_{FB}$ that maximizes output less the cost of effort?
+
+\vspace{6cm}
+
+
+    \item How much effort will the worker exert in period 2? Justify your answer.
+
+\newpage
+
+
+
+    \item Denote the effort the firm believes the worker exerts in period 1 $\tilde e_1$. How can the firm recover the worker's skill using $\tilde e_1$ and output $y_1$?
+
+\vspace{6cm}
+
+
+    \item What output levels $y_1$ will the firm never observe if the worker does the effort that is expected ($\tilde e_1$)?
+
+\vspace{6cm}
+
+
+    \item Suppose the firms believe skill is $a$ in period 2. What wage will they bid in period 2? Justify your answer.
+
+\newpage
+
+    \item What effort will the worker choose in period 1? Show your work.
+
+\vspace{6cm}
+
+
+    \item What wage(s) do the firms in period 1 bid? Justify your answer.
+
+\vspace{6cm}
+
+
+\item How does this effort compare to the effort in sub question 1? Why is the worker working hard?
+
+
+\newpage
+
+
+
+    \item For this sub-question only, suppose $A=200$. If a worker has skill $101$, by what amount does their wage change from period 1 to period 2?
+
+\vspace{6cm}
+
+\item Suppose that output becomes $y=2e+a$, so that first-best effort is now $e_{FB}=2$ rather than $e_{FB}=1$. Do career concerns motivate the worker to exert first-best effort in the first period? Justify your answer.
+
+
+
+\end{enumerate}
+
+\newpage
+
+\section{Multitasking}
+This problem is identical to the one in class except that I have added back in an outside option that is $\bar u$ rather than $0$.
+
+\subsection*{Setup}
+\begin{itemize}
+    \item Output is $y=a e_1+b e_2$ where $a>0, b>0$.
+    \item Cost of effort is:
+       \[c(e_1, e_2) = \begin{cases}
+            0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+            (e_1+e_2-2\bar e)^2/2 & \text{ if } e_1+e_2 > 2 \bar e 
+        \end{cases}\]
+      \item We assume that without incentives the worker supplies all 0 cost effort and splits effort evenly:
+      \[e_1=e_2=\bar e\]
+    \item Only task 1 effort is measured: $m=e_1$
+    \item The firm can only pay based on task 1: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
+    \item The firm's outside option is 0, the worker is $\bar u$
+\end{itemize}
+
+\subsection*{Questions}
+
+\begin{enumerate}
+
+    \item Solve for the first-best $e_1,e_2$. For this problem only assume that $a<b$.
+
+   \vspace{6cm}
+        
+    
+        
+ \item From now on we are solving for equilibrium, meaning the firm cannot choose effort directly but just chooses a compensation scheme. Setup the worker's effort choice problem.
+
+   \vspace{6cm}
+   
+
+ \item Solve for worker's choice of effort assuming for now until told otherwise that $\beta>0$.
+
+   \vspace{6cm}
+   
+
+ \item Write down the inequality that determines whether the worker takes the job. Argue that it must be an equality.
+
+   \vspace{6cm}
+   
+
+ \item Setup the firm's profit maximization problem. Substitute past work in so that it is only a function of $\beta$.
+
+\newpage
+
+  
+ \item Solve for the profit-maximizing $\beta, e_1,e_2$. Plug them in to derive profit when $\beta>0$.
+
+
+\vspace{6cm}
+
+ \item Now, solve for $e_1, e_2$ and profit when $\beta=0$. Plug them in to derive profit when $\beta=0$.
+
+\vspace{6cm}
+
+\item Assume that $a=2, b=1,\bar e=4, \bar u = 1$. Using the work you have already done, should the firm set $\beta=0$ or $\beta>0$? Find $\beta, e_1, e_2$.
+
+\newpage
+
+ \item Suppose the firm suddenly was able to measure task 2. That is, wages became $w(e_1,e_2)=\alpha+\beta_1 e_1 +\beta_2 e_2$. Further, assume that $a<b$. What are the profit maximizing $\beta_1, \beta_2$ and why?
+
+\vspace{6cm}
+
+ 
+
+\end{enumerate}
+
+\section{Job Market Signaling}
+
+\subsection*{Setup}
+\begin{itemize}
+    \item There is a single worker and two firms.
+    \item The worker has a type that is either high productivity ($t=H$) with prob. $p$ or low productivity ($t=L$) with prob. $1-p$.
+    \item The worker knows their type, but the firms do not.
+    \item Revenue from hiring a low productivity worker is 0 and a high productivity worker is $\pi>0$
+    \item The timing is as follows:
+    \begin{enumerate}
+        \item The worker can acquire education $E=1$ at cost $c_t$ where $c_H<c_L$ or not ($E=0$) at cost 0.
+        \item After observing a worker's education each firm posts a wage simultaneously.
+        \item The worker chooses the firm that offers the highest wage, filliping a coin when wages are the same (Bertrand style).
+        \item Based on the worker's type revenue and therefore profit realizes.
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Questions}
+
+\begin{enumerate}
+
+    \item Take beliefs as given. Write down the revenue a firm expects from a person with an education, and the revenue a firm expects from a person without an education. You may leave conditional probabilities in your answer.
+
+\vspace{6cm}
+    
+
+    \item What wages will each firm offer a worker with an education? Without an education? Justify your answer. You may leave conditional probabilities in your answer.
+
+\vspace{6cm}
+
+    \item Write down an inequality under which a worker with high productivity wants to get an education. Write down an inequality under which a worker with low productivity does not want to get an education. You may leave conditional probabilities in your answer.
+
+\vspace{6cm}
+
+    \item Suppose all high productivity workers get an education and all low education workers do not. Simplify the inequalities to find a single condition under which this can be an equilibrium.
+
+\newpage
+ 
+ 
+    \item Interpret the condition you just derived. Also derive wages in this equilibrium for workers with and without an education using your prior work.
+
+\vspace{6cm}
+
+    \item Briefly describe wages and beliefs under another equilibrium.
+
+\vspace{6cm}
+
+
+    
+    \item Suppose education is intrinsically productive: if a worker gets an education, they produce an additional unit of output. Derive a condition under which there is an equilibrium where all high productivity workers get an education and low productivity workers do not.
+
+\newpage
+
+\item Provide an economic interpretation for the differences between the condition in subquestion 7 and subquestion 4.
+
+
+\newpage
+
+\,
+
+\newpage
+
+\,
+
+\newpage
+
+\,
+
+
+
+
+    
+\end{enumerate}
+
+\end{document}

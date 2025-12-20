@@ -1,0 +1,267 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Final Exam: Econ 490 Compensation in Organizations}
+\author{Instructor: Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+
+Name: \underline{\qquad \qquad \qquad \qquad\qquad \qquad \qquad\qquad \qquad\qquad \qquad} \quad \quad \quad  PID:  \underline{\qquad \qquad \qquad \qquad\qquad \qquad\quad \quad }
+\\
+
+You have 3 hours to complete this exam. Please stop writing when told to do so. Write all answers in the space provided, and show work where possible. If you run out of room, make a note and use the additional pages attached at the end of the exam. This is a closed book exam. The only materials you may use are a pen and paper. By taking this exam, you agree to follow the UNC Chapel Hill honor code, in particular the standards of academic integrity. All academic dishonesty will be reported to the Office of Student and the Student Attorney General. Each individual question (both reading and models) is worth 5 points, for a total of 170 points.
+
+\section{Readings}
+Answer these questions in 3 sentences or less.
+\begin{enumerate}
+    
+    \item In Alexander (2020), what were doctor's bonuses based on?
+
+    \vspace{4cm}
+    
+    \item In Bandiera et. al. (2005), what two incentive schemes are compared, and which results in higher productivity?
+
+    \newpage
+    
+    \item Friebel, Heinz, Krueger, and Zubanov (2017) randomly assign a team bonus to bakeries. What impact did the team bonus have on treated bakeries, and what happened when the bonus was rolled out across the firm?
+
+ \vspace{4cm}
+    
+    \item Oyer and Schaefer (2005) argue that incentives are unlikely to be the reason why stock options are offered to employees by firms. Describe their argument.
+
+ \vspace{4cm}
+ 
+
+    \item In Blair and Chung (2022) ``Job Market Signaling through Occupational Licensing," in what types of states does occupational licensing reduce the racial wage gap the most? Use one sentence.
+
+ \vspace{4cm}
+    
+    \item How does Cullen (2024) summarize the effect of horizontal pay transparency laws on wage levels AND gender wage gaps?
+
+  
+
+\end{enumerate}
+\newpage
+\section{Teamwork}
+
+\subsection{Setup}
+\begin{itemize}
+    \item There are N workers, indexed by $i=1,..,N$ that are risk neutral.
+    \item Each worker can exert effort $e_i$ at cost $c_i(e_i)=e_i^2/2$
+    \item Output is the sum of everyone's effort: $y(e)=\sum_{i=1}^N e_i$
+    \item The firm can pay a wage to each worker based only on team output $w_i(y(e))$. The firm is also risk neutral.
+    \item You are given an explicit cost function, so please give answers as explicitly as possible. When possible, provide a number.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Find the first-best effort for each worker (the amount of effort which maximizes total surplus).
+
+\vspace{4cm}
+
+ Consider a wage scheme $w_1(y(e)), ...,w_N(y(e))$ that is a partnership. You may assume that the wage is differentiable.
+
+    
+    \item  Setup the worker's utility maximization problem. Also write down the budget-balance condition for partnerships.
+
+\vspace{4cm}
+
+    
+    \item Find and simplify the worker's effort first-order condition.
+
+\vspace{4cm}
+
+    
+    \item Use your answers from (1) and (3) and the fact that in partnerships all money must be paid out to prove that we cannot get first-best effort if $N>1$.
+
+\vspace{6cm}
+
+
+  Consider a wage scheme  $w_1(y(e)),...., w_N(y(e))$ that is a group bonus (see the definition from class) where the target is total first-best effort $\bar y = \sum_{i=1}^N e_i^{FB}$ and the bonus amount is more than the effort cost $b_i\geq c_i(e_i^{FB})$.
+
+    \item Argue that each worker does not want to exert too little effort ($e_i<e_i^{FB}$).
+
+\vspace{4cm}
+
+
+    \item Argue that each worker does not want to exert too much effort ($e_i>e_i^{FB}$).
+
+\newpage
+
+    \item Find a group bonus that gives everyone the same bonus $b_i=b$ and that achieves first-best effort. Be as explicit as possible.
+
+
+\vspace{6cm}
+
+ \item Give a situation (an effort choice of each worker) where money is burned under the group bonus you designed. Note that this situation does not need to be an equilibrium.
+ 
+ \vspace{4cm}
+
+\item For this question only assume there are 2 workers. Worker 1 has our typical effort cost function $c_1(e_1)=e_1^2/2$. Worker 2's effort cost is no longer the typical cost function, and is now $c_2(e_2)=e_2^2/4$. Write down a group bonus that achieves first-best effort for these two workers.
+
+
+    
+\end{enumerate}
+
+\newpage
+
+\section{Relative Performance Evaluation}
+
+This problem is mathematically identical to the one we did in class and in the problem set, except that the noise terms have an explicit interpretation. This interpretation should not impact how you solve for equilibrium, but it will impact how you interpret the results.
+
+\subsection{Setup}
+\begin{itemize}
+    \item Suppose there are two workers labeled 1 and 2 with the same cost of effort $c(e_i)$.
+    \item Output for each $y_1=e_1 + \epsilon_1$, $y_2=e_2 + \epsilon_2$
+    \item $\epsilon_1$ represents the unknown skill of worker 1, and $\epsilon_2$ represents the unknown skill of worker 2. Workers do not know their own skill, and neither do firms.
+    \begin{itemize}
+        \item $\epsilon_1= v_s + v_1$
+        \item $\epsilon_2= v_s + v_2$
+        \item where $v_s \sim N(0,\sigma^2_{s})$, $v_1 \sim N(0,\sigma^2_{1})$ and $v_2 \sim N(0,\sigma^2_{2})$\footnote{Technical note: All are also jointly independent.}
+    \end{itemize}
+    \item $v_s$ represents the shared skill level of workers, due to something like sorting into the firm from the same college. $v_1, v_2$ represent random skill differences across workers.
+    \item Let's focus just on worker 1 (so do all questions for worker 1 but not 2)
+    \item The firm can offer linear wages:
+    \begin{itemize}
+        \item $w(y_1, y_{2}) = \alpha + \beta (y_1 - \gamma y_2)$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+    \item Derive the certainty equivalent of the worker's wage, and subtract effort costs to get an expression for the worker's utility.
+\newpage
+
+\vspace{6cm}
+
+    \item Stare at the expression you obtained. Argue that $\gamma$ does not impact the worker's choice of effort at all, either mathematically or verbally.
+
+\vspace{6cm}
+
+
+    \item Argue as in class that $\gamma$ only impacts the variance, so to find the optimal $\gamma$ we only need to minimize the variance of the wage.
+
+\vspace{4cm}
+
+    \item Minimize the variance of the wage to find the profit maximizing $\gamma$. Call it $\gamma_{rel}$.
+
+\vspace{6cm}
+    
+
+\item Derive the variance of wages when $\gamma=\gamma_{rel}$, simplifying as time permits. Exclude the $\beta^2$ term. Call it $\sigma^2_{tot}$.
+
+\newpage
+ \, 
+\vspace{4cm}
+
+\item Derive the profit-maximizing $\beta$ as a function of $\sigma^2_{Tot}$. If you remember the theorem for $\beta$ from lecture you may use it without proof. Otherwise, you can maximize profit given $\gamma=\gamma_{rel}$.
+
+\vspace{4cm}
+
+
+    \item Suppose the firm hires workers that are more similar in skill, so that random differences in skill across workers becomes less important. Which primitives in the model could we decrease to represent this?
+
+    \vspace{4cm}
+
+
+
+    \item Suppose the firm hires workers that are more similar in skill, so that random differences in skill across workers becomes less important. How does this impact $\gamma$ and $\beta$.
+
+  
+\end{enumerate}
+
+\newpage
+\section{Career Concerns}
+
+
+\subsection*{Setup}
+\begin{itemize}
+        \item There are two firms and one worker.
+        \item The worker has a skill level $a$ that no one knows.
+        \item However, everyone knows that skills are distributed uniformly between $[0,A]$. That is, $a\sim U[0,A]$
+        \item The worker exerts unobserved, costly effort: $c(e)=e^2/2$.
+        \item Revenue is equal to effort plus skill: $y=e+a$
+        \item The worker is hired and exerts effort in two periods.
+        \item The worker is hired in each period by the firm that posts the highest wage, and if there is a tie they randomly pick a firm (Bertrand style)
+        \item All outside options are 0.
+\end{itemize}
+
+\subsection*{Questions}
+\begin{enumerate}
+
+  \item What is the first-best level of effort for a single period? That is, the $e_{FB}$ that maximizes output less the cost of effort?
+
+\vspace{4cm}
+
+    \item How much effort will the worker exert in period 2? Justify your answer.
+
+\vspace{4cm}
+
+    \item Denote the effort the firm believes the worker exerts in period 1 $\tilde e_1$. How can the firm recover the worker's skill using $\tilde e_1$ and output $y_1$?
+
+\newpage
+
+
+    \item What output levels $y_1$ will the firm never observe if the worker does the effort that is expected ($\tilde e_1$)?
+
+\vspace{6cm}
+
+
+    \item Suppose the firms believe skill is $a$ in period 2. What wage will they bid in period 2? Justify your answer.
+
+\vspace{6cm}
+
+
+    \item Solve for the worker's effort in period 1.
+
+\newpage
+
+
+    \item What wage do the firms in period 1 bid? Justify your answer.
+
+\vspace{4cm}
+
+
+\item How does this effort compare to the effort in sub question 1? Why is the worker working hard?
+
+\vspace{4cm}
+
+
+
+    \item Suppose $A=100$. If a worker has skill $50$, by what amount does their wage change from period 1 to period 2?
+
+\vspace{4cm}
+
+
+\item Explain, either verbally or mathematically, what effort and wages in each period would be if the worker's skill was just a fixed number, $a$, that everyone knew from the very beginning. How does this help explain why the worker exerts effort in the main model where skill is unknown?
+
+
+\newpage
+
+\item Explain, either verbally or mathematically, what effort and wages in each period would be if skill was just a fixed number, $a$, that everyone knew from the very beginning AND both firms could use performance pay (i.e. a wage where $w(y)=\alpha +\beta y$). Assume that each firm ``bids" a performance pay $w_1(y), w_2(y)$ and the worker chooses the performance pay that they expect to give them the highest utility. Hint: the firms use $\alpha$ to ``get" the worker and they use $\beta$ to get the right effort once the worker is hired.
+
+\newpage
+\,
+
+\newpage
+\,
+
+\newpage
+\,
+
+\newpage
+\,
+
+
+\end{enumerate}
+\end{document}

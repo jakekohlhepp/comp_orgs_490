@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Midterm: Econ 490 Compensation in Organizations}
+\author{Instructor: Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+Name: \underline{\qquad \qquad \qquad \qquad\qquad \qquad \qquad\qquad \qquad\qquad \qquad} \quad \quad \quad  PID:  \underline{\qquad \qquad \qquad \qquad\qquad \qquad\quad \quad }
+
+
+\section*{Instructions}
+
+You have 75 minutes to complete this exam. Please stop writing when told to do so. Write all answers in the space provided, and show your work. If you run out of room, make a note and use the additional pages attached at the end of the exam. This is a closed book exam. The only materials you may use are a pen and paper. By taking this exam, you agree to follow the UNC Chapel Hill honor code, in particular the standards of academic integrity. All academic dishonesty will be reported to the Office of Student and the Student Attorney General.
+
+All questions in section 1 are worth 7 points. All questions in sections 2 and 3 are worth 4 points. There are 100 points possible.
+
+\section{Readings}
+Answer these questions in 3 sentences or less.
+\begin{enumerate}
+    \item Describe the main two channels through which productivity improved in ``Performance Pay and Productivity" by Lazear (2000).
+
+\vspace{3cm}
+    
+    \item Describe the ``gaming" that Larkin finds in his paper ``The Cost of High-Powered Incentives: Employee Gaming in Enterprise Software Sales". Be specific.
+
+    \vspace{3cm}
+    \item Which form of performance pay was most effective at increasing student test scores across the distribution in Loyalka et. al. (2019)? (One phrase is fine)
+
+     \vspace{3cm}
+     
+    \item Describe the main finding in ``Moral hazard and risk spreading in partnerships" by Gaynor and Gertler (1995). Does it support or contradict the risk-incentive trade-off discussed in class?
+
+     \vspace{3cm}
+    
+\end{enumerate}
+
+
+\section{Models}
+
+This problem is the same as the one we solved in class, with the cost of effort explicitly given as $c(e)=e^2/2$. Even though you may remember the answer from class or your problem set, please show all work. You may immediately plug in $c(e)=e^2/2$ or you can solve it all just using a generic $c(e)$ and plug it in at the end. Here is the setup:
+\subsection*{Setup}
+\subsubsection*{Players}
+\begin{itemize}
+    \item There is a firm (the principal) who is risk neutral.
+    \item There is a worker (the agent) who is risk averse (exponential utility with parameter $r>0$).
+\end{itemize}
+\subsubsection*{Actions}
+    \begin{itemize}
+    \item Firm chooses a linear wage which depends on effort ($w(e)$) or output ($w(y)$)
+    \item After seeing the wage, the worker either accepts or rejects the job.
+    \item If they accept, worker chooses effort $e$ at an increasing, convex cost $c(e)=e^2/2$
+\end{itemize}
+\subsubsection*{Output}
+    \begin{itemize}
+    \item Output is effort ($e$) plus noise/luck ($\epsilon$): $y=e+\epsilon$ where $\epsilon\sim N(0,\sigma^2)$
+    \item This implies output is normal with mean $e$ and variance $\sigma^2$
+\end{itemize}
+\subsubsection*{Payoffs}
+    \begin{itemize}
+    \item If accepted, the firm's payoff $\pi$ is expected output minus expected wages: $E[y-w]$
+    \item If accepted, the worker's payoff is expected utility of the wage minus effort cost: $E[u(w) -c(e)]$
+    \item If rejected, the worker receives an outside option of $\bar u$ and firm receives an outside option of 0
+\end{itemize}
+
+\subsubsection*{Timing}
+ The same as in class. The firm proposes a wage schedule, the worker accepts or rejects, the worker exerts effort, output occurs, and then the wage is paid out.
+
+\subsection*{Questions: Effort Based Pay}
+ For this question, suppose the firm can pay based on effort $w(e)=\alpha + \beta e$. Put a star superscript next to all the final solutions you derive, for example $\beta^*$.
+ 
+\begin{enumerate}
+    \item Write the worker's certainty equivalent for a wage with fixed ($\alpha, \beta$) and fixed effort $e$.
+
+     \vspace{3cm}
+     
+    \item For a fixed wage ($\alpha, \beta$) what level of effort does the agent choose?
+
+     \vspace{3cm}
+     
+    \item For what $\alpha, \beta$ does the worker accept the job?
+
+     \vspace{3cm}
+     
+    \item What $\alpha$ will the firm choose, and why?
+
+     \vspace{6cm}
+     
+    \item Write the firm's profit. DO NOT simplify or plug anything in.
+
+     \vspace{3cm}
+     
+    \item Simplify the firm's profit. You should get an expression that is a function of only $\beta$ or $e$ (either is fine)
+
+     \vspace{6cm}
+     
+    \item What is the profit-maximizing $\beta$? What is the profit maximizing effort $e$?
+
+    \vspace{6cm}
+    
+    \item Write down the firm's profit (make sure to substitute out $\beta, e,\alpha$).
+
+    \vspace{6cm}
+    
+    \item If the worker becomes more risk averse, which parameter (not choice variable) changes, and how does firm profit change? You can argue this verbally or mathematically.
+
+    \vspace{3cm}
+    
+\end{enumerate}
+
+\subsection*{Questions: Performance Based Pay}
+ For this question, suppose the firm can pay based on performance $w(y)=\alpha + \beta e$. Put a $p$ subscript next to all the final solutions you derive, for example $\beta_p$.
+
+ 
+\begin{enumerate}
+    \item Write the worker's certainty equivalent for a wage with fixed ($\alpha, \beta$) and fixed effort $e$.
+
+       \vspace{8cm}
+       
+    \item For a fixed wage ($\alpha, \beta$) what level of effort does the agent choose?
+
+    \vspace{6cm}
+    
+    \item For what $\alpha, \beta$ does the worker accept the job?
+
+    \vspace{3cm}
+    \item What $\alpha$ will the firm choose, and why?
+
+      \vspace{6cm}
+      
+    \item Write the firm's profit. DO NOT simplify or plug anything in.
+    
+       \vspace{3cm}
+       
+    \item Simplify the firm's profit. You should get an expression that is a function of only $\beta$ or $e$ (either is fine)
+
+         \vspace{8cm}
+         
+    \item What is the profit-maximizing $\beta$? What is the profit maximizing effort $e$?
+
+          \vspace{8cm}
+          
+    \item Write down the firm's profit (make sure to substitute out $\beta, e,\alpha$).
+
+          \vspace{8cm}
+          
+    \item If the worker becomes more risk averse, which parameter (not choice variable) changes, and how does firm profit change? You can argue this verbally or mathematically.
+
+    \vspace{6cm}
+    
+\end{enumerate}
+
+\newpage
+
+\,
+
+\newpage
+
+\,
+
+\newpage
+
+\,
+
+
+
+
+
+
+\end{document}
