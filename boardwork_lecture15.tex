@@ -1,10 +1,10 @@
-\documentclass{article}
+\documentclass[14pt]{article}
 \usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
 \usepackage{geometry}
 \geometry{margin=1in}
-\usepackage{amsmath} 
 \newtheorem{lemma}{lemma}
-\title{Board Work for Lecture 15}
+\title{Board Work for Lecture 14}
 \author{Jacob Kohlhepp}
 \date{\today}
 
@@ -13,48 +13,82 @@
 \maketitle
 
 
-\section{Career Concerns}
-%https://www.econstor.eu/bitstream/10419/20098/1/dp855.pdf
+\section{Relational Contracts}
 
-Lets begin by considering the last period. Putting aside the unknown skill, notice that effort is costly, there is no performance pay and there is no future. Therefore workers never exert effort in period 2, so $e_2^*=0$.
+Throughout, we will assume that the worker takes the job when indifferent.
 
-Next, notice that because workers also do not know their own skill, all workers will choose the same level of effort in period 1. (Or they will mix, but we will assume they do not). Firms understand that all workers exert the same effort. For reasons that will become clear, lets denote this effort level $\tilde e_1$.
+\subsection{Guessing a Strategy}
 
-Now, firms do not observe effort. But in equilibrium they ``understand" that all workers exert $\tilde e_1$. This understanding is why we denote this effort with a tilde. They also observe revenue. Thus, after period 1 firms can just subtract effort from output to get skill: $y_1-\tilde e_1 =a+\tilde e_1 - \tilde e_1=a$.
+We guess two strategies, one for the firm and one for the worker. Our strategies must specify what each player does for any possible history of play. This is just one of infinitely many equilibria. It is easier to analyze because strategies are simple. But this simplicity comes at a cost: if you think about what the worker and the firm do when either deviates, it is rather extreme.
 
-We need to specify what happens if the firm observes revenue less than $\tilde e_1$ or greater than $\tilde e_1+A$. We will assume for our simple model that firms believe $a=0$ in the first case and $a=A$ in the second case. The justification is that firms do not become more pessimistic when they see higher revenue and they do not become more optimistic when they see lower revenue. Notice that we need this assumption. Revenue outside $[\tilde e_1, \tilde e_1+A]$ is not going to occur in equilibrium but the worker will still consider choosing a very different effort level that could make it possible. These are ``global deviations." 
+For the worker, we guess they take the job and exert high effort as long as the firm pays a high wage $w_t=w_H$. The first time they  observe any wage other than $w_H$, this period they either take the job and exert low effort (if $w_t>\bar u$) or they take the outside option (if $w_t\leq \bar u$). In the future, they never take the job regardless of what the firm does in the future.
 
-In this way, in period 2 skill is known. The firms then compete Bertrand style for the worker. They know skill is $a$ and they know $e_2^*=0$, so revenue from the worker is just skill: $y_2=a+e_2^*=a$. Both firms bid a wage of $w_2^*=a$. To see why, consider any deviation from this strategy, keeping the other firm bidding at $a$. If either firm deviates to $w>a$, they win the worker but lose money because $a-w<0$. Suppose a firm bids a wage below $a$. Then they lose for sure and still get 0.
+For the firm, we guess they first post a high wage $w_H$. They continue to post this wage as long as they observe the worker providing high effort in the prior period, $e_{t-1}=H$. The first time the worker does not exert high effort (takes the outside option or exerts low effort) the firm posts a low wage $w_L$ forever after regardless of what the worker does in the future.
 
-Now consider the worker's choice of effort in period 1. The period 1 wage $w_1$ is already decided by this point and it is a flat wage, so it does not impact the worker's choice of effort.  When finding the worker's effort choice in period 1, we must be careful, because there are two efforts floating around. There is actual effort $e_1$, which the worker controls and the firm does not see, and there is $\tilde e_1$, the effort the firm expects the worker to put in. The worker can make the firm think that he/she is higher skill by exerting effort that is different than $\tilde e_1$. But the worker CANNOT impact the firm's belief about effort $\tilde e_1$. Thus when we take derivatives to find $e_1$, the effort the firm thinks will happen, $\tilde e_1$, will behave as a constant.
+If the firm and the worker do this strategy, the outcome of the game is simple: the firm posts a high wage, the worker exerts high effort, and this repeats forever. This is called ``on path" because it is what actually happens on the equilibrium path. This is sustained by ``off path" consequences: if either party fails to uphold their end, both sides start ``punishing" the other: the firm posts low wages and the worker never takes the job forever. Notice that these are extreme punishments: the worker gets their outside option $\bar u$ forever, while the firm gets $0$ profit forever.
 
-This is the heart of the model: the worker has an incentive to work harder to build a better reputation. The worker's payoff from effort in period 1 is the flat wage in period 1 and 2 less the cost of effort in both periods. Remember, the effort in period 2 is always 0 which has no cost. Importantly, the period two wage is impacted by period 1 effort, because this determines what the market thinks about the worker's skill. Thus the worker maximizes:
-\[\max_{e_1} w_1 +E[w_2(e_1, \tilde e_1)]-e_1^2/2 \]
-The expected wage in period 2 given effort $e_1$ and expected effort $\tilde e_1$ is: 
-\[E[w_2(e_1, \tilde e_1)] = E[y_1-\tilde e_1] = E[a+e_1-\tilde e_1] =E[a] + e_1-\tilde e_1 \]
-Thus the maximization problem becomes:
-\[\max_{e_1} w_1 +E[a] + e_1-\tilde e_1-e_1^2/2 \]
-assuming $e_1$ is in the range $(\tilde e_1, \tilde e_1+A)$. Taking derivative with respect to only $e_1$ (not $\tilde e_1$):\footnote{We do not take derivatives with respect to $\tilde e_1$ because the worker cannot change the market's beliefs.}
-\[[e_1]: 1-e_1 =0 \leftrightarrow e_1^*=1\]
-In equilibrium, the market's belief must match reality, so $\tilde e_1 = e_1^*=1$. Notice that this is the first-best level of effort because it is equating the marginal cost of effort to the marginal benefit of effort. So career concerns motivate the worker to provide the efficient amount of effort!
+\subsection{Notation}
 
-The last piece to recover is the period 1 wage. At this point, no one knows true skill $a$. So the value to the firms of the worker in period 1 is just expected skill plus the effort everyone exerts in period 1: $e_1=\tilde e_1=1$. By the same argument we used in period 2, firms bid exactly $E[a]+\tilde e_1$. The mean of a uniform random variable is just the middle of the range: $(A+0)/2$ so the wage in period 1 will be $w_1^*=A/2+\tilde e_1=A/2+1$.
- 
-It turns out that there are some technical conditions we need to get these results. One condition that assures everything ``works" is that $A$ is sufficiently large.
+Under this guessed strategy, we can write the present value of an action today to the worker as $U(action,state)$ and the firm $\Pi(action,state)$. I will be a little loose with this notation, but it is helpful to distinguish the payoff from a single time period, $u$, from the payoff from an entire strategy which includes all of future time periods as well as today.
 
-  \section{Wages}
+Under our guessed strategy, the ``state" is whether or not trust has ever been broken. Either side can break trust: the firm can do so by not paying $w_H$ and the worker can do so by not exerting high effort. In our strategy who broke trust in the past is irrelevant, all that matters is whether it has happened. To check one shot deviations, we only need to check single deviations under the two possible states: (1) trust has been broken at some point in the past (2) trist has never been broken.
 
-  Suppose $A=10$. Then wage in the first period is $A/2+1=6$. Workers are distributed uniformly between $[0,10]$. Wage in the second period is $a$. Thus for the 60\% of workers with skill $a<6$ wages go down over time, while for the 40\% of workers with skill $a>6$ wages go up.
+\subsection{No Incentive to Deviate: Checking One-Shot Deviations}
 
+To show our guessed strategies form a subgame perfect Nash equilibrium, we must check all one shot deviations. We will check the worker's one shot deviations thoroughly, and only briefly consider the firm. This is mainly to make this model less of a burden for tests/homework. In graduate school if you were to use this model you would want to check the firm's side as well. The deviations we need to check are as follows:
 
-\section{References}
+\begin{enumerate}
+    \item Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust is broken and are being offered $w_L$).
+    \item Not taking the job when the worker is supposed to take the job (because trust has never been broken and they are being offered $w_H$)
+    \item Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+\end{enumerate}
 
-This parsimonious career concerns model is from the following paper:
+Deviations 2 and 3 have the same consequence tomorrow: trust is now broken and the low wage is offered forever. However, deviation 3 is slightly better because the worker gets the high wage for one period instead of the outside option. Since the high wage must be at least $\bar u +c$, this is always the more attractive deviation. So we if 3 is not profitable, 2 will also not be profitable. Therefore we do not need to check deviation 2, and we are left with only two deviations to check:
 
- Irlenbusch, Bernd; Sliwka, Dirk (2003) : Career Concerns in a Simple
-Experimental Labour Market, IZA Discussion Papers, No. 855, Institute for the Study of Labor
-(IZA), Bonn
+\begin{enumerate}
+    \item[1.] Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L$).
+    \item[4.] Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+\end{enumerate}
 
+Before we check for deviations, we need to think about what low wage $w_L$ the firm will choose. Remember that whenever $w_L$ is being played the worker is never exerting high effort. Thus, if the wage $w_L$ is above $\bar u$ the worker takes the wage and their payoff is just $w_L$. However, if the wage is less than $\bar u$ the worker takes the outside option and gets $\bar u$. Will the firm offer a wage above $\bar u$? Well, a wage above $\bar u$ only makes exerting low effort more tempting, and it also costs the firm money. So it will not offer a wage above $\bar u$. Will it offer exactly $w_L=\bar u$? Well, this gets the worker to take the job, but the worker exerts low effort, so the firm gets $0$ revenue from this and then has to pay out a positive wage. This generates negative profit, so the firm will not do it. Thus the firm wants the worker to take the outside option.
+
+Therefore the firm is indifferent between offering any wage where $w_L<\bar u$ because they are all rejected. The one I suggest specifying is $w_L^*=0$. Any time the firm offers such a low wage, the worker will want to take the outside option. As a result, the worker's payoff in a single period whenever the firm posts a low wage is $\bar u$. 
+
+ With this in hand, let's consider deviation (1): Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L^*=0<\bar u$). Not deviating in this case means never taking the job, which gives the worker $\bar u$ forever: 
+\[U(\textit{don't deviate,trust broken})=\sum_{t=0}^\infty \bar u=\frac{\bar u}{1-\delta}\]
+
+Deviating and taking the job and exerting low effort in this case yields the low wage today ($w_L=0$) and no effort cost, and then $\bar u$ starting tomorrow until the end of time:
+ \[U(\textit{deviate to accept and low effort, trust broken}) =  0+\delta \sum_{t=0}^\infty \delta^t \bar u=   \frac{\delta \bar u}{1-\delta}\]
+
+Comparing deviating to not deviating we have that:
+   \[U(\textit{don't deviate, trust broken})  \geq u(\textit{deviate to accept and low effort, trust broken}) \]
+   \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta} \leftrightarrow  \bar u \geq 0 \]
+The outside option is always weakly positive, so this is always true. There is no incentive to deviate in this way. 
+
+Now consider deviation (3): taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has been broken in the past and they are being offered $w_H$). Let's consider first the worker's payoff from doing what they are supposed to do (never slacking off). The worker receives $w_H$ forever and pays the effort cost $c$:
+\[U(\textit{don't deviate, trust never broken})=\sum_{t=0}^\infty (w_H-c)=\frac{w_H-c}{1-\delta}\]
+The worker compares this to a one-shot-deviation: exerting low effort today (at 0 cost), still getting paid $w_H$ today, but then getting offered $w_L$ forever after. Remember, the worker changes action only in one period and is assumed to follow through on our guessed strategy everywhere else. The gain today from this is $w_H$ without any effort cost. The loss is that the firm now posts $w_L$ forever. Putting this all together, we have:
+\[U(\textit{deviate, trust never broken})=w_H+\delta \sum_{t=0}^\infty w_L = w_H+ \frac{\delta \bar u}{1-\delta}\]
+The worker has no incentive to deviate if:
+\[U(\textit{don't deviate, trust never broken}) \geq u(\textit{deviate, trust never broken}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+
+This is a substantive inequality: it will not always be true for reasonable parameter values ($\delta, c, v, \bar u$). Also, it involves a choice variable: $w_H$.
+
+\subsection{Finding the High Wage}
+
+First, simplify the inequality we derived:
+
+\[\frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+\[w_H-c \geq (1-\delta) w_H +\delta \bar u\]
+\[\delta w_H \geq c +\delta \bar u\]
+\[w_H \geq   \frac{c}{\delta}+\bar u\]
+We see that this inequality is more likely to be satisfied the higher $w_H$ is. However, the firm maximizes profit by paying the lowest wage that satisfies the inequality, changing the inequality into an equality:
+\[w_H^*=\frac{c}{\delta}+\bar u\]
+The argument is the same as always: paying a high $w_H$ does not change the worker's behavior, but it costs the firm profit. The firm's profit is the revenue less the high wage, because on path the worker never slacks:
+\[\Pi = \sum_{t=0}^\infty \delta^t (v-w_H^*)=\frac{v-\frac{c}{\delta}-\bar u}{1-\delta}\]
+If you stare at this you will notice that profit is increasing in $\delta$. We can also see that a relational contract is profitable if:
+\[\delta(v-\bar u) \geq c\]
+The more patient the worker and the firm are the more likely this is to hold. The higher the value of working together the more likely this is to hold. The higher the cost of effort and the higher the outside option the more unlikely this is to hold.
 
 
 \end{document}

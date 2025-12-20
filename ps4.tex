@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\newtheorem{lemma}{lemma}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Problem Set 4}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+The purpose of this homework is to work through three models we solved in class. There are only minor differences between these problems and the ones we did in class, so your notes should be very helpful in completing this problem set.
+
+\section{Knowledge as Compensation}
+
+\subsection{Setup}
+    \begin{itemize}
+        \item Time is continuous and infinite: $t\geq 0$.
+        \item Both the firm and the worker exponentially discount the future at rate $r$.
+        \item Expert E commits to wage path $\{w_t\}$ and knowledge transfer path $\{x_t\}$.
+        \begin{itemize}
+            \item Starting knowledge is $0$, maximum is $1$, knowledge cannot decrease.
+        \end{itemize}
+        \item The Apprentice's output at time t is $0$ if $x_t<\theta $, and $(x_t-\theta)$ otherwise.
+        \item While employed, the Apprentice gets the discounted flow of wages.
+            \item  The Apprentice decides a time to quit $\tau\geq 0$. Once they do, they work for themselves and receive the discounted flow of their output forever after.
+           \item The expert gets the discounted flow of output less wages while the worker is employed, and 0 after.
+
+    \end{itemize}
+
+\subsection{Questions}
+\begin{enumerate}
+    \item Write down the expected future payoff of the apprentice and the expert at time 0.\footnote{Note that this would look similar for any time $t\geq 0$.}
+
+    \item Prove that the expert does not leave any money on the table by focusing on contracts where the apprentice never quits.\footnote{Put another way: it is without loss for the expert to use no-quit contracts only.}
+
+    \item Write down the expert's problem given your answer to the last problem.\footnote{This should be a maximization of the expert's time zero present discounted payoff over all no-quit contracts.} Your answer should be an objective and a continuum of constraints, where the constraints represent the need to induce the apprentice not to quit.
+
+    \item Define $T$ as the time at which all knowledge has been transferred to the apprentice, that is $T:=inf \{t|x_t=1\}$. What are wages ($\{w_t\}$) prior to time $T$? Justify your answer.
+
+\item Argue that the expert gives the apprentice at least as much knowledge as AI immediately.
+
+    \item What are wages ($\{w_t\}$) after time $T$? Justify your answer.
+
+    \item Argue that the apprentice should be exactly indifferent between quitting and continuing before time $T$. Hint: suppose the apprentice had strictly more utility, and consider what the expert could do to increase profit.
+
+    \item Use the binding constraint (the apprentice's utility at each moment is equal to the outside option up to and including $T$) to find how knowledge is transferred at each point in time $\{x_t\}$. Evaluate this expression at $t=T$ (the point where the last bit of knowledge is transferred) to get an expression for $x_0$.
+
+    \item Substitute all the pieces you obtained into the expert's time 0 present discounted payoff and maximize to obtain $T$ (the point where all knowledge is transferred) and $x_0$ (the initial ``gift" of knowledge).
+
+    \item Derive the expert's time 0 present discounted payoff (your answer should depend only on primitives). 
+    
+    \item Use your answers to to explain how improvements in AI impact knowledge transfers as compensation.
+
+    
+\end{enumerate}
+\section{Hold Up}
+
+
+\subsection{Setup}
+
+\begin{itemize}
+    \item Players: Elijah Wood (EW), New Line Cinema (NLC) 
+    \item NLC decides whether or not to start LOTR, which entails simultaneously announcing EW as Frodo, and paying fixed cost of production $c>0$.
+    \item After this, EW proposes a wage $w$ for all movies.
+    \item If NLC rejects, EW gets outside option $\bar u$ and NLC makes 0 box office revenue.
+    \item If they accept, NLC receives box office revenue from LOTR $b$.
+    \item Assume indifference is broken in favor of making LOTR.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}
+\item We solve using backwards induction, starting at the end of the game. For what wages $w$ will NLC accept EW's offer? Your answer should be an inequality.
+\item What wage $w$ will EW offer? Justify your answer.
+
+\item Write down an inequality under which NLC will start making LOTR.
+
+\item Suppose the expected box office revenue doubles. How does this impact the decision to make LOTR?
+    
+
+    Suppose the timing changes: EW now offers a wage first. If NLC accepts, they start and finish making LOTR and incur the fixed cost $c$, pay the wage $w$, and receive box office revenue $b$. If they reject everyone gets their outside option.
+
+    \item For which wages does NLC accept? Your answer should be an inequality.
+
+\item Which wage does EW offer? Justify your answer.
+
+    \item Suppose $c=1$ and $b=3$, $\bar u =1$. Is the outcome under back-to-back filming (that you just derive) more or less efficient\footnote{You can assume efficiency means maximizes total surplus of both EW and NLC, not distribution.} than the outcome under sequential filming?
+
+    
+\end{enumerate}
+
+\section{Job Market Signaling}
+
+\subsection*{Setup}
+\begin{itemize}
+    \item There is a single worker and two firms.
+    \item The worker has a type that is either high productivity ($t=H$) with prob. $p$ or low productivity ($t=L$) with prob. $1-p$.
+    \item The worker knows their type, but the firms do not.
+    \item Revenue from hiring a low productivity worker is 0 and a high productivity worker is $\pi>0$
+    \item The timing is as follows:
+    \begin{enumerate}
+        \item The worker can acquire education $E=1$ at cost $c_t$ where $c_H<c_L$ or not ($E=0$) at cost 0.
+        \item After observing a worker's education each firm posts a wage simultaneously.
+        \item The worker chooses the firm that offers the highest wage, filliping a coin when wages are the same (Bertrand style).
+        \item Based on the worker's type revenue and therefore profit realizes.
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Questions}
+
+\begin{enumerate}
+
+    \item Take beliefs as given. Write down the revenue a firm expects from a person with an education, and the revenue a firm expects from a person without an education. You may leave conditional probabilities in your answer.
+
+
+    
+
+    \item What wages will each firm offer a worker with an education? Without an education? Justify your answer. You may leave conditional probabilities in your answer.
+
+
+
+    \item Write down an inequality under which a worker with high productivity wants to get an education. Write down an inequality under which a worker with low productivity does not want to get an education. You may leave conditional probabilities in your answer.
+
+
+
+    \item Suppose all high productivity workers get an education and all low education workers do not. Simplify the inequalities to find a single condition under which this can be an equilibrium.
+
+ 
+    \item Interpret the condition you just derived. Also derive wages in this equilibrium for workers with and without an education using your prior work.
+
+
+
+    \item Briefly describe wages and beliefs under another equilibrium.
+
+
+
+
+    
+    \item Suppose education is intrinsically productive: if a worker gets an education, they produce an additional unit of output. Derive a condition under which there is an equilibrium where all high productivity workers get an education and low productivity workers do not.
+
+
+
+\item Provide an economic interpretation for the differences between the condition in subquestion 7 and subquestion 4.
+
+
+
+
+    
+\end{enumerate}
+
+
+\end{document}
