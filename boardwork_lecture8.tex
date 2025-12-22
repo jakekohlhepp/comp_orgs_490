@@ -21,7 +21,8 @@
     \item The cost of effort now varies across people and jobs!
     \item Meaning is measured by $m_{ij}$ because:
     \[\lim_{m_{ij}\to \infty} c(e)= \lim_{m_{ij}\to \infty}\frac{e^2}{2(1+\lambda_i m_{ij})}=0\]
-
+    \item Output is given by $y=\theta_i e + \epsilon$
+    \item The worker is risk neutral.
     
 \end{enumerate}
 
@@ -36,10 +37,10 @@ Taking the FOC:
 \[[e_{ij}]: \beta_{ij}\theta_i -\frac{e_{ij}}{(1+\lambda_i m_{ij})} = 0 \leftrightarrow e_{ij} =  \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) \]
 Notice that everything is worker and job specific because of the differences across workers and jobs in meaning. Now comes the first big difference: in lecture 3 and 4, we would next consider the worker's decision to take the job and make the argument that the firm extracts the worker's value from the job via base pay so that:
 \[ \alpha_{ij} = \bar u_i -\beta_{ij} \theta_i e_{ij} + \frac{e_{ij}^2}{2(1+\lambda_i m_{ij})} \]
-However, this step does not make sense in this paper because they are running an experiment and ``shocking" the meaning workers get from the job. So they do not assume the firm has extracted all surplus. Instead, they observe that the profit of the firm will be the fraction of out put the firm keeps ($1-\beta_{ij}$) less an exogenous (fixed) salary $\alpha_{ij}$. So they skip the middle step and jump straight to profit maximization. The firm's profit is:
-\[\max_{b_{ij}} \theta_i (1-\beta_{ij}) e_{ij} - \alpha_{ij} \]
+However, this step does not make sense in this paper because they are running an experiment and ``shocking" the meaning workers get from the job, while ostensibly trying to hold other personnel policies of the firm fixed, including base pay. So they do not assume the firm has extracted all surplus. Instead, they observe that the profit of the firm will be the fraction of output the firm keeps ($1-\beta_{ij}$) less an exogenous (fixed) salary $\alpha_{ij}$. So they skip the middle step and jump straight to profit maximization. The firm's profit is:
+\[\max_{\beta_{ij}} \theta_i (1-\beta_{ij}) e_{ij} - \alpha_{ij} \]
 Plugging in $e_{ij}$:
-\[\max_{b_{ij}} \theta_i (1-\beta_{ij}) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}= \max_{b_{ij}} \theta_i (\beta_{ij}-\beta_{ij}^2) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}\]
+\[\max_{\beta_{ij}} \theta_i (1-\beta_{ij}) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}= \max_{\beta_{ij}} \theta_i (\beta_{ij}-\beta_{ij}^2) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}\]
 Taking the FOC:
 \[[\beta_{ij}]: 1-2\beta_{ij}=0 \leftrightarrow \beta_{ij}=\frac{1}{2} \]
 The authors then return to the decision to take the job afterwards. Worker $i$'s utility at job $j$ is given by:

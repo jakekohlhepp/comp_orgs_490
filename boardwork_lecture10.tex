@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+\usepackage{geometry}
+\geometry{margin=1in}
+\newtheorem{lemma}{lemma}
+\title{Board Work for Lecture 10: Multitasking}
+\author{Jacob Kohlhepp}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Model}
+\begin{itemize}
+    \item Output is $y=a e_1+b e_2, a>0, b>0$
+    \item Cost of effort is:
+       \[c(e_1, e_2) = \begin{cases}
+            0 & \text{ if }  e_1+e_2 \leq 2 \bar e \\
+            (e_1+e_2-2\bar e)^2/2 & \text{ if } e_1+e_2 > 2 \bar e 
+        \end{cases}\]
+          \item Only task 1 effort is measured: $m=e_1$
+    \item Only what is measured is rewarded: $w(m)=\alpha + \beta m =\alpha + \beta e_1$
+    \item We assume that without incentives the worker supplies all ``free effort" (all total effort up to $2\bar e$) and splits total effort evenly across the two tasks:
+      \[e_1=e_2=\bar e\]
+\end{itemize}
+
+\section{Solution: First-Best}
+
+What would the firm do if it could do everything directly? Setup surplus, which is just output less cost:
+\[\max_{e_1, e_2} a e_1+b e_2-c(e_1, e_2)\]
+The cost function makes this problem tricky: cost is zero up to some threshold, but effort is always valuable. So the firm definitely wants to set $e_1+e_2$ to be at least $2\bar e$. Notice that effort is ``together" inside the square. This means that the marginal cost of both types of effort above $2\bar e$ is the same! it also means that the marginal cost is increasing (harder to do 1 more hour after 24 hours than after 2 hours).
+
+But the marginal benefit is constant and different! $MB_1=a, MB_2=b$. Since the costs are the same but benefits are different, the firm chooses the task with the higher benefit and has the agent perform only that task. if $a>b$ this is task 1. How much do they perform? Well, set $e_2=0$ and take the FOC for $e_1$:
+\[a - (e_1-2\bar e)=0 \leftrightarrow e_1^{FB}=2\bar e +a, e_2^{FB}=0 \]
+So have the worker do the intrinsic motivation effort level plus the marginal benefit! Remember that if $a<b$ we get the reverse:
+\[b - (e_2-2\bar e)=0 \leftrightarrow e_2^{FB}=2\bar e +b, e_1^{FB}=0 \]
+
+\section{Solution: What Actually Happens}
+
+In the actual model, we only measure task 1. As always we start with the last stage and ask what effort the worker chooses given some wage $w(e_1)=\alpha + \beta e_1$.
+\[\max_{e_1, e_2} \alpha + \beta e_1 - c(e_1, e_2)\]
+There are two cases. if $\beta=0$ (no incentives) the worker provides the bare minimum $e_1=e_2=\bar e$. If $\beta>0$, the worker is getting a benefit from task 1 but no benefit from task 2. Since both types of effort are costly, the worker will set $e_2=0$. That is, incentives cause $e_2$ to be crowded out!
+
+What about the first task? Well, the agent will supply all of the free effort to task 1 ($2\bar e$) and a little more. How much more? Well, once again we know that $e_1>2\bar e$ so we are above the pointy part and calculus works again. So we can setup the FOC with $e_2^*=0$:
+\[\max_{e_1, e_2} \alpha + \beta e_1 - (e_1-2\bar e)^2/2\]
+\[[e_1:] \beta -(e_1-2\bar e) =0 \leftrightarrow e_1^* = \beta + 2\bar e\]
+The worker's utility from accepting is given by:
+\[u(accept)=\alpha +\beta e_1-c(e_1, e_2)=\alpha +\beta(\beta + 2\bar e) -\beta^2/2= \alpha +\beta^2/2+2\beta \bar e\]
+as always the firm sets the worker's utility equal to the outside option of 0 using $\alpha$:
+\[\alpha = -\beta^2/2-2\beta \bar e\]
+Continuing with the assumption that $\beta>0, e_2=0$, let's maximize profit:
+\[\max_\beta ae_1 + be_2 - \alpha - \beta e_1 = \max_\beta a(\beta + 2\bar e) +\beta^2/2+2\beta \bar e-\beta (\beta + 2\bar e)\]
+\[=\max_\beta a2\bar e+a \beta -\beta^2/2\]
+FOC:
+\[[\beta:] a-\beta =0 \leftrightarrow \beta = a \]
+\[e_1 = \beta + 2\bar e =a+ 2\bar e, e_2=0\]
+Profit is then:
+\[\pi_{HIGH}=a(a+ 2\bar e)- a^2/2=a^2/2+ 2a\bar e\]
+However, we must compare this to profit from $\beta=0$, which generates $e_1=e_2=\bar e$. Note that in this case $\alpha =0$ too, so profit is just revenue:
+\[\pi_{LOW} = a \bar e + b \bar e\]
+Now we ask: when does $\pi_{HIGH}>\pi_{LOW}$?
+\[a^2/2+ 2a\bar e \geq a \bar e + b \bar e\]
+\[a^2/2 \geq b \bar e- a \bar e\]
+\[a^2/2 \geq \bar e( b - a )\]
+\[a^2 \geq 2\bar e( b - a )\]
+\[a \geq 2\bar e\frac{ b - a }{a}\]
+So we use a high-powered incentives ($\beta>0$) if ``intrinsic motivation" is low ($\bar e\approx 0$). This is because the cost of incentives is crowding out the intrinsic motivation. We use low-powered incentives if the task we do not measure is very profitable/important relative to the task we measure ($b-a>>0$). We use high-powered incentives if the measured task is important enough ($a>>0$).
+
+
+
+
+
+
+
+\end{document}
