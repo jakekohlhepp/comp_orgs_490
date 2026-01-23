@@ -4,6 +4,14 @@ Set-Location $scriptDir
 
 Write-Host "Script directory: $scriptDir"
 
+# Get the full path to latexmk
+$latexmkPath = (Get-Command latexmk -ErrorAction SilentlyContinue).Source
+if (-not $latexmkPath) {
+    Write-Host "ERROR: latexmk not found in PATH"
+    return
+}
+Write-Host "Using latexmk: $latexmkPath"
+
 # 1) Beamer slide tex files (as before)
 $beamerFiles = Get-ChildItem -Path . -Filter 'slides_*.tex' -File
 
@@ -22,7 +30,7 @@ Write-Host "Found $($otherTexFiles.Count) other .tex files (excluding *answer*):
 $otherTexFiles | ForEach-Object { Write-Host " - $($_.Name)" }
 
 # Combine into a single list to compile
-$filesToCompile = @($beamerFiles + $otherTexFiles)
+$filesToCompile = @($beamerFiles) + @($otherTexFiles)
 
 if ($filesToCompile.Count -eq 0) {
     Write-Host "No matching .tex files found. Exiting."
@@ -37,24 +45,23 @@ $auxExtensions = @('.aux', '.log', '.nav', '.snm', '.toc', '.out', '.fls',
 # Determine number of parallel jobs (use number of CPU cores, max 8)
 $maxJobs = [Math]::Min([Environment]::ProcessorCount, 8)
 Write-Host ""
-Write-Host "Compiling with up to $maxJobs parallel jobs..."
+Write-Host "Compiling $($filesToCompile.Count) files with up to $maxJobs parallel jobs..."
+Write-Host "==============================================="
 
 # Compile files in parallel batches
 $jobs = @()
 foreach ($file in $filesToCompile) {
     $texPath = $file.FullName
-    $name    = [System.IO.Path]::GetFileNameWithoutExtension($texPath)
-    $dir     = $file.DirectoryName
+    $name = [System.IO.Path]::GetFileNameWithoutExtension($texPath)
+    $dir = $file.DirectoryName
 
-    # Start a background job for each file
+    # Start a background job for each file, passing the full latexmk path
     $job = Start-Job -ScriptBlock {
-        param($texPath, $name, $dir)
+        param($texPath, $name, $dir, $latexmkExe)
         Set-Location $dir
 
         # Build with XeLaTeX, non-interactive
-        $output = latexmk -xelatex -f `
-            -xelatex="xelatex -interaction=nonstopmode -halt-on-error %O %S" `
-            -jobname="$name" "$texPath" 2>&1
+        $output = & $latexmkExe -xelatex -interaction=nonstopmode -halt-on-error -f $texPath 2>&1
 
         # Check if PDF was created/updated as success indicator
         $pdfPath = Join-Path $dir "$name.pdf"
@@ -64,7 +71,7 @@ foreach ($file in $filesToCompile) {
             Name = $name
             Success = $success
         }
-    } -ArgumentList $texPath, $name, $dir
+    } -ArgumentList $texPath, $name, $dir, $latexmkPath
 
     $jobs += $job
     Write-Host "Started: $($file.Name)"
@@ -85,14 +92,32 @@ Write-Host ""
 Write-Host "==============================================="
 Write-Host "Compilation Results:"
 Write-Host "==============================================="
+$successCount = 0
+$failCount = 0
+$failedFiles = @()
+
 foreach ($job in $jobs) {
     $result = Receive-Job -Job $job
     if ($result.Success) {
         Write-Host "[OK] $($result.Name).pdf"
+        $successCount++
     } else {
         Write-Host "[FAILED] $($result.Name)"
+        $failCount++
+        $failedFiles += $result.Name
     }
     Remove-Job -Job $job
+}
+
+Write-Host ""
+Write-Host "==============================================="
+Write-Host "Summary: $successCount succeeded, $failCount failed"
+Write-Host "==============================================="
+
+if ($failCount -gt 0) {
+    Write-Host ""
+    Write-Host "Failed files:"
+    $failedFiles | ForEach-Object { Write-Host " - $_" }
 }
 
 # Clean up ALL auxiliary files at the end
