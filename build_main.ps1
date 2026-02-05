@@ -19,10 +19,9 @@ Write-Host "Using latexmk: $latexmkPath"
 # 1) Beamer slide tex files (as before)
 $beamerFiles = Get-ChildItem -LiteralPath $scriptDir -Filter 'slides_*.tex' -File
 
-# 2) All other .tex files that do NOT include "answer" in the name,
-#    excluding the beamer files so they don't compile twice.
+# 2) All other .tex files, excluding the beamer files so they don't compile twice.
 $otherTexFiles = Get-ChildItem -LiteralPath $scriptDir -Filter '*.tex' -File | Where-Object {
-    $_.Name -notmatch '(?i)answer' -and $_.Name -notlike 'slides_*.tex'
+    $_.Name -notlike 'slides_*.tex'
 }
 
 Write-Host ""
@@ -30,7 +29,7 @@ Write-Host "Found $($beamerFiles.Count) beamer .tex files:"
 $beamerFiles | ForEach-Object { Write-Host " - $($_.Name)" }
 
 Write-Host ""
-Write-Host "Found $($otherTexFiles.Count) other .tex files (excluding *answer*):"
+Write-Host "Found $($otherTexFiles.Count) other .tex files:"
 $otherTexFiles | ForEach-Object { Write-Host " - $($_.Name)" }
 
 # Combine into a single list to compile
@@ -55,6 +54,8 @@ $successCount = 0
 $failCount = 0
 $failedFiles = @()
 
+$maxRetries = 3
+
 foreach ($file in $filesToCompile) {
     $name = $file.BaseName
     $pdfPath = Join-Path $scriptDir "$name.pdf"
@@ -62,12 +63,47 @@ foreach ($file in $filesToCompile) {
     Write-Host ""
     Write-Host "Compiling: $($file.Name)"
 
-    # Run latexmk with -gg to force full recompilation
-    # Use just the filename since we're in the correct directory
-    & $latexmkPath -xelatex -interaction=nonstopmode -halt-on-error -gg $file.Name 2>&1 | Out-Null
+    $pdfOk = $false
 
-    # Check if PDF was created/updated
-    if (Test-Path -LiteralPath $pdfPath) {
+    for ($attempt = 1; $attempt -le $maxRetries; $attempt++) {
+        if ($attempt -gt 1) {
+            Write-Host "  Retry $attempt of $maxRetries (waiting 3s)..."
+            Start-Sleep -Seconds 3
+        }
+
+        # Run latexmk with -gg to force full recompilation
+        & $latexmkPath -xelatex -interaction=nonstopmode -halt-on-error -gg $file.Name 2>&1 | Out-Null
+
+        # Check if PDF was created/updated
+        try { $pdfOk = Test-Path -LiteralPath $pdfPath } catch { $pdfOk = $false }
+
+        if (-not $pdfOk) {
+            # Workaround: Google Drive can block xdvipdfmx from writing directly
+            # to certain filenames. If the .xdv was produced, convert via a temp file.
+            $xdvPath = Join-Path $scriptDir "$name.xdv"
+            $xdvExists = $false
+            try { $xdvExists = Test-Path -LiteralPath $xdvPath } catch {}
+
+            if ($xdvExists) {
+                Write-Host "  PDF not created directly -- trying via temp file..."
+                $tmpPdf = Join-Path $scriptDir "$name`_tmp.pdf"
+                $xdvipdfmxPath = (Get-Command xdvipdfmx -ErrorAction SilentlyContinue).Source
+                if ($xdvipdfmxPath) {
+                    & $xdvipdfmxPath -E -o $tmpPdf $xdvPath 2>&1 | Out-Null
+                    $tmpExists = $false
+                    try { $tmpExists = Test-Path -LiteralPath $tmpPdf } catch {}
+                    if ($tmpExists) {
+                        Move-Item -LiteralPath $tmpPdf -Destination $pdfPath -Force
+                        try { $pdfOk = Test-Path -LiteralPath $pdfPath } catch {}
+                    }
+                }
+            }
+        }
+
+        if ($pdfOk) { break }
+    }
+
+    if ($pdfOk) {
         Write-Host "[OK] $name.pdf"
         $successCount++
     } else {
@@ -79,9 +115,11 @@ foreach ($file in $filesToCompile) {
     # Clean up auxiliary files for this file immediately
     foreach ($ext in $auxExtensions) {
         $auxFile = Join-Path $scriptDir "$name$ext"
-        if (Test-Path -LiteralPath $auxFile) {
-            Remove-Item -LiteralPath $auxFile -Force
-        }
+        try {
+            if (Test-Path -LiteralPath $auxFile) {
+                Remove-Item -LiteralPath $auxFile -Force
+            }
+        } catch {}
     }
 }
 
