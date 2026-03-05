@@ -7,6 +7,12 @@ Set-Location -LiteralPath $scriptDir
 
 Write-Host "Script directory: $scriptDir"
 
+# Ensure Git Bash's perl is on PATH (required by latexmk, not always in cmd.exe environment)
+$gitPerlPath = "C:\Program Files\Git\usr\bin"
+if (Test-Path $gitPerlPath) {
+    $env:PATH = "$gitPerlPath;$env:PATH"
+}
+
 # Get the full path to latexmk
 $latexmkPath = (Get-Command latexmk -ErrorAction SilentlyContinue).Source
 if (-not $latexmkPath) {
@@ -72,10 +78,11 @@ foreach ($file in $filesToCompile) {
         }
 
         # Run latexmk with -gg to force full recompilation
-        & $latexmkPath -xelatex -interaction=nonstopmode -halt-on-error -gg $file.Name 2>&1 | Out-Null
+        $latexOutput = & $latexmkPath -xelatex -interaction=nonstopmode -halt-on-error -gg $file.Name 2>&1
+        $latexExit = $LASTEXITCODE
 
-        # Check if PDF was created/updated
-        try { $pdfOk = Test-Path -LiteralPath $pdfPath } catch { $pdfOk = $false }
+        # Check exit code AND that PDF exists
+        $pdfOk = ($latexExit -eq 0) -and (Test-Path -LiteralPath $pdfPath)
 
         if (-not $pdfOk) {
             # Workaround: Google Drive can block xdvipdfmx from writing directly
@@ -107,7 +114,10 @@ foreach ($file in $filesToCompile) {
         Write-Host "[OK] $name.pdf"
         $successCount++
     } else {
-        Write-Host "[FAILED] $name"
+        Write-Host "[FAILED] $name (latexmk exit code: $latexExit)"
+        Write-Host "--- latexmk output ---"
+        $latexOutput | ForEach-Object { Write-Host "  $_" }
+        Write-Host "--- end output ---"
         $failCount++
         $failedFiles += $name
     }

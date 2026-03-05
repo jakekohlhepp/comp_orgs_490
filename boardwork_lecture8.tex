@@ -30,7 +30,7 @@
 
 We can begin to solve this model in a way similar to effort-based pay (lecture 3). Specifically, we proceed by backwards induction. Consider first the worker $i$'s choice of effort after wages are set and the worker has taken job $j$:
 
-\[\max_{e_{ij}} \alpha_{ij}+ \beta_{ij} \theta_i e_{ij} - c(e_i)\]
+\[\max_{e_{ij}} \alpha_{ij}+ \beta_{ij} \theta_i e_{ij} - c(e_{ij} )\]
 which given the modified cost of effort is:
 \[\max_{e_{ij}} \alpha_{ij}+ \beta_{ij}\theta_i  e_{ij} - \frac{e_{ij}^2}{2(1+\lambda_i m_{ij})}\]
 Taking the FOC:
@@ -40,7 +40,7 @@ Notice that everything is worker and job specific because of the differences acr
 However, this step does not make sense in this paper because they are running an experiment and ``shocking" the meaning workers get from the job, while ostensibly trying to hold other personnel policies of the firm fixed (which would include base pay). So they do not assume the firm has extracted all surplus. Instead, they observe that the profit of the firm will be the fraction of output the firm keeps ($1-\beta_{ij}$) less an exogenous (fixed) salary $\alpha_{ij}$. So they skip the middle step and jump straight to profit maximization. The firm's profit is:
 \[\max_{\beta_{ij}} \theta_i (1-\beta_{ij}) e_{ij} - \alpha_{ij} \]
 Plugging in $e_{ij}$:
-\[\max_{\beta_{ij}} \theta_i (1-\beta_{ij}) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}= \max_{\beta_{ij}} \theta_i (\beta_{ij}-\beta_{ij}^2) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}\]
+\[\max_{\beta_{ij}} \theta_i (1-\beta_{ij}) \beta_{ij}\theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}= \max_{\beta_{ij}} \theta_i (\beta_{ij}-\beta_{ij}^2) \theta_i (1+\lambda_i m_{ij} ) - \alpha_{ij}\]
 Taking the FOC:
 \[[\beta_{ij}]: 1-2\beta_{ij}=0 \leftrightarrow \beta_{ij}=\frac{1}{2} \]
 The authors then return to the decision to take the job afterwards. Worker $i$'s utility at job $j$ is given by:
@@ -52,6 +52,6 @@ Suppose the worker's outside option is a job $j=a$ and the job they are consider
 Manipulation of the inequality yields:
 \[\alpha_{ip} -\alpha_{ia} \geq \frac{\lambda_i \theta_i^2}{8} (m_{ia}-m_{ip}) \]
 To stay at the job they are in, the worker must have a meaning of at least:
-\[m_{ia}^* = m_{ia}-\frac{8(\alpha_{ip}-\alpha_{ia})}{\lambda_i \theta_i} \]
+\[m_{ip}^* = m_{ia}-\frac{8(\alpha_{ip}-\alpha_{ia})}{\lambda_i \theta_i} \]
 
 \end{document}
