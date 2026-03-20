@@ -30,7 +30,7 @@ We can then restrict the expert to contracts where the apprentice never quits. T
 
 \[\max_{\{x_t\},\{w_t\}}   \int_0^\infty (x_\tau-\theta)^+-w_t ]e^{-rt} dt\]
 subject to the apprentice not quitting, which requires that at each moment of time, the apprentice finds it more valuable to stay then leave:
-\[ U_t = \int_0^\infty w_{t+\tau} e^{-r\tau}d\tau\geq \int_\tau^\infty (x_t-\theta)^+ e^{-r\tau}d\tau= \frac{(x_t-\theta)^+}{r} \quad \text{for all } t\geq 0 \]
+\[ U_t = \int_0^\infty w_{t+\tau} e^{-r\tau}d\tau\geq \int_0^\infty (x_t-\theta)^+ e^{-r\tau}d\tau= \frac{(x_t-\theta)^+}{r} \quad \text{for all } t\geq 0 \]
 
 We will define $T$ to be the first time when all knowledge has been transferred, that is $T:=inf\{t| x_t=1\}$.
 \section{Argue Wages Are 0 Prior to $T$}
@@ -55,9 +55,9 @@ As a comment: we proved already that restricting to no-quit contracts was withou
 \section{Argue that During Training, the Apprentice is Indifferent Between Quitting and Continuing}
 
 We want to show that the expert does not transfer knowledge or pay wages in such a way that the apprentice has a higher discounted payoff than the outside option from time $0$ until the end of training.  We know from earlier that the apprentice only gets wages after training, so this means that their utility at each point is just the NPV of those future wages. The NPV of a stream of $1-\theta$ at $T$ from the perspective of $t$ is:
-\[U_t= (1-\theta)e^{-r(T-t)}\]
+\[U_t= \frac{(1-\theta)}{r}e^{-r(T-t)}\]
 Suppose the expert did pay strictly more. This means that:
-\[U_t>  \leftrightarrow \frac{(1-\theta)}{r}e^{-r(T-t)} > \frac{x_t-\theta}{r}  \]
+\[U_t=  \leftrightarrow \frac{(1-\theta)}{r}e^{-r(T-t)} > \frac{x_t-\theta}{r}  \]
 Thus , we can increase $x_t$ throughout until the inequality becomes an equality without the apprentice quitting with the knowledge. This additional knowledge transfer makes the apprentice produce more earlier, which strictly raises the profit of the expert, a contradiction.
 
 \section{Figure Out How Knowledge is Transferred}
@@ -75,7 +75,7 @@ Notice that the RHS of \ref{eq:t0} is part of the LHS of \ref{eq:alltime}, thus:
 \begin{equation}
      (x_0-\theta) e^{rt}=x_t-\theta  \label{eq:unite}
 \end{equation}
-Now, this equation is rue when $t=T$, so we have that:
+Now, this equation is true when $t=T$, so we have that:
 \begin{equation}
      (x_0-\theta) e^{rT}=x_T-\theta=1-\theta  \label{eq:bigt}
 \end{equation}
@@ -85,8 +85,7 @@ Now, this equation is rue when $t=T$, so we have that:
 The expert receives no profit after training of the apprentice completes, so we need only focus on profit from $0$ to $T$:
 
 \begin{align}
-\Pi = \int_0^T e^{-rt} (x_t-\theta) dt \\
-&= \int_0^T e^{-rt} (x_t-\theta) dt \text{ substitute equation (\ref{eq:unite})}\\
+\Pi &= \int_0^T e^{-rt} (x_t-\theta) dt \text{ substitute equation (\ref{eq:unite})}\\
 &= T(x_0-\theta)\\
 &= T(1-\theta)e^{-rT} \text{ substitute equation (\ref{eq:t0})}
 \end{align}
