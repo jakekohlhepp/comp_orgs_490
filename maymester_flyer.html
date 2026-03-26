@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECON 490 – Compensation in Organizations | Maymester 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .flyer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 60px 48px 48px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #4a1c6b 0%, #1e3a5f 50%, #0f172a 100%);
+    border-bottom: 4px solid rgba(251,191,36,.6);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 15% 30%, rgba(251,191,36,.12) 0%, transparent 50%),
+      radial-gradient(circle at 85% 70%, rgba(96,165,250,.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* animated floating icons */
+  .float-icon {
+    position: absolute;
+    font-size: 2.2rem;
+    opacity: .13;
+    animation: drift 18s ease-in-out infinite;
+  }
+  .float-icon:nth-child(1) { top:12%; left:8%;  animation-delay:0s; }
+  .float-icon:nth-child(2) { top:60%; left:5%;  animation-delay:-4s; font-size:1.8rem; }
+  .float-icon:nth-child(3) { top:25%; right:6%; animation-delay:-8s; }
+  .float-icon:nth-child(4) { top:70%; right:10%;animation-delay:-12s; font-size:1.6rem; }
+  .float-icon:nth-child(5) { top:45%; left:50%; animation-delay:-6s; font-size:2rem; }
+
+  @keyframes drift {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%     { transform: translateY(-18px) rotate(6deg); }
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(251,191,36,.15);
+    border: 1px solid rgba(251,191,36,.4);
+    color: #fbbf24;
+    font-weight: 700;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.4rem;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    position: relative;
+    max-width: 680px;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero .subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    margin-top: 16px;
+    max-width: 560px;
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .hero .course-code {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-top: 24px;
+    position: relative;
+  }
+
+  /* ── INFO BAR ── */
+  .info-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+  }
+
+  .info-item {
+    padding: 24px 20px;
+    text-align: center;
+    border-right: 1px solid #334155;
+  }
+  .info-item:last-child { border-right: none; }
+
+  .info-item .label {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 6px;
+  }
+
+  .info-item .value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  /* ── TOPIC GRID ── */
+  .topics-section {
+    padding: 48px;
+    background: #0f172a;
+  }
+
+  .section-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+    color: #f1f5f9;
+  }
+
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .topic-card {
+    background: linear-gradient(145deg, #1e293b, #162032);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: transform .2s, border-color .2s;
+  }
+  .topic-card:hover {
+    transform: translateY(-2px);
+    border-color: #fbbf24;
+  }
+
+  .topic-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .topic-card .topic-label {
+    font-weight: 600;
+    font-size: .9rem;
+    color: #e2e8f0;
+    line-height: 1.3;
+  }
+  .topic-card .topic-sub {
+    font-size: .75rem;
+    color: #64748b;
+    margin-top: 3px;
+  }
+
+  /* ── SKILLS STRIP ── */
+  .skills-strip {
+    display: flex;
+    gap: 0;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+    border-bottom: 1px solid #334155;
+  }
+
+  .skill-block {
+    flex: 1;
+    padding: 28px 24px;
+    text-align: center;
+    border-right: 1px solid #334155;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-block:last-child { border-right: none; }
+
+  .skill-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 120%, rgba(251,191,36,.06), transparent 60%);
+  }
+
+  .skill-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: #fbbf24;
+    line-height: 1;
+    position: relative;
+  }
+  .skill-text {
+    font-size: .8rem;
+    color: #94a3b8;
+    margin-top: 8px;
+    line-height: 1.4;
+    position: relative;
+  }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    padding: 40px 48px;
+    background: linear-gradient(180deg, #0f172a 0%, #1a1040 100%);
+    text-align: center;
+  }
+
+  .cta-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+  }
+
+  .cta-sub {
+    color: #94a3b8;
+    font-size: .95rem;
+    margin-bottom: 24px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1e293b;
+    font-weight: 700;
+    font-size: .95rem;
+    padding: 14px 36px;
+    border-radius: 999px;
+    text-decoration: none;
+    letter-spacing: .02em;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 4px 24px rgba(251,191,36,.25);
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(251,191,36,.35);
+  }
+
+  .instructor {
+    margin-top: 28px;
+    font-size: .85rem;
+    color: #64748b;
+  }
+  .instructor strong { color: #cbd5e1; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero { padding: 40px 24px 36px; }
+    .hero h1 { font-size: 2.2rem; }
+    .info-bar { grid-template-columns: repeat(2, 1fr); }
+    .topic-grid { grid-template-columns: 1fr 1fr; }
+    .skills-strip { flex-wrap: wrap; }
+    .skill-block { flex: 1 1 50%; }
+    .topics-section, .footer-cta { padding: 36px 24px; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #1e293b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .flyer { max-width: 100%; }
+    .hero { background: linear-gradient(135deg, #4a1c6b 0%, #1e3a5f 50%, #0f172a 100%) !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="float-icon">💰</div>
+    <div class="float-icon">📊</div>
+    <div class="float-icon">🏆</div>
+    <div class="float-icon">📈</div>
+    <div class="float-icon">🤝</div>
+
+    <div class="badge">Maymester 2026</div>
+    <h1><span>Compensation</span><br>in Organizations</h1>
+    <p class="subtitle">
+      Why do companies pay the way they do&mdash;and how does it shape everything from
+      effort to teamwork to your own career? Find out in three intensive weeks.
+    </p>
+    <p class="course-code">ECON 490 &middot; UNC &middot; Jacob Kohlhepp</p>
+  </div>
+
+  <!-- ═══ INFO BAR ═══ -->
+  <div class="info-bar">
+    <div class="info-item">
+      <div class="label">Format</div>
+      <div class="value">Maymester</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Duration</div>
+      <div class="value">3 Weeks</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Department</div>
+      <div class="value">Economics</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Level</div>
+      <div class="value">490 &middot; Elective</div>
+    </div>
+  </div>
+
+  <!-- ═══ TOPICS ═══ -->
+  <div class="topics-section">
+    <h2 class="section-heading">What You'll Explore</h2>
+    <div class="topic-grid">
+
+      <div class="topic-card">
+        <div class="topic-icon">💵</div>
+        <div><div class="topic-label">Performance Pay</div>
+        <div class="topic-sub">Piece rates, bonuses & incentive design</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">⚖️</div>
+        <div><div class="topic-label">Risk & Incentives</div>
+        <div class="topic-sub">Balancing motivation with insurance</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🏅</div>
+        <div><div class="topic-label">Tournaments</div>
+        <div class="topic-sub">Promotions, rank-order pay & competition</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🤝</div>
+        <div><div class="topic-label">Teamwork</div>
+        <div class="topic-sub">Free-riding, profit-sharing & group pay</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📈</div>
+        <div><div class="topic-label">Stock Options</div>
+        <div class="topic-sub">Equity compensation & startup incentives</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🎯</div>
+        <div><div class="topic-label">Multitasking</div>
+        <div class="topic-sub">When workers juggle many objectives</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🎲</div>
+        <div><div class="topic-label">Gaming</div>
+        <div class="topic-sub">How people manipulate metrics</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🔍</div>
+        <div><div class="topic-label">Pay Transparency</div>
+        <div class="topic-sub">What happens when salaries go public</div></div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🚀</div>
+        <div><div class="topic-label">Career Concerns</div>
+        <div class="topic-sub">Reputation, signaling & long-run incentives</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SKILLS ═══ -->
+  <div class="skills-strip">
+    <div class="skill-block">
+      <div class="skill-num">01</div>
+      <div class="skill-text">Think critically through business problems with economic models</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">02</div>
+      <div class="skill-text">Read &amp; evaluate empirical research like a professional</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">03</div>
+      <div class="skill-text">Understand &amp; negotiate your own future compensation</div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER CTA ═══ -->
+  <div class="footer-cta">
+    <p class="cta-text">Your paycheck is never random.<br>Learn why.</p>
+    <p class="cta-sub">Enroll in ECON 490 for Maymester 2026</p>
+    <a class="cta-button" href="https://summer.unc.edu/">Register Now</a>
+    <p class="instructor">Instructor: <strong>Jacob Kohlhepp</strong> &middot; Assistant Professor of Economics &middot; UNC</p>
+  </div>
+
+</div>
+
+</body>
+</html>

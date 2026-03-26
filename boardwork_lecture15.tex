@@ -4,7 +4,7 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 \newtheorem{lemma}{lemma}
-\title{Board Work for Lecture 15}
+\title{Board Work for Lecture 15: Relational Contracts}
 \author{Jacob Kohlhepp}
 \date{\today}
 
@@ -13,82 +13,157 @@
 \maketitle
 
 
-\section{Relational Contracts}
 
-Throughout, we will assume that the worker takes the job when indifferent.
+\section{Recalling Guessed Strategies}
+We propose the following strategies for the firm and the worker, and subsequently check that the strategies form a sub-game perfetc Nash equilibrium using the one-shot deviation principle:
 
-\subsection{Guessing a Strategy}
+\begin{itemize}
+ \item \textbf{Worker strategy:} Choose $e_t=H$ if $w_{\tau}\geq w_h$ for all $\tau \leq t$. Otherwise, choose $e_t=R$.
+\begin{itemize}
+    \item \textbf{In words:} exert high effort as long as the high wage is offered.
+\end{itemize}
+\item  \textbf{Firm strategy:} Choose $w_t=w_H$ if $t=1$ or if $t>1$  and $e_{\tau}=H$ for all $\tau < t$. Otherwise, choose $w_t=w_L$.
+\begin{itemize}
+    \item \textbf{In words:} offer the high wage as long as high effort is provided.
+\end{itemize}
+\end{itemize}
 
-We guess two strategies, one for the firm and one for the worker. Our strategies must specify what each player does for any possible history of play. This is just one of infinitely many equilibria. It is easier to analyze because strategies are simple. But this simplicity comes at a cost: if you think about what the worker and the firm do when either deviates, it is rather extreme.
+\section{Notation for Pay-Offs}
 
-For the worker, we guess they take the job and exert high effort as long as the firm pays a high wage $w_t=w_H$. The first time they  observe any wage other than $w_H$, this period they either take the job and exert low effort (if $w_t>\bar u$) or they take the outside option (if $w_t\leq \bar u$). In the future, they never take the job regardless of what the firm does in the future.
-
-For the firm, we guess they first post a high wage $w_H$. They continue to post this wage as long as they observe the worker providing high effort in the prior period, $e_{t-1}=H$. The first time the worker does not exert high effort (takes the outside option or exerts low effort) the firm posts a low wage $w_L$ forever after regardless of what the worker does in the future.
-
-If the firm and the worker do this strategy, the outcome of the game is simple: the firm posts a high wage, the worker exerts high effort, and this repeats forever. This is called ``on path" because it is what actually happens on the equilibrium path. This is sustained by ``off path" consequences: if either party fails to uphold their end, both sides start ``punishing" the other: the firm posts low wages and the worker never takes the job forever. Notice that these are extreme punishments: the worker gets their outside option $\bar u$ forever, while the firm gets $0$ profit forever.
-
-\subsection{Notation}
-
-Under this guessed strategy, we can write the present value of an action today to the worker as $U(action,state)$ and the firm $\Pi(action,state)$. I will be a little loose with this notation, but it is helpful to distinguish the payoff from a single time period, $u$, from the payoff from an entire strategy which includes all of future time periods as well as today.
-
-Under our guessed strategy, the ``state" is whether or not trust has ever been broken. Either side can break trust: the firm can do so by not paying $w_H$ and the worker can do so by not exerting high effort. In our strategy who broke trust in the past is irrelevant, all that matters is whether it has happened. To check one shot deviations, we only need to check single deviations under the two possible states: (1) trust has been broken at some point in the past (2) trist has never been broken.
-
-\subsection{No Incentive to Deviate: Checking One-Shot Deviations}
-
-To show our guessed strategies form a subgame perfect Nash equilibrium, we must check all one shot deviations. We will check the worker's one shot deviations thoroughly, and only briefly consider the firm. This is mainly to make this model less of a burden for tests/homework. In graduate school if you were to use this model you would want to check the firm's side as well. The deviations we need to check are as follows:
-
+We can notice that under our strategy, there are two \textit{states} (which we denote as $s$) of the world prior to when the firm or worker makes a choice in any period:
 \begin{enumerate}
-    \item Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust is broken and are being offered $w_L$).
-    \item Not taking the job when the worker is supposed to take the job (because trust has never been broken and they are being offered $w_H$)
-    \item Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+    \item \textbf{Trust (T)}: The firm has offered $w_H$ in all prior instances and the worker has exerted high effort in all prior instances.
+    \item \textbf{Broken (B)}: In at least one prior instance, either the firm has offered a wage below $w_H$ or the worker has not exerted high effort.
+\end{enumerate}
+These two states are mutually exclusive (either trust is broken or it is not). They also fully represent all future payoffs if we assume that players make only one-shot deviations. That is, if we assume that players deviate today but revert to the strategy tomorrow and forever after.
+
+Thus, we can write the firm's net present value of profit as a function of the state ($s$) and their current period action ($a$). We denote it as $\Pi (a,s)$ and while we understand it will have cases, we do not yet calculate the cases. In the same way, we can write the worker's net present value of utility as $U(a,s)$ and we do not yet calculate it.
+
+\section{How Low is the Low Wage?}
+ In order to move forward on this problem we need to think a bit about the low wage ($w_L$). We know that the worker is rejecting the low wage whenever it is being offered. Thus $w_L<\bar u$ because the outside option is more attractive to the worker. We will guess that $w_L=0$.
+
+\section{Payoffs from Not Deviating}
+
+\textbf{Firm.} In any given period, we can calculate the payoffs from not deviating for the firm. When trust has not been broken ($s=T$), not deviating for the firm means offering the high wage $w_H$ today and expecting trust to continue tomorrow. This yields revenue $v$ less wages today, tomorrow and forever after:
+\[\Pi(w_H, T) = \sum_{t=0}^{\infty} \delta^t(v-w_H)=\frac{v-w_H}{1-\delta} \]
+When trust has been broken ($s=B$), not deviating for the firm means offering $w_L$ today and expecting trust to continue being broken tomorrow. This results in the worker rejecting the job today and forever after:
+\[\Pi(w_L,B) = \sum_{t=0}^{\infty} \delta^t 0=0\]
+\textbf{Worker.} When trust has not been broken ($s=T$), not deviating for the worker means exerting high effort today and expecting trust to continue tomorrow. This yields the high wage $w_H$ less effort cost today, tomorrow and forever after:
+\[U(H, T) = \sum_{t=0}^{\infty} \delta^t(w_H-c)=\frac{w_H-c}{1-\delta} \]
+When trust has been broken ($s=B$), no deviating for the worker means rejecting the job today and expecting trust to continue being broken tomorrow. This yields the outside option today and forever after:
+\[U(R, T) = \sum_{t=0}^{\infty} \delta^t \bar u=\frac{\bar u}{1-\delta} \]
+Notice that calendar time is irrelevant for firm and worker payoffs. Only the state fo the world matters. This is a consequence of our strategy, which features eternal consequences.
+
+\sections{One-Shot Deviation Payoffs}
+
+Because it is the state of the world that matters for payoffs, and we have the one-shot deviation principle, we can check whether our guessed strategy is a subgame-perfect Nash equilibrium with only a few inequalities. We start with the firm. The firm has two different one-shot deviations:
+\begin{enumerate}
+    \item Deviate to $w_t\neq w_H$ when trust is not broken ($s=T$).
+    \item Deviate to $w_t > w_L=0$ when trust is broken.
 \end{enumerate}
 
-Deviations 2 and 3 have the same consequence tomorrow: trust is now broken and the low wage is offered forever. However, deviation 3 is slightly better because the worker gets the high wage for one period instead of the outside option. Since the high wage must be at least $\bar u +c$, this is always the more attractive deviation. So we if 3 is not profitable, 2 will also not be profitable. Therefore we do not need to check deviation 2, and we are left with only two deviations to check:
+Consider the first one-shot deviation. Notice that if the firm pays a wage above $w_H$ in a single period, the worker continues to trust afterwards and the firm incurs a reduction in profit in this period. This is clearly not profitable. If the firm reduces the wage below $w_H$, all reductions result in trust being broken tomorrow. So the cost of all reductions is the same, but the benefit is largest for reducing the wage all the way to $w_t=0$. Thus we need only check the profit from a one-shot deviation to a wage of 0. Notice that such a deviation yields $0$ today (the worker rejects the job) and breaks trust after generating 0 forever after. Therefore:
+\[\Pi(0,T)= \sum_{t=0}^\infty \delta^t 0 = 0\]
+The firm has no incentive to deviate this way if:
+\[ \Pi(w_H, T) \geq \Pi(0,T)  \leftrightarrow  \frac{v-w_H}{1-\delta}  \geq 0 \leftrightarrow v \geq w_H \]
+This condition depend son $w_H$ so we do not yet know if it holds. We will return to it later.
+
+Consider the second deviation. If the firm offers a higher wage when trust is already broken, any wage between 0 and $\bar u$ has no consequence for payoffs: the worker continues to reject. Any wage $w_t\geq \bar u$ causes the worker to accept and exert low effort, which generates negative profit today. Thus this deviation at best does not change profit and at worst strictly decreases it relative to not deviating. Formally, there is always no incentive to deviate this way:
+\[ \pi(\bar u, B) \leq 0 \leq \Pi(w_L,B) \]
+
+The worker has two different one-shot deviations:
 
 \begin{enumerate}
-    \item[1.] Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L$).
-    \item[4.] Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+    \item Deviate to $e_t \neq H$ when trust is not broken ($s=T$).
+    \item Deviate to $e_t \neq R$ when trust is broken ($s=B$).
 \end{enumerate}
 
-Before we check for deviations, we need to think about what low wage $w_L$ the firm will choose. Remember that whenever $w_L$ is being played the worker is never exerting high effort. Thus, if the wage $w_L$ is above $\bar u$ the worker takes the wage and their payoff is just $w_L$. However, if the wage is less than $\bar u$ the worker takes the outside option and gets $\bar u$. Will the firm offer a wage above $\bar u$? Well, a wage above $\bar u$ only makes exerting low effort more tempting, and it also costs the firm money. So it will not offer a wage above $\bar u$. Will it offer exactly $w_L=\bar u$? Well, this gets the worker to take the job, but the worker exerts low effort, so the firm gets $0$ revenue from this and then has to pay out a positive wage. This generates negative profit, so the firm will not do it. Thus the firm wants the worker to take the outside option.
+Consider the first deviation. The worker can switch either to rejecting ($e_t=R$) or low effort ($e_t=L$). Both deviations yield the same broken trust tomorrow, but $e_t=L$ yields a wage that is at least the outside option and no effort cost, so it is sufficient to check deviating to $e_t=L$. Deviating to $e_t=L$ allows the worker to receive $w_H$ today without any effort cost, but involves breaking trust tomorrow and therefore being offered the low wage and taking the outside option $\bar u$ tomorrow and forever after. Therefore the payoff from the deviation is:
+\[U(L, T) = w_H - \delta \frac{\bar u}{1-\delta} \]
+The worker compres this to the utility from not deviating which we alreayd calculated:
+\[  U(H, T) \geq U(L,T) \leftrightarrow  \frac{w_H-c}{1-\delta}  \geq w_H - \delta \frac{\bar u}{1-\delta} \leftrightarrow  w_H-c \geq (1-\delta)w_H -\delta \bar u \]
+Isolating $w_H$ yields another constraint on $w_H$ under which the worker will not want to deviate this way:
+\[\delta w_H \geq c+ \delta \bar u \leftrightarrow  w_H \geq \frac{c}{\delta}+  \bar u \]
 
-Therefore the firm is indifferent between offering any wage where $w_L<\bar u$ because they are all rejected. The one I suggest specifying is $w_L^*=0$. Any time the firm offers such a low wage, the worker will want to take the outside option. As a result, the worker's payoff in a single period whenever the firm posts a low wage is $\bar u$. 
+We finally consider the second deviation. When trust is already broken, both possible deviations (high effort and low effort) yield the outside option tomorrow (trust is still broken). However, high effort incurs an additional effort cost and is clearly dominated by low effort. So we need only check low effort. The utility from low effort given broken trust is the wage $w_L=0$ today, and rejecting $w_L$ tomorrow and forever after in favor of the outside option. This yields:
+\[U(L, B) = w_L+ \delta \frac{\bar u}{1-\delta}= \delta \frac{\bar u}{1-\delta}\]
+Comparing this to not deviating (rejecting) given broken trust:
+\[  U(R,B) \geq U(L,B) \leftrightarrow   \frac{\bar u}{1-\delta} \geq \delta \frac{\bar u}{1-\delta}\]
+We notice that this inequality is always true! so the worker never has an incentive to deviate.
 
- With this in hand, let's consider deviation (1): Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L^*=0<\bar u$). Not deviating in this case means never taking the job, which gives the worker $\bar u$ forever: 
-\[U(\textit{don't deviate,trust broken})=\sum_{t=0}^\infty \bar u=\frac{\bar u}{1-\delta}\]
+\section{Putting it All Together}
 
-Deviating and taking the job and exerting low effort in this case yields the low wage today ($w_L=0$) and no effort cost, and then $\bar u$ starting tomorrow until the end of time:
- \[U(\textit{deviate to accept and low effort, trust broken}) =  0+\delta \sum_{t=0}^\infty \delta^t \bar u=   \frac{\delta \bar u}{1-\delta}\]
+The two important inequalities are therefore:
 
-Comparing deviating to not deviating we have that:
-   \[U(\textit{don't deviate, trust broken})  \geq u(\textit{deviate to accept and low effort, trust broken}) \]
-   \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta} \leftrightarrow  \bar u \geq 0 \]
-The outside option is always weakly positive, so this is always true. There is no incentive to deviate in this way. 
+\[  v \geq w_H \geq \frac{c}{\delta}+  \bar u\]
 
-Now consider deviation (3): taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has been broken in the past and they are being offered $w_H$). Let's consider first the worker's payoff from doing what they are supposed to do (never slacking off). The worker receives $w_H$ forever and pays the effort cost $c$:
-\[U(\textit{don't deviate, trust never broken})=\sum_{t=0}^\infty (w_H-c)=\frac{w_H-c}{1-\delta}\]
-The worker compares this to a one-shot-deviation: exerting low effort today (at 0 cost), still getting paid $w_H$ today, but then getting offered $w_L$ forever after. Remember, the worker changes action only in one period and is assumed to follow through on our guessed strategy everywhere else. The gain today from this is $w_H$ without any effort cost. The loss is that the firm now posts $w_L$ forever. Putting this all together, we have:
-\[U(\textit{deviate, trust never broken})=w_H+\delta \sum_{t=0}^\infty w_L = w_H+ \frac{\delta \bar u}{1-\delta}\]
-The worker has no incentive to deviate if:
-\[U(\textit{don't deviate, trust never broken}) \geq u(\textit{deviate, trust never broken}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+As long as there exists a gap, that is $v> \frac{c}{\delta}+  \bar u$, we can find a relational contract that sustains high effort!
 
-This is a substantive inequality: it will not always be true for reasonable parameter values ($\delta, c, v, \bar u$). Also, it involves a choice variable: $w_H$.
 
-\subsection{Finding the High Wage}
-
-First, simplify the inequality we derived:
-
-\[\frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
-\[w_H-c \geq (1-\delta) w_H +\delta \bar u\]
-\[\delta w_H \geq c +\delta \bar u\]
-\[w_H \geq   \frac{c}{\delta}+\bar u\]
-We see that this inequality is more likely to be satisfied the higher $w_H$ is. However, the firm maximizes profit by paying the lowest wage that satisfies the inequality, changing the inequality into an equality:
-\[w_H^*=\frac{c}{\delta}+\bar u\]
-The argument is the same as always: paying a high $w_H$ does not change the worker's behavior, but it costs the firm profit. The firm's profit is the revenue less the high wage, because on path the worker never slacks:
+\section{Profit}
+When we choose the lowest high-wage equilibrium ( $w_H= \frac{c}{\delta}+  \bar u$) we can compute profit:
 \[\Pi = \sum_{t=0}^\infty \delta^t (v-w_H^*)=\frac{v-\frac{c}{\delta}-\bar u}{1-\delta}\]
 If you stare at this you will notice that profit is increasing in $\delta$. We can also see that a relational contract is profitable if:
 \[\delta(v-\bar u) \geq c\]
 The more patient the worker and the firm are the more likely this is to hold. The higher the value of working together the more likely this is to hold. The higher the cost of effort and the higher the outside option the more unlikely this is to hold.
+
+
+% \subsection{No Incentive to Deviate: Checking One-Shot Deviations}
+
+% To show our guessed strategies form a subgame perfect Nash equilibrium, we must check all one shot deviations. We will check the worker's one shot deviations thoroughly, and only briefly consider the firm. This is mainly to make this model less of a burden for tests/homework. In graduate school if you were to use this model you would want to check the firm's side as well. The deviations we need to check are as follows:
+
+% \begin{enumerate}
+%     \item Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust is broken and are being offered $w_L$).
+%     \item Not taking the job when the worker is supposed to take the job (because trust has never been broken and they are being offered $w_H$)
+%     \item Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+% \end{enumerate}
+
+% Deviations 2 and 3 have the same consequence tomorrow: trust is now broken and the low wage is offered forever. However, deviation 3 is slightly better because the worker gets the high wage for one period instead of the outside option. Since the high wage must be at least $\bar u +c$, this is always the more attractive deviation. So we if 3 is not profitable, 2 will also not be profitable. Therefore we do not need to check deviation 2, and we are left with only two deviations to check:
+
+% \begin{enumerate}
+%     \item[1.] Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L$).
+%     \item[4.] Taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has never been broken and they are being offered $w_H$).
+% \end{enumerate}
+
+% Before we check for deviations, we need to think about what low wage $w_L$ the firm will choose. Remember that whenever $w_L$ is being played the worker is never exerting high effort. Thus, if the wage $w_L$ is above $\bar u$ the worker takes the wage and their payoff is just $w_L$. However, if the wage is less than $\bar u$ the worker takes the outside option and gets $\bar u$. Will the firm offer a wage above $\bar u$? Well, a wage above $\bar u$ only makes exerting low effort more tempting, and it also costs the firm money. So it will not offer a wage above $\bar u$. Will it offer exactly $w_L=\bar u$? Well, this gets the worker to take the job, but the worker exerts low effort, so the firm gets $0$ revenue from this and then has to pay out a positive wage. This generates negative profit, so the firm will not do it. Thus the firm wants the worker to take the outside option.
+
+% Therefore the firm is indifferent between offering any wage where $w_L<\bar u$ because they are all rejected. The one I suggest specifying is $w_L^*=0$. Any time the firm offers such a low wage, the worker will want to take the outside option. As a result, the worker's payoff in a single period whenever the firm posts a low wage is $\bar u$. 
+
+%  With this in hand, let's consider deviation (1): Taking the job and exerting low effort when the worker is supposed to be not taking the job (because trust has been broken in the past and they are being offered $w_L^*=0<\bar u$). Not deviating in this case means never taking the job, which gives the worker $\bar u$ forever: 
+% \[U(\textit{don't deviate,trust broken})=\sum_{t=0}^\infty \bar u=\frac{\bar u}{1-\delta}\]
+
+% Deviating and taking the job and exerting low effort in this case yields the low wage today ($w_L=0$) and no effort cost, and then $\bar u$ starting tomorrow until the end of time:
+%  \[U(\textit{deviate to accept and low effort, trust broken}) =  0+\delta \sum_{t=0}^\infty \delta^t \bar u=   \frac{\delta \bar u}{1-\delta}\]
+
+% Comparing deviating to not deviating we have that:
+%    \[U(\textit{don't deviate, trust broken})  \geq u(\textit{deviate to accept and low effort, trust broken}) \]
+%    \[\leftrightarrow \frac{\bar u}{1-\delta} \geq \frac{\delta \bar u}{1-\delta} \leftrightarrow  \bar u \geq 0 \]
+% The outside option is always weakly positive, so this is always true. There is no incentive to deviate in this way. 
+
+% Now consider deviation (3): taking the job and exerting low effort when they are supposed to take the job and exert high effort (because trust has been broken in the past and they are being offered $w_H$). Let's consider first the worker's payoff from doing what they are supposed to do (never slacking off). The worker receives $w_H$ forever and pays the effort cost $c$:
+% \[U(\textit{don't deviate, trust never broken})=\sum_{t=0}^\infty (w_H-c)=\frac{w_H-c}{1-\delta}\]
+% The worker compares this to a one-shot-deviation: exerting low effort today (at 0 cost), still getting paid $w_H$ today, but then getting offered $w_L$ forever after. Remember, the worker changes action only in one period and is assumed to follow through on our guessed strategy everywhere else. The gain today from this is $w_H$ without any effort cost. The loss is that the firm now posts $w_L$ forever. Putting this all together, we have:
+% \[U(\textit{deviate, trust never broken})=w_H+\delta \sum_{t=0}^\infty w_L = w_H+ \frac{\delta \bar u}{1-\delta}\]
+% The worker has no incentive to deviate if:
+% \[U(\textit{don't deviate, trust never broken}) \geq u(\textit{deviate, trust never broken}) \leftrightarrow \frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+
+% This is a substantive inequality: it will not always be true for reasonable parameter values ($\delta, c, v, \bar u$). Also, it involves a choice variable: $w_H$.
+
+% \subsection{Finding the High Wage}
+
+% First, simplify the inequality we derived:
+
+% \[\frac{w_H-c}{1-\delta}\geq w_H+ \frac{\delta \bar u}{1-\delta}\]
+% \[w_H-c \geq (1-\delta) w_H +\delta \bar u\]
+% \[\delta w_H \geq c +\delta \bar u\]
+% \[w_H \geq   \frac{c}{\delta}+\bar u\]
+% We see that this inequality is more likely to be satisfied the higher $w_H$ is. However, the firm maximizes profit by paying the lowest wage that satisfies the inequality, changing the inequality into an equality:
+% \[w_H^*=\frac{c}{\delta}+\bar u\]
+% The argument is the same as always: paying a high $w_H$ does not change the worker's behavior, but it costs the firm profit. The firm's profit is the revenue less the high wage, because on path the worker never slacks:
+% \[\Pi = \sum_{t=0}^\infty \delta^t (v-w_H^*)=\frac{v-\frac{c}{\delta}-\bar u}{1-\delta}\]
+% If you stare at this you will notice that profit is increasing in $\delta$. We can also see that a relational contract is profitable if:
+% \[\delta(v-\bar u) \geq c\]
+% The more patient the worker and the firm are the more likely this is to hold. The higher the value of working together the more likely this is to hold. The higher the cost of effort and the higher the outside option the more unlikely this is to hold.
 
 
 \end{document}
